@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="12" fill="#1F2A2E"/>
+  <!-- Mountain Roof Lines in Warm Ivory -->
+  <path d="M12 40 L32 20 L52 40" stroke="#F2EDE1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M22 30 L32 20 L42 30" stroke="#7B1E2D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Arch / Sun Crest in Himalayan Red -->
+  <circle cx="32" cy="28" r="4" fill="#7B1E2D"/>
+  <!-- Villa Base Foundation -->
+  <line x1="16" y1="46" x2="48" y2="46" stroke="#F2EDE1" stroke-width="2" stroke-linecap="round"/>
+</svg>
