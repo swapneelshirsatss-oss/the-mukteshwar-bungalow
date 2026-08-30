@@ -16,7 +16,7 @@ export const ReviewsPage: React.FC = () => {
       <SEOHead
         title="Guest Reviews & Verified Feedback | The Mukteshwar Bungalow"
         description="Authentic guest experiences and verified stay reviews for The Mukteshwar Bungalow 3 BHK private villa in Mukteshwar, Uttarakhand."
-        canonicalUrl="https://themukteshwarbungalow.com/reviews"
+        canonicalUrl="https://themukteshwarbungalow.in/reviews"
       />
 
       {/* Hero */}

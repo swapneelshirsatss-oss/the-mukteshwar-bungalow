@@ -11,7 +11,7 @@ export const VerandaLoungePage: React.FC = () => {
       <SEOHead
         title="The Veranda Lounge & Open Space | The Mukteshwar Bungalow"
         description="Experience slow mountain mornings and evening fireside chats at The Veranda Lounge. Panoramic outdoor living in Kasialekh, Mukteshwar."
-        canonicalUrl="https://themukteshwarbungalow.com/veranda-lounge"
+        canonicalUrl="https://themukteshwarbungalow.in/veranda-lounge"
       />
 
       {/* Hero */}

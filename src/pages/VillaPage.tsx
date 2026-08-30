@@ -14,7 +14,7 @@ export const VillaPage: React.FC = () => {
       <SEOHead
         title="The Villa Estate & Architecture | The Mukteshwar Bungalow"
         description="Explore the architecture, living salons, 3 luxury suites, private plunge pool, and lush grounds of The Mukteshwar Bungalow in Kasialekh, Mukteshwar."
-        canonicalUrl="https://themukteshwarbungalow.com/villa"
+        canonicalUrl="https://themukteshwarbungalow.in/villa"
       />
 
       {/* Page Hero */}

@@ -14,7 +14,7 @@ export const RoomsPage: React.FC = () => {
       <SEOHead
         title="Luxury Suites & Rooms in Mukteshwar | The Mukteshwar Bungalow"
         description="Discover the 3 private suites at The Mukteshwar Bungalow: The Himalayan Suite, The Imperial Suite, and The Signature Himalayan with mountain views & en-suite luxury."
-        canonicalUrl="https://themukteshwarbungalow.com/rooms"
+        canonicalUrl="https://themukteshwarbungalow.in/rooms"
       />
 
       {/* Hero */}

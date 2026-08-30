@@ -9,7 +9,7 @@ export const TermsPage: React.FC = () => {
       <SEOHead
         title="Terms & Conditions of Stay | The Mukteshwar Bungalow"
         description="Terms and conditions governing reservations, cancellations, security deposit, and guest conduct at The Mukteshwar Bungalow."
-        canonicalUrl="https://themukteshwarbungalow.com/terms"
+        canonicalUrl="https://themukteshwarbungalow.in/terms"
       />
 
       <section className="relative pt-32 pb-16 bg-charcoal-950 text-ivory-100 px-4 sm:px-6 lg:px-8">

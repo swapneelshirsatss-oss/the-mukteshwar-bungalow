@@ -5,16 +5,16 @@ export function getLodgingBusinessSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'LodgingBusiness',
-    '@id': 'https://themukteshwarbungalow.com/#lodging',
+    '@id': 'https://themukteshwarbungalow.in/#lodging',
     'name': propertyData.name,
     'description': propertyData.tagline + ' — A private 3 BHK luxury mountain villa in Kasialekh, Mukteshwar, Uttarakhand with private pool and panoramic valley views.',
-    'url': 'https://themukteshwarbungalow.com',
+    'url': 'https://themukteshwarbungalow.in',
     'telephone': propertyData.contact.phone || '+91-9876543210',
     'email': propertyData.contact.email,
     'image': [
-      'https://themukteshwarbungalow.com/images/exterior/the-mukteshwar-bungalow-exterior-mukteshwar-uttarakhand.jpg',
-      'https://themukteshwarbungalow.com/images/exterior/villa-exterior-himalayan-architecture.jpg',
-      'https://themukteshwarbungalow.com/images/veranda/veranda-lounge-morning-tea-seating.jpg'
+      'https://themukteshwarbungalow.in/images/exterior/the-mukteshwar-bungalow-exterior-mukteshwar-uttarakhand.jpg',
+      'https://themukteshwarbungalow.in/images/exterior/villa-exterior-himalayan-architecture.jpg',
+      'https://themukteshwarbungalow.in/images/veranda/veranda-lounge-morning-tea-seating.jpg'
     ],
     'address': {
       '@type': 'PostalAddress',
@@ -84,7 +84,7 @@ export function getRoomSchema(room: RoomSuite) {
     '@type': 'HotelRoom',
     'name': `${room.name} | The Mukteshwar Bungalow`,
     'description': room.overview,
-    'image': `https://themukteshwarbungalow.com${room.heroImage}`,
+    'image': `https://themukteshwarbungalow.in${room.heroImage}`,
     'bed': {
       '@type': 'BedDetails',
       'numberOfBeds': 1,
@@ -102,7 +102,7 @@ export function getRoomSchema(room: RoomSuite) {
     })),
     'isPartOf': {
       '@type': 'LodgingBusiness',
-      '@id': 'https://themukteshwarbungalow.com/#lodging',
+      '@id': 'https://themukteshwarbungalow.in/#lodging',
       'name': propertyData.name
     }
   };
@@ -116,7 +116,7 @@ export function getBreadcrumbSchema(items: { name: string; url: string }[]) {
       '@type': 'ListItem',
       'position': index + 1,
       'name': item.name,
-      'item': item.url.startsWith('http') ? item.url : `https://themukteshwarbungalow.com${item.url}`
+      'item': item.url.startsWith('http') ? item.url : `https://themukteshwarbungalow.in${item.url}`
     }))
   };
 }
@@ -142,25 +142,25 @@ export function getArticleSchema(post: BlogPost) {
     '@type': 'Article',
     'headline': post.title,
     'description': post.metaDescription,
-    'image': post.coverImage.startsWith('http') ? post.coverImage : `https://themukteshwarbungalow.com${post.coverImage}`,
+    'image': post.coverImage.startsWith('http') ? post.coverImage : `https://themukteshwarbungalow.in${post.coverImage}`,
     'datePublished': post.publishedDate,
     'dateModified': post.publishedDate,
     'author': {
       '@type': 'Organization',
       'name': 'The Mukteshwar Bungalow Editorial Team',
-      'url': 'https://themukteshwarbungalow.com'
+      'url': 'https://themukteshwarbungalow.in'
     },
     'publisher': {
       '@type': 'Organization',
       'name': propertyData.name,
       'logo': {
         '@type': 'ImageObject',
-        'url': 'https://themukteshwarbungalow.com/favicon.svg'
+        'url': 'https://themukteshwarbungalow.in/favicon.svg'
       }
     },
     'mainEntityOfPage': {
       '@type': 'WebPage',
-      '@id': `https://themukteshwarbungalow.com/blog/${post.slug}`
+      '@id': `https://themukteshwarbungalow.in/blog/${post.slug}`
     }
   };
 }

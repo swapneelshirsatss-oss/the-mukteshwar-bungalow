@@ -42,7 +42,7 @@ export const ExperiencesPage: React.FC = () => {
       <SEOHead
         title="Curated Mountain Experiences in Mukteshwar | The Mukteshwar Bungalow"
         description="Discover Himalayan mornings, forest walks, stargazing, and viewpoint excursions during your stay at The Mukteshwar Bungalow in Kasialekh."
-        canonicalUrl="https://themukteshwarbungalow.com/experiences"
+        canonicalUrl="https://themukteshwarbungalow.in/experiences"
       />
 
       {/* Hero */}

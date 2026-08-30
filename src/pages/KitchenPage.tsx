@@ -12,7 +12,7 @@ export const KitchenPage: React.FC = () => {
       <SEOHead
         title="Fully Equipped Kitchen & Dining | The Mukteshwar Bungalow"
         description="Cook your own favorite meals in our fully equipped kitchen with gas hobs, refrigerator, microwave, and quartz breakfast counter in Mukteshwar."
-        canonicalUrl="https://themukteshwarbungalow.com/kitchen"
+        canonicalUrl="https://themukteshwarbungalow.in/kitchen"
       />
 
       {/* Hero */}

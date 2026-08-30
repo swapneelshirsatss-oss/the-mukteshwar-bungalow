@@ -44,7 +44,7 @@ export const LocalCityLandingPage: React.FC<LocalCityLandingPageProps> = ({ city
       <SEOHead
         title={pageData.pageTitle}
         description={pageData.metaDescription}
-        canonicalUrl={`https://themukteshwarbungalow.com/${pageData.slug}`}
+        canonicalUrl={`https://themukteshwarbungalow.in/${pageData.slug}`}
         schema={[lodgingSchema, breadcrumbSchema]}
       />
 

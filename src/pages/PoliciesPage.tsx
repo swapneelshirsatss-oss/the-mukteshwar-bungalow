@@ -12,7 +12,7 @@ export const PoliciesPage: React.FC = () => {
       <SEOHead
         title="House Policies & Guidelines | The Mukteshwar Bungalow"
         description="Check-in/out timings, pool rules, noise policy, smoking guidelines, and stay regulations at The Mukteshwar Bungalow in Mukteshwar."
-        canonicalUrl="https://themukteshwarbungalow.com/policies"
+        canonicalUrl="https://themukteshwarbungalow.in/policies"
       />
 
       {/* Hero */}

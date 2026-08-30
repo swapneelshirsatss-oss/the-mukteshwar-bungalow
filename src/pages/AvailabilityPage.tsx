@@ -13,7 +13,7 @@ export const AvailabilityPage: React.FC = () => {
       <SEOHead
         title="Live Availability Calendar | The Mukteshwar Bungalow"
         description="Check real-time dates and availability for The Mukteshwar Bungalow 3 BHK private mountain villa in Kasialekh, Mukteshwar."
-        canonicalUrl="https://themukteshwarbungalow.com/availability"
+        canonicalUrl="https://themukteshwarbungalow.in/availability"
       />
 
       {/* Hero */}

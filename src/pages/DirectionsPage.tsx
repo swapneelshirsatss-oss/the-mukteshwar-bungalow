@@ -13,7 +13,7 @@ export const DirectionsPage: React.FC = () => {
       <SEOHead
         title="Directions & How to Reach | The Mukteshwar Bungalow"
         description="Driving routes, train connectivity, and airport access to The Mukteshwar Bungalow in Dausapani, Kasialekh, Mukteshwar, Uttarakhand."
-        canonicalUrl="https://themukteshwarbungalow.com/directions"
+        canonicalUrl="https://themukteshwarbungalow.in/directions"
       />
 
       {/* Hero */}

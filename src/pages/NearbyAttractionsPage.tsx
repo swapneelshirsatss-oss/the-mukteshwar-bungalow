@@ -13,7 +13,7 @@ export const NearbyAttractionsPage: React.FC = () => {
       <SEOHead
         title="Nearby Attractions in Mukteshwar & Kumaon | The Mukteshwar Bungalow"
         description="Explore Chauli Ki Jali, Mukteshwar Temple, Bhalu Gaad Waterfall, Kainchi Dham, and Nainital from The Mukteshwar Bungalow in Kasialekh."
-        canonicalUrl="https://themukteshwarbungalow.com/nearby-attractions"
+        canonicalUrl="https://themukteshwarbungalow.in/nearby-attractions"
       />
 
       {/* Hero */}

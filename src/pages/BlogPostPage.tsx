@@ -29,7 +29,7 @@ export const BlogPostPage: React.FC = () => {
       <SEOHead
         title={`${post.title} | The Mukteshwar Bungalow`}
         description={post.metaDescription}
-        canonicalUrl={`https://themukteshwarbungalow.com/blog/${post.slug}`}
+        canonicalUrl={`https://themukteshwarbungalow.in/blog/${post.slug}`}
         ogImage={post.coverImage}
         ogType="article"
         schema={[articleSchema, breadcrumbSchema]}

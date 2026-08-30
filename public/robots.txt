@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://themukteshwarbungalow.com/sitemap.xml
+Sitemap: https://themukteshwarbungalow.in/sitemap.xml

@@ -37,7 +37,7 @@ export const FAQPage: React.FC = () => {
       <SEOHead
         title="Frequently Asked Questions (FAQs) | The Mukteshwar Bungalow"
         description="Find answers to common questions about booking, suites, private pool, kitchen, location, and stay policies at The Mukteshwar Bungalow."
-        canonicalUrl="https://themukteshwarbungalow.com/faqs"
+        canonicalUrl="https://themukteshwarbungalow.in/faqs"
         schema={faqSchema}
       />
 

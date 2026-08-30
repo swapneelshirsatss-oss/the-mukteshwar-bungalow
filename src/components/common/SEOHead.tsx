@@ -49,11 +49,12 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
     setMetaTag('property', 'og:description', description);
     setMetaTag('property', 'og:url', currentUrl);
     setMetaTag('property', 'og:type', ogType);
-    setMetaTag('property', 'og:image', ogImage.startsWith('http') ? ogImage : `https://themukteshwarbungalow.com${ogImage}`);
+    const siteBase = (import.meta as any).env?.VITE_PUBLIC_SITE_URL || 'https://themukteshwarbungalow.in';
+    setMetaTag('property', 'og:image', ogImage.startsWith('http') ? ogImage : `${siteBase}${ogImage}`);
 
     setMetaTag('name', 'twitter:title', fullTitle);
     setMetaTag('name', 'twitter:description', description);
-    setMetaTag('name', 'twitter:image', ogImage.startsWith('http') ? ogImage : `https://themukteshwarbungalow.com${ogImage}`);
+    setMetaTag('name', 'twitter:image', ogImage.startsWith('http') ? ogImage : `${siteBase}${ogImage}`);
 
     // 5. Inject Structured Data JSON-LD
     const existingSchemaScript = document.getElementById('dynamic-jsonld-schema');

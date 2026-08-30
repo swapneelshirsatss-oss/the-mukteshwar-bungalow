@@ -43,7 +43,7 @@ export const HomePage: React.FC = () => {
       <SEOHead
         title="Luxury Villa in Mukteshwar | The Mukteshwar Bungalow"
         description="Discover The Mukteshwar Bungalow, a private 3 BHK luxury mountain villa in Kasialekh, Mukteshwar, Uttarakhand. Explore suites, private pool, veranda lounge, and direct booking availability."
-        canonicalUrl="https://themukteshwarbungalow.com/"
+        canonicalUrl="https://themukteshwarbungalow.in/"
         schema={[lodgingSchema, faqSchema]}
       />
 

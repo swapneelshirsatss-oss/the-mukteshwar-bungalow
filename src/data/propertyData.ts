@@ -28,7 +28,7 @@ export const propertyData: PropertyData = {
     // Configurable verified fields: null until explicitly provided by host
     phone: null, // Displays "Direct Enquiry via WhatsApp & Concierge"
     whatsapp: '919876543210', // Default concierge routing channel
-    email: 'stay@themukteshwarbungalow.com',
+    email: 'stay@themukteshwarbungalow.in',
     hostName: 'Villa Concierge Team',
     hostType: 'Private Estate Manager',
     caretakerHours: '8:00 AM – 9:30 PM (On-call assistance available)',

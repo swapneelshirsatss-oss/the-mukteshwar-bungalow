@@ -12,7 +12,7 @@ export const PrivatePoolPage: React.FC = () => {
       <SEOHead
         title="Private Pool & Deck in Mukteshwar | The Mukteshwar Bungalow"
         description="Relax at our private mountain plunge pool and sundeck overlooking the Himalayan ridges. Exclusive resident pool access at The Mukteshwar Bungalow."
-        canonicalUrl="https://themukteshwarbungalow.com/private-pool"
+        canonicalUrl="https://themukteshwarbungalow.in/private-pool"
       />
 
       {/* Hero */}

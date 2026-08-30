@@ -30,7 +30,7 @@ export const ContactPage: React.FC = () => {
       <SEOHead
         title="Contact Host & Concierge | The Mukteshwar Bungalow"
         description="Get in touch with the estate reservation team at The Mukteshwar Bungalow in Kasialekh, Mukteshwar. WhatsApp, email, and location inquiries."
-        canonicalUrl="https://themukteshwarbungalow.com/contact"
+        canonicalUrl="https://themukteshwarbungalow.in/contact"
       />
 
       {/* Hero */}

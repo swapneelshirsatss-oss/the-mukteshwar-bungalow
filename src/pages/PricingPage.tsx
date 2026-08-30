@@ -12,7 +12,7 @@ export const PricingPage: React.FC = () => {
       <SEOHead
         title="Direct Booking Pricing & Rates | The Mukteshwar Bungalow"
         description="Transparent direct booking pricing for The Mukteshwar Bungalow 3 BHK villa in Mukteshwar. Zero OTA commission markup and verified seasonal rates."
-        canonicalUrl="https://themukteshwarbungalow.com/pricing"
+        canonicalUrl="https://themukteshwarbungalow.in/pricing"
       />
 
       {/* Hero */}

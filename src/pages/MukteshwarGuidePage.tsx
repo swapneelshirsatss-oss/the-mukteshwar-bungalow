@@ -12,7 +12,7 @@ export const MukteshwarGuidePage: React.FC = () => {
       <SEOHead
         title="Mukteshwar Travel & Destination Guide | Kumaon Uttarakhand"
         description="Comprehensive guide to Mukteshwar, Uttarakhand. Learn about altitude, weather, seasons, fruit orchards, history, and staying at The Mukteshwar Bungalow."
-        canonicalUrl="https://themukteshwarbungalow.com/mukteshwar"
+        canonicalUrl="https://themukteshwarbungalow.in/mukteshwar"
       />
 
       {/* Hero */}

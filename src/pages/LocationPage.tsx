@@ -13,7 +13,7 @@ export const LocationPage: React.FC = () => {
       <SEOHead
         title="The Mukteshwar Bungalow — Dausapani, Kasialekh, Mukteshwar"
         description="Location, exact address, and driving directions to The Mukteshwar Bungalow at Dausapani, Kasialekh Village - Chaukhuta, Tehsil - Dhari, District - Nainital, Mukteshwar - 263132."
-        canonicalUrl="https://themukteshwarbungalow.com/location"
+        canonicalUrl="https://themukteshwarbungalow.in/location"
       />
 
       {/* Hero */}

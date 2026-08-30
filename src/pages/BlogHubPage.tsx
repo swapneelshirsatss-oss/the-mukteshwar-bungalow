@@ -21,7 +21,7 @@ export const BlogHubPage: React.FC = () => {
       <SEOHead
         title="Himalayan Travel Journal & Guides | The Mukteshwar Bungalow"
         description="Read curated editorial guides, road trip itineraries, season guides, and accommodation tips for Mukteshwar, Nainital, and the Kumaon region."
-        canonicalUrl="https://themukteshwarbungalow.com/blog"
+        canonicalUrl="https://themukteshwarbungalow.in/blog"
       />
 
       {/* Hero */}

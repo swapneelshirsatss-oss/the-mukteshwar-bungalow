@@ -9,7 +9,7 @@ export const PrivacyPolicyPage: React.FC = () => {
       <SEOHead
         title="Privacy Policy | The Mukteshwar Bungalow"
         description="Privacy policy and data protection disclosures for guests booking at The Mukteshwar Bungalow."
-        canonicalUrl="https://themukteshwarbungalow.com/privacy-policy"
+        canonicalUrl="https://themukteshwarbungalow.in/privacy-policy"
       />
 
       <section className="relative pt-32 pb-16 bg-charcoal-950 text-ivory-100 px-4 sm:px-6 lg:px-8">
@@ -46,7 +46,7 @@ export const PrivacyPolicyPage: React.FC = () => {
 
           <h2 className="text-xl font-serif font-bold text-charcoal-900">4. Contact & Inquiries</h2>
           <p>
-            If you have questions regarding this privacy policy or your stored information, you may contact us at <a href="mailto:stay@themukteshwarbungalow.com" className="text-himalayan-700 underline">stay@themukteshwarbungalow.com</a>.
+            If you have questions regarding this privacy policy or your stored information, you may contact us at <a href="mailto:stay@themukteshwarbungalow.in" className="text-himalayan-700 underline">stay@themukteshwarbungalow.in</a>.
           </p>
         </div>
       </section>

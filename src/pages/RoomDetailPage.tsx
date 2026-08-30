@@ -50,7 +50,7 @@ export const RoomDetailPage: React.FC = () => {
       <SEOHead
         title={`${room.name} | Luxury Suite in Mukteshwar`}
         description={`${room.overview} Book ${room.name} at The Mukteshwar Bungalow with direct host rates.`}
-        canonicalUrl={`https://themukteshwarbungalow.com/rooms/${room.slug}`}
+        canonicalUrl={`https://themukteshwarbungalow.in/rooms/${room.slug}`}
         schema={[roomSchema, breadcrumbSchema]}
       />
 
