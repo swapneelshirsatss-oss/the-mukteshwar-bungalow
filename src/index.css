@@ -88,13 +88,15 @@ body {
   background-color: var(--bg-app);
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-serif);
-  font-weight: 500;
-  color: var(--color-charcoal-slate);
-  letter-spacing: -0.015em;
-  text-wrap: balance;
-  line-height: 1.15;
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    color: inherit;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+    line-height: 1.15;
+  }
 }
 
 p {

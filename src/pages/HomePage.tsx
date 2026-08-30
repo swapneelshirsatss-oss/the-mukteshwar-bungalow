@@ -71,7 +71,7 @@ export const HomePage: React.FC = () => {
           </div>
 
           {/* Primary Hero Heading */}
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-normal tracking-tight text-ivory-100 leading-[1.08] text-balance">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-medium tracking-tight text-himalayan-400 drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)] leading-[1.08] text-balance">
             The Mukteshwar Bungalow
           </h1>
 
