@@ -199,29 +199,33 @@ export const DirectBookingForm: React.FC = () => {
         <form onSubmit={handleNext} className="p-6 sm:p-10 space-y-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="space-y-2">
-              <label className="block text-xs uppercase tracking-widest font-semibold text-charcoal-800">
+              <label htmlFor="book-checkin" className="block text-xs uppercase tracking-widest font-semibold text-charcoal-800">
                 Check-In Date *
               </label>
               <input
+                id="book-checkin"
                 type="date"
                 name="checkIn"
                 value={formData.checkIn}
                 onChange={handleChange}
                 required
+                aria-required="true"
                 className="w-full bg-ivory-50 border border-charcoal-900/15 p-3.5 rounded-sm text-sm focus:border-himalayan-700 focus:ring-1 focus:ring-himalayan-700"
               />
             </div>
 
             <div className="space-y-2">
-              <label className="block text-xs uppercase tracking-widest font-semibold text-charcoal-800">
+              <label htmlFor="book-checkout" className="block text-xs uppercase tracking-widest font-semibold text-charcoal-800">
                 Check-Out Date *
               </label>
               <input
+                id="book-checkout"
                 type="date"
                 name="checkOut"
                 value={formData.checkOut}
                 onChange={handleChange}
                 required
+                aria-required="true"
                 className="w-full bg-ivory-50 border border-charcoal-900/15 p-3.5 rounded-sm text-sm focus:border-himalayan-700 focus:ring-1 focus:ring-himalayan-700"
               />
             </div>
@@ -229,10 +233,11 @@ export const DirectBookingForm: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="space-y-2">
-              <label className="block text-xs uppercase tracking-widest font-semibold text-charcoal-800">
+              <label htmlFor="book-adults" className="block text-xs uppercase tracking-widest font-semibold text-charcoal-800">
                 Adults (Age 12+) *
               </label>
               <select
+                id="book-adults"
                 name="adults"
                 value={formData.adults}
                 onChange={handleChange}
@@ -247,10 +252,11 @@ export const DirectBookingForm: React.FC = () => {
             </div>
 
             <div className="space-y-2">
-              <label className="block text-xs uppercase tracking-widest font-semibold text-charcoal-800">
+              <label htmlFor="book-children" className="block text-xs uppercase tracking-widest font-semibold text-charcoal-800">
                 Children (Under 12)
               </label>
               <select
+                id="book-children"
                 name="children"
                 value={formData.children}
                 onChange={handleChange}
@@ -351,30 +357,34 @@ export const DirectBookingForm: React.FC = () => {
         <form onSubmit={handleSubmit} className="p-6 sm:p-10 space-y-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="space-y-2">
-              <label className="block text-xs uppercase tracking-widest font-semibold text-charcoal-800">
+              <label htmlFor="book-fullname" className="block text-xs uppercase tracking-widest font-semibold text-charcoal-800">
                 Full Name *
               </label>
               <input
+                id="book-fullname"
                 type="text"
                 name="fullName"
                 value={formData.fullName}
                 onChange={handleChange}
                 required
+                aria-required="true"
                 placeholder="e.g., Vikram Sharma"
                 className="w-full bg-ivory-50 border border-charcoal-900/15 p-3.5 rounded-sm text-sm focus:border-himalayan-700 focus:ring-1 focus:ring-himalayan-700"
               />
             </div>
 
             <div className="space-y-2">
-              <label className="block text-xs uppercase tracking-widest font-semibold text-charcoal-800">
+              <label htmlFor="book-phone" className="block text-xs uppercase tracking-widest font-semibold text-charcoal-800">
                 Phone Number (WhatsApp preferred) *
               </label>
               <input
+                id="book-phone"
                 type="tel"
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
                 required
+                aria-required="true"
                 placeholder="+91 98765 43210"
                 className="w-full bg-ivory-50 border border-charcoal-900/15 p-3.5 rounded-sm text-sm focus:border-himalayan-700 focus:ring-1 focus:ring-himalayan-700"
               />
@@ -383,25 +393,28 @@ export const DirectBookingForm: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="space-y-2">
-              <label className="block text-xs uppercase tracking-widest font-semibold text-charcoal-800">
+              <label htmlFor="book-email" className="block text-xs uppercase tracking-widest font-semibold text-charcoal-800">
                 Email Address *
               </label>
               <input
+                id="book-email"
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
                 required
+                aria-required="true"
                 placeholder="vikram@example.com"
                 className="w-full bg-ivory-50 border border-charcoal-900/15 p-3.5 rounded-sm text-sm focus:border-himalayan-700 focus:ring-1 focus:ring-himalayan-700"
               />
             </div>
 
             <div className="space-y-2">
-              <label className="block text-xs uppercase tracking-widest font-semibold text-charcoal-800">
+              <label htmlFor="book-purpose" className="block text-xs uppercase tracking-widest font-semibold text-charcoal-800">
                 Purpose of Stay
               </label>
               <select
+                id="book-purpose"
                 name="purposeOfStay"
                 value={formData.purposeOfStay}
                 onChange={handleChange}
@@ -417,10 +430,11 @@ export const DirectBookingForm: React.FC = () => {
           </div>
 
           <div className="space-y-2">
-            <label className="block text-xs uppercase tracking-widest font-semibold text-charcoal-800">
+            <label htmlFor="book-requests" className="block text-xs uppercase tracking-widest font-semibold text-charcoal-800">
               Special Requests or Dietary Inquiries (Optional)
             </label>
             <textarea
+              id="book-requests"
               name="specialRequests"
               rows={3}
               value={formData.specialRequests}

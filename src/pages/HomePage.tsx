@@ -22,7 +22,7 @@ import { nearbyAttractions } from '../data/attractions';
 import { propertyFAQs } from '../data/faqs';
 import { blogPosts } from '../data/blogPosts';
 import { SEOHead } from '../components/common/SEOHead';
-import { getLodgingBusinessSchema, getFAQPageSchema } from '../components/common/SchemaMarkup';
+import { getLodgingBusinessSchema, getFAQPageSchema, getWebSiteSchema } from '../components/common/SchemaMarkup';
 import { SectionHeading } from '../components/common/SectionHeading';
 import { Button } from '../components/common/Button';
 import { BookingWidget } from '../components/booking/BookingWidget';
@@ -35,6 +35,7 @@ import { generateWhatsAppLink } from '../services/WhatsAppService';
 import { trackEvent } from '../services/AnalyticsService';
 
 export const HomePage: React.FC = () => {
+  const websiteSchema = getWebSiteSchema();
   const lodgingSchema = getLodgingBusinessSchema();
   const faqSchema = getFAQPageSchema(propertyFAQs.slice(0, 6));
 
@@ -44,7 +45,7 @@ export const HomePage: React.FC = () => {
         title="Luxury Villa in Mukteshwar | The Mukteshwar Bungalow"
         description="Discover The Mukteshwar Bungalow, a private 3 BHK luxury mountain villa in Kasialekh, Mukteshwar, Uttarakhand. Explore suites, private pool, veranda lounge, and direct booking availability."
         canonicalUrl="https://themukteshwarbungalow.in/"
-        schema={[lodgingSchema, faqSchema]}
+        schema={[websiteSchema, lodgingSchema, faqSchema]}
       />
 
       {/* SECTION 1 — CINEMATIC HERO */}

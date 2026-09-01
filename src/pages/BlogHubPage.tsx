@@ -55,12 +55,19 @@ export const BlogHubPage: React.FC = () => {
       {/* Blog Posts Grid */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
         {/* Category Filters */}
-        <div className="flex items-center justify-center gap-2 flex-wrap">
+        <div
+          role="tablist"
+          aria-label="Blog post categories"
+          className="flex items-center justify-center gap-2 flex-wrap"
+        >
           {categories.map((cat) => (
             <button
               key={cat}
+              role="tab"
+              type="button"
+              aria-selected={selectedCategory === cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-4 py-2 rounded-sm text-xs font-semibold uppercase tracking-wider transition-all ${
+              className={`px-4 py-2 rounded-sm text-xs font-semibold uppercase tracking-wider transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-himalayan-700 focus-visible:ring-offset-2 ${
                 selectedCategory === cat
                   ? 'bg-himalayan-700 text-ivory-100 shadow-sm'
                   : 'bg-white text-charcoal-800 border border-charcoal-900/10 hover:bg-ivory-50'

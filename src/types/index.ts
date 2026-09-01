@@ -7,6 +7,7 @@ export interface PropertyAddress {
   state: string;
   postalCode: string;
   country: string;
+  formattedAddress?: string;
   landmark?: string | null;
   latitude?: number | null;
   longitude?: number | null;
@@ -53,6 +54,7 @@ export interface PropertyPolicy {
 
 export interface PropertyData {
   name: string;
+  canonicalName?: string;
   tagline: string;
   propertyType: string;
   architectureStyle: string;
@@ -62,8 +64,9 @@ export interface PropertyData {
   maxOccupancy: number;
   address: PropertyAddress;
   contact: {
-    phone: string | null; // Verified only, else null
-    whatsapp: string | null; // Verified only, else null
+    phone: string | null; // Display format: +91 70785 60516
+    phoneRaw?: string | null; // E.164 without spaces: +917078560516
+    whatsapp: string | null; // WhatsApp digits: 917078560516
     email: string | null;
     hostName: string | null;
     hostType: string | null;

@@ -1,24 +1,72 @@
 import { propertyData } from '../../data/propertyData';
 import { RoomSuite, FAQItem, BlogPost } from '../../types';
 
+export function getWebSiteSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': 'https://themukteshwarbungalow.in/#website',
+    'url': 'https://themukteshwarbungalow.in',
+    'name': 'The Mukteshwar Bungalow | 3 BHK Villa',
+    'alternateName': [
+      'The Mukteshwar Bungalow',
+      'The Mukteshwar Villa',
+      'Mukteshwar Bungalow'
+    ],
+    'description': 'Private 3 BHK luxury mountain villa in Kasialekh, Mukteshwar with private plunge pool, Veranda Lounge, and panoramic Himalayan views.',
+    'publisher': {
+      '@type': 'LodgingBusiness',
+      '@id': 'https://themukteshwarbungalow.in/#lodging'
+    }
+  };
+}
+
 export function getLodgingBusinessSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'LodgingBusiness',
     '@id': 'https://themukteshwarbungalow.in/#lodging',
-    'name': propertyData.name,
+    'name': propertyData.canonicalName || 'The Mukteshwar Bungalow | 3 BHK Villa',
+    'alternateName': [
+      propertyData.name,
+      'The Mukteshwar Villa',
+      'Mukteshwar Luxury 3 BHK Villa'
+    ],
     'description': propertyData.tagline + ' — A private 3 BHK luxury mountain villa in Kasialekh, Mukteshwar, Uttarakhand with private pool and panoramic valley views.',
     'url': 'https://themukteshwarbungalow.in',
-    'telephone': propertyData.contact.phone || '+91-9876543210',
+    'telephone': propertyData.contact.phoneRaw || '+917078560516',
     'email': propertyData.contact.email,
+    'priceRange': '₹₹₹',
+    'currenciesAccepted': 'INR',
+    'paymentAccepted': 'Cash, Credit Card, UPI, Bank Transfer',
+    'contactPoint': {
+      '@type': 'ContactPoint',
+      'telephone': propertyData.contact.phoneRaw || '+917078560516',
+      'contactType': 'reservations',
+      'areaServed': 'IN',
+      'availableLanguage': ['English', 'Hindi']
+    },
+    'areaServed': [
+      'Delhi NCR',
+      'Noida',
+      'Gurugram',
+      'Ghaziabad',
+      'Faridabad',
+      'Dehradun',
+      'Haldwani',
+      'Chandigarh',
+      'Lucknow',
+      'Mumbai'
+    ],
     'image': [
       'https://themukteshwarbungalow.in/images/exterior/the-mukteshwar-bungalow-exterior-mukteshwar-uttarakhand.jpg',
       'https://themukteshwarbungalow.in/images/exterior/villa-exterior-himalayan-architecture.jpg',
-      'https://themukteshwarbungalow.in/images/veranda/veranda-lounge-morning-tea-seating.jpg'
+      'https://themukteshwarbungalow.in/images/veranda/veranda-lounge-morning-tea-seating.jpg',
+      'https://themukteshwarbungalow.in/images/pool/private-pool-deck-himalayan-view.jpg'
     ],
     'address': {
       '@type': 'PostalAddress',
-      'streetAddress': propertyData.address.line1,
+      'streetAddress': `${propertyData.address.line1}, Tehsil - ${propertyData.address.tehsil}, District - ${propertyData.address.district}`,
       'addressLocality': propertyData.address.city,
       'addressRegion': propertyData.address.state,
       'postalCode': propertyData.address.postalCode,
@@ -58,6 +106,16 @@ export function getLodgingBusinessSchema() {
       {
         '@type': 'LocationFeatureSpecification',
         'name': 'On-Site Private Parking',
+        'value': true
+      },
+      {
+        '@type': 'LocationFeatureSpecification',
+        'name': 'Panoramic Himalayan Mountain Views',
+        'value': true
+      },
+      {
+        '@type': 'LocationFeatureSpecification',
+        'name': 'On-site Caretaker Assistance',
         'value': true
       }
     ],

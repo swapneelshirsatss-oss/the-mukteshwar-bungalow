@@ -36,12 +36,13 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({ className = '', da
       <form onSubmit={handleSearch} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-end">
         {/* Check-In Date */}
         <div className="space-y-1.5">
-          <label className="block text-[11px] uppercase tracking-widest font-semibold opacity-70">
+          <label htmlFor="widget-checkin" className="block text-[11px] uppercase tracking-widest font-semibold opacity-70">
             Check-In
           </label>
           <div className="relative flex items-center">
             <Calendar className="w-4 h-4 absolute left-3.5 text-himalayan-700 pointer-events-none" />
             <input
+              id="widget-checkin"
               type="date"
               min={today}
               value={checkIn}
@@ -52,6 +53,7 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({ className = '', da
                 }
               }}
               required
+              aria-required="true"
               className="w-full bg-white text-charcoal-900 pl-10 pr-3 py-3 rounded-sm border border-charcoal-900/15 text-xs sm:text-sm font-medium focus:ring-1 focus:ring-himalayan-700 focus:border-himalayan-700 transition-all cursor-pointer"
             />
           </div>
@@ -59,17 +61,19 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({ className = '', da
 
         {/* Check-Out Date */}
         <div className="space-y-1.5">
-          <label className="block text-[11px] uppercase tracking-widest font-semibold opacity-70">
+          <label htmlFor="widget-checkout" className="block text-[11px] uppercase tracking-widest font-semibold opacity-70">
             Check-Out
           </label>
           <div className="relative flex items-center">
             <Calendar className="w-4 h-4 absolute left-3.5 text-himalayan-700 pointer-events-none" />
             <input
+              id="widget-checkout"
               type="date"
               min={checkIn || today}
               value={checkOut}
               onChange={(e) => setCheckOut(e.target.value)}
               required
+              aria-required="true"
               className="w-full bg-white text-charcoal-900 pl-10 pr-3 py-3 rounded-sm border border-charcoal-900/15 text-xs sm:text-sm font-medium focus:ring-1 focus:ring-himalayan-700 focus:border-himalayan-700 transition-all cursor-pointer"
             />
           </div>
@@ -77,12 +81,14 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({ className = '', da
 
         {/* Guests Selection */}
         <div className="space-y-1.5">
-          <label className="block text-[11px] uppercase tracking-widest font-semibold opacity-70">
+          <label htmlFor="widget-guests" className="block text-[11px] uppercase tracking-widest font-semibold opacity-70">
             Guests
           </label>
           <div className="relative flex items-center">
             <Users className="w-4 h-4 absolute left-3.5 text-himalayan-700 pointer-events-none" />
             <select
+              id="widget-guests"
+              aria-label="Select guest capacity"
               value={`${adults}-${children}`}
               onChange={(e) => {
                 const [a, c] = e.target.value.split('-').map(Number);

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MapPin, Mail, MessageCircle, ExternalLink, Shield, Compass, Sparkles } from 'lucide-react';
+import { MapPin, Phone, Mail, MessageCircle, ExternalLink, Shield, Compass, Sparkles } from 'lucide-react';
 import { propertyData } from '../../data/propertyData';
 import { generateWhatsAppLink } from '../../services/WhatsAppService';
 
@@ -13,10 +13,11 @@ export const Footer: React.FC = () => {
           
           {/* Brand & Canonical NAP Column */}
           <div className="lg:col-span-2 space-y-4">
-            <Link to="/" className="inline-block">
+            <Link to="/" className="inline-block group" aria-label="The Mukteshwar Bungalow | 3 BHK Villa">
               <span className="text-[10px] tracking-super-wide text-ivory-100/60 font-sans uppercase block">THE</span>
-              <span className="text-2xl sm:text-3xl font-serif font-bold text-himalayan-400 block">MUKTESHWAR</span>
+              <span className="text-2xl sm:text-3xl font-serif font-bold text-himalayan-400 block group-hover:text-himalayan-300 transition-colors">MUKTESHWAR</span>
               <span className="text-[10px] tracking-super-wide text-ivory-100/60 font-sans uppercase block">BUNGALOW</span>
+              <span className="text-[11px] font-sans tracking-widest text-himalayan-300/90 uppercase block mt-1 font-semibold">3 BHK Villa</span>
             </Link>
 
             <p className="text-sm font-light text-ivory-200/70 max-w-sm leading-relaxed">
@@ -24,23 +25,38 @@ export const Footer: React.FC = () => {
             </p>
 
             {/* Exact Canonical NAP */}
-            <div className="pt-2 space-y-2 text-xs text-ivory-200/80 font-light">
-              <div className="flex items-start gap-2.5">
+            <div
+              className="pt-2 space-y-2.5 text-xs text-ivory-200/80 font-light"
+              itemScope
+              itemType="https://schema.org/LodgingBusiness"
+            >
+              <meta itemProp="name" content="The Mukteshwar Bungalow | 3 BHK Villa" />
+              <meta itemProp="url" content="https://themukteshwarbungalow.in" />
+
+              <div className="flex items-start gap-2.5" itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
                 <MapPin className="w-4 h-4 text-himalayan-400 shrink-0 mt-0.5" />
-                <span>
-                  {propertyData.address.line1}, Tehsil - {propertyData.address.tehsil}, District - {propertyData.address.district}, {propertyData.address.city}, {propertyData.address.state} - {propertyData.address.postalCode}, {propertyData.address.country}
+                <span className="leading-relaxed">
+                  <span className="text-ivory-100 font-medium">Address: </span>
+                  <span itemProp="streetAddress">{propertyData.address.line1}</span>, Tehsil - {propertyData.address.tehsil}, District - {propertyData.address.district}, <span itemProp="addressLocality">{propertyData.address.city}</span>, <span itemProp="addressRegion">{propertyData.address.state}</span> - <span itemProp="postalCode">{propertyData.address.postalCode}</span>
                 </span>
               </div>
 
-              <div className="flex items-center gap-2.5 pt-1">
-                <Mail className="w-4 h-4 text-himalayan-400 shrink-0" />
-                <a
-                  href={`mailto:${propertyData.contact.email}`}
-                  className="hover:text-himalayan-400 transition-colors"
-                >
-                  {propertyData.contact.email}
-                </a>
-              </div>
+              {propertyData.contact.phone && (
+                <div className="flex items-center gap-2.5">
+                  <Phone className="w-4 h-4 text-himalayan-400 shrink-0" />
+                  <span className="leading-relaxed">
+                    <span className="text-ivory-100 font-medium">Phone: </span>
+                    <a
+                      href={`tel:${propertyData.contact.phoneRaw || '+917078560516'}`}
+                      itemProp="telephone"
+                      className="hover:text-himalayan-400 transition-colors font-medium text-ivory-100"
+                    >
+                      {propertyData.contact.phone}
+                    </a>
+                  </span>
+                  <span className="text-ivory-200/50 text-[11px]">(Direct Call / Reservations)</span>
+                </div>
+              )}
 
               <div className="flex items-center gap-2.5">
                 <MessageCircle className="w-4 h-4 text-emerald-400 shrink-0" />
@@ -50,8 +66,24 @@ export const Footer: React.FC = () => {
                   rel="noopener noreferrer"
                   className="hover:text-himalayan-400 transition-colors"
                 >
-                  Direct WhatsApp Concierge
+                  <span className="text-ivory-100 font-medium">WhatsApp: </span>
+                  <span className="font-medium text-ivory-100">{propertyData.contact.phone || '+91 70785 60516'}</span>
+                  <span className="text-ivory-200/50 text-[11px] ml-1.5">(Concierge)</span>
                 </a>
+              </div>
+
+              <div className="flex items-center gap-2.5">
+                <Mail className="w-4 h-4 text-himalayan-400 shrink-0" />
+                <span className="leading-relaxed">
+                  <span className="text-ivory-100 font-medium">Email: </span>
+                  <a
+                    href={`mailto:${propertyData.contact.email}`}
+                    itemProp="email"
+                    className="hover:text-himalayan-400 transition-colors font-medium text-ivory-100"
+                  >
+                    {propertyData.contact.email}
+                  </a>
+                </span>
               </div>
             </div>
 
@@ -174,6 +206,15 @@ export const Footer: React.FC = () => {
                 <li>
                   <Link to="/book" className="hover:text-himalayan-400 transition-colors">Direct Reservation Request</Link>
                 </li>
+                <li className="pt-1.5">
+                  <a
+                    href={`tel:${propertyData.contact.phoneRaw || '+917078560516'}`}
+                    className="hover:text-himalayan-300 transition-colors inline-flex items-center gap-1.5 text-himalayan-400 font-medium"
+                  >
+                    <Phone className="w-3.5 h-3.5" />
+                    <span>Phone: {propertyData.contact.phone || '+91 70785 60516'}</span>
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
@@ -195,6 +236,22 @@ export const Footer: React.FC = () => {
             <Sparkles className="w-3.5 h-3.5 text-himalayan-400" />
             <span>Direct Booking Guaranteed • 100% Commission-Free</span>
           </div>
+        </div>
+
+        {/* Agency Attribution */}
+        <div className="pt-4 mt-4 border-t border-ivory-100/5 flex items-center justify-center text-[11px] text-ivory-200/40 text-center">
+          <span>
+            Website developed &amp; other services by{' '}
+            <a
+              href="https://growguest.in/"
+              target="_blank"
+              rel="noopener"
+              title="Growguest - Hospitality Marketing & Web Services"
+              className="text-ivory-200/70 hover:text-himalayan-400 font-medium transition-colors underline underline-offset-2"
+            >
+              Growguest
+            </a>
+          </span>
         </div>
       </div>
     </footer>

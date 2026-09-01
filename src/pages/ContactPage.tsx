@@ -74,6 +74,28 @@ export const ContactPage: React.FC = () => {
 
             {/* Contact Cards */}
             <div className="space-y-4">
+              {/* Direct Phone Call */}
+              <a
+                href={`tel:${propertyData.contact.phoneRaw || '+917078560516'}`}
+                onClick={() => trackEvent('phone_click', { source: 'contact_page_card' })}
+                className="flex items-start gap-4 p-5 rounded-md bg-white border border-charcoal-900/10 shadow-editorial hover:border-himalayan-600 transition-all group"
+              >
+                <div className="p-3 rounded-full bg-himalayan-50 text-himalayan-700 group-hover:bg-himalayan-700 group-hover:text-white transition-colors">
+                  <Phone className="w-6 h-6" />
+                </div>
+                <div className="space-y-1">
+                  <h4 className="font-serif font-bold text-charcoal-900 text-lg">
+                    Direct Phone Reservations
+                  </h4>
+                  <p className="text-xs text-charcoal-600 font-light">
+                    Direct voice line with estate reservations & concierge manager
+                  </p>
+                  <span className="text-sm font-bold text-himalayan-700 underline underline-offset-2 inline-block pt-1">
+                    {propertyData.contact.phone || '+91 70785 60516'}
+                  </span>
+                </div>
+              </a>
+
               {/* WhatsApp */}
               <a
                 href={generateWhatsAppLink({ intent: 'general' })}
@@ -90,7 +112,7 @@ export const ContactPage: React.FC = () => {
                     WhatsApp Concierge
                   </h4>
                   <p className="text-xs text-charcoal-600 font-light">
-                    Direct chat with reservation team • Instant availability checks
+                    Instant chat & dates confirmation: +91 70785 60516
                   </p>
                   <span className="text-xs font-semibold text-emerald-700 underline underline-offset-2 inline-block pt-1">
                     Open WhatsApp Chat
@@ -100,7 +122,7 @@ export const ContactPage: React.FC = () => {
 
               {/* Email */}
               <div className="flex items-start gap-4 p-5 rounded-md bg-white border border-charcoal-900/10 shadow-editorial">
-                <div className="p-3 rounded-full bg-himalayan-50 text-himalayan-700">
+                <div className="p-3 rounded-full bg-charcoal-100 text-charcoal-900">
                   <Mail className="w-6 h-6" />
                 </div>
                 <div className="space-y-1">
@@ -108,7 +130,7 @@ export const ContactPage: React.FC = () => {
                     Email Inquiries
                   </h4>
                   <p className="text-xs text-charcoal-600 font-light">
-                    For corporate offsites, extended workcations & documentation
+                    For corporate retreats, extended workcations & documentation
                   </p>
                   <a
                     href={`mailto:${propertyData.contact.email}`}
@@ -126,11 +148,22 @@ export const ContactPage: React.FC = () => {
                 </div>
                 <div className="space-y-1 text-xs text-charcoal-700 font-light leading-relaxed">
                   <h4 className="font-serif font-bold text-charcoal-900 text-lg">
-                    Physical Address
+                    The Mukteshwar Bungalow | 3 BHK Villa
                   </h4>
                   <p>{propertyData.address.line1},</p>
                   <p>Tehsil - {propertyData.address.tehsil}, District - {propertyData.address.district},</p>
                   <p>{propertyData.address.city}, {propertyData.address.state} - {propertyData.address.postalCode}, {propertyData.address.country}</p>
+                  <div className="pt-2">
+                    <a
+                      href={propertyData.address.googleMapsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-xs font-semibold text-himalayan-700 hover:text-himalayan-800 underline"
+                    >
+                      <span>Open in Google Maps</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -165,12 +198,14 @@ export const ContactPage: React.FC = () => {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <label className="block text-xs uppercase tracking-widest font-semibold text-charcoal-800">
+                      <label htmlFor="contact-full-name" className="block text-xs uppercase tracking-widest font-semibold text-charcoal-800">
                         Full Name *
                       </label>
                       <input
+                        id="contact-full-name"
                         type="text"
                         required
+                        aria-required="true"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         className="w-full bg-ivory-50 border border-charcoal-900/15 p-3.5 rounded-sm text-sm focus:border-himalayan-700 focus:ring-1 focus:ring-himalayan-700"
@@ -179,28 +214,32 @@ export const ContactPage: React.FC = () => {
                     </div>
 
                     <div className="space-y-2">
-                      <label className="block text-xs uppercase tracking-widest font-semibold text-charcoal-800">
+                      <label htmlFor="contact-phone" className="block text-xs uppercase tracking-widest font-semibold text-charcoal-800">
                         Phone / WhatsApp *
                       </label>
                       <input
+                        id="contact-phone"
                         type="tel"
                         required
+                        aria-required="true"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         className="w-full bg-ivory-50 border border-charcoal-900/15 p-3.5 rounded-sm text-sm focus:border-himalayan-700 focus:ring-1 focus:ring-himalayan-700"
-                        placeholder="+91 98765 43210"
+                        placeholder="+91 70785 60516"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <label className="block text-xs uppercase tracking-widest font-semibold text-charcoal-800">
+                      <label htmlFor="contact-email" className="block text-xs uppercase tracking-widest font-semibold text-charcoal-800">
                         Email Address *
                       </label>
                       <input
+                        id="contact-email"
                         type="email"
                         required
+                        aria-required="true"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         className="w-full bg-ivory-50 border border-charcoal-900/15 p-3.5 rounded-sm text-sm focus:border-himalayan-700 focus:ring-1 focus:ring-himalayan-700"
@@ -209,10 +248,11 @@ export const ContactPage: React.FC = () => {
                     </div>
 
                     <div className="space-y-2">
-                      <label className="block text-xs uppercase tracking-widest font-semibold text-charcoal-800">
+                      <label htmlFor="contact-subject" className="block text-xs uppercase tracking-widest font-semibold text-charcoal-800">
                         Inquiry Subject
                       </label>
                       <select
+                        id="contact-subject"
                         value={formData.subject}
                         onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                         className="w-full bg-ivory-50 border border-charcoal-900/15 p-3.5 rounded-sm text-sm focus:border-himalayan-700 focus:ring-1 focus:ring-himalayan-700"
@@ -226,12 +266,14 @@ export const ContactPage: React.FC = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="block text-xs uppercase tracking-widest font-semibold text-charcoal-800">
+                    <label htmlFor="contact-message" className="block text-xs uppercase tracking-widest font-semibold text-charcoal-800">
                       Your Message *
                     </label>
                     <textarea
+                      id="contact-message"
                       rows={4}
                       required
+                      aria-required="true"
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Share your preferred dates, party size, or questions..."

@@ -252,6 +252,14 @@ export const Header: React.FC<HeaderProps> = () => {
               <MessageCircle className="w-4 h-4 text-emerald-400" />
               <span>WhatsApp Concierge</span>
             </a>
+
+            <a
+              href={`tel:${propertyData.contact.phoneRaw || '+917078560516'}`}
+              className="w-full text-center border border-ivory-100/30 text-ivory-100 py-3 rounded-sm font-sans uppercase tracking-widest text-xs font-medium hover:bg-ivory-100/10 flex items-center justify-center gap-2"
+            >
+              <Phone className="w-4 h-4 text-himalayan-400" />
+              <span>Direct Call: {propertyData.contact.phone || '+91 70785 60516'}</span>
+            </a>
           </div>
         </div>
       )}

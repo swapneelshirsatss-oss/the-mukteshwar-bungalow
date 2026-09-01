@@ -27,28 +27,36 @@ export const AmbianceToggle: React.FC = () => {
         />
 
         {/* Top-Right Toggle Badge */}
-        <div className="absolute top-4 right-4 z-10 bg-charcoal-950/80 backdrop-blur-md p-1.5 rounded-full border border-ivory-100/20 flex items-center gap-1 shadow-lg">
+        <div
+          role="group"
+          aria-label="Ambiance light mode switch"
+          className="absolute top-4 right-4 z-10 bg-charcoal-950/80 backdrop-blur-md p-1.5 rounded-full border border-ivory-100/20 flex items-center gap-1 shadow-lg"
+        >
           <button
+            type="button"
             onClick={() => setMode('day')}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium uppercase tracking-wider transition-all ${
+            aria-label="Switch to daylight mountain view"
+            aria-pressed={mode === 'day'}
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium uppercase tracking-wider transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-himalayan-400 focus-visible:ring-offset-1 ${
               mode === 'day'
                 ? 'bg-ivory-100 text-charcoal-900 shadow-sm'
                 : 'text-ivory-100/70 hover:text-ivory-100'
             }`}
-            aria-pressed={mode === 'day'}
           >
             <Sun className="w-3.5 h-3.5 text-amber-500" />
             <span className="hidden sm:inline">Daylight</span>
           </button>
 
           <button
+            type="button"
             onClick={() => setMode('dusk')}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium uppercase tracking-wider transition-all ${
+            aria-label="Switch to dusk fireside mountain view"
+            aria-pressed={mode === 'dusk'}
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium uppercase tracking-wider transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-himalayan-400 focus-visible:ring-offset-1 ${
               mode === 'dusk'
                 ? 'bg-himalayan-700 text-ivory-100 shadow-sm'
                 : 'text-ivory-100/70 hover:text-ivory-100'
             }`}
-            aria-pressed={mode === 'dusk'}
           >
             <Moon className="w-3.5 h-3.5 text-ivory-200" />
             <span className="hidden sm:inline">Dusk Fireside</span>

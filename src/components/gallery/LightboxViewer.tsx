@@ -40,6 +40,7 @@ export const LightboxViewer: React.FC<LightboxViewerProps> = ({
       className="fixed inset-0 z-50 bg-charcoal-950/96 backdrop-blur-xl flex flex-col justify-between p-4 sm:p-6 animate-fade-in text-ivory-100"
       role="dialog"
       aria-modal="true"
+      aria-label="Full screen photo gallery viewer"
     >
       {/* Top Controls */}
       <div className="flex items-center justify-between border-b border-ivory-100/10 pb-3">
@@ -47,8 +48,9 @@ export const LightboxViewer: React.FC<LightboxViewerProps> = ({
           {currentIndex + 1} / {images.length} • <span className="text-himalayan-400 font-semibold">{currentImage.categoryLabel}</span>
         </div>
         <button
+          type="button"
           onClick={onClose}
-          className="p-2 rounded-full text-ivory-100/80 hover:text-ivory-100 hover:bg-ivory-100/10 transition-colors"
+          className="p-2 rounded-full text-ivory-100/80 hover:text-ivory-100 hover:bg-ivory-100/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-himalayan-400"
           aria-label="Close Lightbox"
         >
           <X className="w-6 h-6" />
@@ -59,8 +61,9 @@ export const LightboxViewer: React.FC<LightboxViewerProps> = ({
       <div className="relative flex-1 flex items-center justify-center my-4 overflow-hidden">
         {/* Previous Button */}
         <button
+          type="button"
           onClick={onPrev}
-          className="absolute left-2 sm:left-4 z-10 p-3 rounded-full bg-charcoal-900/80 text-ivory-100 border border-ivory-100/15 hover:bg-himalayan-700 hover:border-himalayan-700 transition-all focus:outline-none"
+          className="absolute left-2 sm:left-4 z-10 p-3 rounded-full bg-charcoal-900/80 text-ivory-100 border border-ivory-100/15 hover:bg-himalayan-700 hover:border-himalayan-700 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-himalayan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal-950"
           aria-label="Previous Image"
         >
           <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -75,8 +78,9 @@ export const LightboxViewer: React.FC<LightboxViewerProps> = ({
 
         {/* Next Button */}
         <button
+          type="button"
           onClick={onNext}
-          className="absolute right-2 sm:right-4 z-10 p-3 rounded-full bg-charcoal-900/80 text-ivory-100 border border-ivory-100/15 hover:bg-himalayan-700 hover:border-himalayan-700 transition-all focus:outline-none"
+          className="absolute right-2 sm:right-4 z-10 p-3 rounded-full bg-charcoal-900/80 text-ivory-100 border border-ivory-100/15 hover:bg-himalayan-700 hover:border-himalayan-700 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-himalayan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal-950"
           aria-label="Next Image"
         >
           <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />

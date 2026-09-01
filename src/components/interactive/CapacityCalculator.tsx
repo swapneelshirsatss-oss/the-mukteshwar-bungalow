@@ -52,12 +52,19 @@ export const CapacityCalculator: React.FC = () => {
       </div>
 
       {/* Guest Selector Buttons */}
-      <div className="flex items-center justify-center gap-1.5 sm:gap-2 flex-wrap mb-8">
+      <div
+        role="group"
+        aria-label="Select number of guests"
+        className="flex items-center justify-center gap-1.5 sm:gap-2 flex-wrap mb-8"
+      >
         {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => (
           <button
             key={num}
+            type="button"
             onClick={() => setGuests(num)}
-            className={`w-10 h-10 sm:w-12 sm:h-12 rounded-sm font-sans font-semibold text-sm transition-all ${
+            aria-label={`Select ${num} guest${num > 1 ? 's' : ''}`}
+            aria-pressed={guests === num}
+            className={`w-10 h-10 sm:w-12 sm:h-12 rounded-sm font-sans font-semibold text-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-himalayan-700 focus-visible:ring-offset-2 ${
               guests === num
                 ? 'bg-himalayan-700 text-ivory-100 shadow-md scale-105'
                 : 'bg-ivory-100 text-charcoal-900 hover:bg-ivory-200 border border-charcoal-900/10'

@@ -2,6 +2,7 @@ import { PropertyData } from '../types';
 
 export const propertyData: PropertyData = {
   name: 'The Mukteshwar Bungalow',
+  canonicalName: 'The Mukteshwar Bungalow | 3 BHK Villa',
   tagline: 'Private Himalayan Residence in the Kumaon Hills',
   propertyType: 'Luxury 3 BHK Villa',
   architectureStyle: 'Himalayan Ridge Residence with Contemporary Mountain Craft',
@@ -18,6 +19,7 @@ export const propertyData: PropertyData = {
     state: 'Uttarakhand',
     postalCode: '263132',
     country: 'India',
+    formattedAddress: 'Dausapani, Kasialekh Village - Chaukhuta, Tehsil - Dhari, District - Nainital, Mukteshwar, Uttarakhand - 263132',
     landmark: 'Near Kasialekh Dausapani Ridge',
     latitude: 29.4728, // Approximate regional coordinate
     longitude: 79.6475,
@@ -25,9 +27,9 @@ export const propertyData: PropertyData = {
     googleMapsEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d111234.56789!2d79.58!3d29.47!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39a0998a444a72d3%3A0x6b2e9e23!2sMukteshwar%2C+Uttarakhand+263132!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin',
   },
   contact: {
-    // Configurable verified fields: null until explicitly provided by host
-    phone: null, // Displays "Direct Enquiry via WhatsApp & Concierge"
-    whatsapp: '919876543210', // Default concierge routing channel
+    phone: '+91 70785 60516',
+    phoneRaw: '+917078560516',
+    whatsapp: '917078560516',
     email: 'stay@themukteshwarbungalow.in',
     hostName: 'Villa Concierge Team',
     hostType: 'Private Estate Manager',

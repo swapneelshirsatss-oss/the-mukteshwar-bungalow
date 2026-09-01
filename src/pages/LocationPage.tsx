@@ -61,7 +61,7 @@ export const LocationPage: React.FC = () => {
                 <MapPin className="w-5 h-5 text-himalayan-700 shrink-0 mt-1" />
                 <div className="space-y-1 text-xs sm:text-sm text-charcoal-800 font-light leading-relaxed">
                   <p className="font-semibold text-charcoal-900 text-base font-serif">
-                    The Mukteshwar Bungalow
+                    The Mukteshwar Bungalow | 3 BHK Villa
                   </p>
                   <p>{propertyData.address.line1},</p>
                   <p>Tehsil - {propertyData.address.tehsil},</p>
@@ -69,6 +69,17 @@ export const LocationPage: React.FC = () => {
                   <p>{propertyData.address.city}, {propertyData.address.state} - {propertyData.address.postalCode},</p>
                   <p>{propertyData.address.country}</p>
                 </div>
+              </div>
+
+              <div className="flex items-center gap-2.5 pt-2 text-xs sm:text-sm text-charcoal-800">
+                <Phone className="w-4 h-4 text-himalayan-700 shrink-0" />
+                <span>Direct Voice Line:</span>
+                <a
+                  href={`tel:${propertyData.contact.phoneRaw || '+917078560516'}`}
+                  className="font-semibold text-himalayan-700 hover:text-himalayan-800 underline"
+                >
+                  {propertyData.contact.phone || '+91 70785 60516'}
+                </a>
               </div>
 
               <div className="pt-4 border-t border-charcoal-900/10 flex flex-wrap gap-4">

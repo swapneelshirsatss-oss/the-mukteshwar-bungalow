@@ -75,7 +75,8 @@ export const FAQPage: React.FC = () => {
         <div className="relative max-w-xl mx-auto">
           <Search className="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-charcoal-400 pointer-events-none" />
           <input
-            type="text"
+            type="search"
+            aria-label="Search frequently asked questions"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search FAQs (e.g., pool, kitchen, check-in, wifi)..."
@@ -84,12 +85,19 @@ export const FAQPage: React.FC = () => {
         </div>
 
         {/* Category Pills */}
-        <div className="flex items-center justify-center gap-2 flex-wrap">
+        <div
+          role="tablist"
+          aria-label="FAQ categories"
+          className="flex items-center justify-center gap-2 flex-wrap"
+        >
           {categories.map((cat) => (
             <button
               key={cat}
+              role="tab"
+              type="button"
+              aria-selected={selectedCategory === cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-3.5 py-1.5 rounded-sm text-xs font-semibold uppercase tracking-wider transition-all ${
+              className={`px-3.5 py-1.5 rounded-sm text-xs font-semibold uppercase tracking-wider transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-himalayan-700 focus-visible:ring-offset-2 ${
                 selectedCategory === cat
                   ? 'bg-himalayan-700 text-ivory-100 shadow-sm'
                   : 'bg-ivory-50 text-charcoal-800 border border-charcoal-900/10 hover:bg-ivory-100'
@@ -118,9 +126,9 @@ export const FAQPage: React.FC = () => {
                 key={faq.id}
                 className="group border border-charcoal-900/10 rounded-md p-6 bg-white shadow-subtle open:shadow-editorial transition-all cursor-pointer"
               >
-                <summary className="text-base sm:text-lg font-serif font-semibold text-charcoal-900 flex items-center justify-between list-none">
+                <summary className="text-base sm:text-lg font-serif font-semibold text-charcoal-900 flex items-center justify-between list-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-himalayan-700 rounded-sm">
                   <span>{faq.question}</span>
-                  <span className="text-himalayan-700 text-xl transition-transform group-open:rotate-45 shrink-0 ml-4 font-sans font-normal">
+                  <span className="text-himalayan-700 text-xl transition-transform group-open:rotate-45 shrink-0 ml-4 font-sans font-normal" aria-hidden="true">
                     +
                   </span>
                 </summary>
