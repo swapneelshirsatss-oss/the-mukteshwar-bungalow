@@ -385,7 +385,7 @@ export const DirectBookingForm: React.FC = () => {
                 onChange={handleChange}
                 required
                 aria-required="true"
-                placeholder="+91 98765 43210"
+                placeholder="+91 70785 60516"
                 className="w-full bg-ivory-50 border border-charcoal-900/15 p-3.5 rounded-sm text-sm focus:border-himalayan-700 focus:ring-1 focus:ring-himalayan-700"
               />
             </div>

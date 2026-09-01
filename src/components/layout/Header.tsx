@@ -48,6 +48,10 @@ export const Header: React.FC<HeaderProps> = () => {
     trackEvent('whatsapp_click', { source: 'header' });
   };
 
+  const handlePhoneClick = () => {
+    trackEvent('phone_click', { source: 'header' });
+  };
+
   const handleBookClick = () => {
     trackEvent('booking_start', { source: 'header_button' });
   };
@@ -115,7 +119,24 @@ export const Header: React.FC<HeaderProps> = () => {
           </nav>
 
           {/* Header Action CTAs */}
-          <div className="hidden sm:flex items-center space-x-3 md:space-x-4">
+          <div className="hidden sm:flex items-center space-x-2 md:space-x-3">
+            {/* Direct Phone Call */}
+            <a
+              href={`tel:${propertyData.contact.phoneRaw || '+917078560516'}`}
+              onClick={handlePhoneClick}
+              className={`hidden md:inline-flex items-center gap-1.5 px-3 py-2 rounded-full border text-xs font-semibold tracking-wide transition-all ${
+                isScrolled
+                  ? 'border-charcoal-900/15 text-charcoal-800 hover:bg-charcoal-900 hover:text-ivory-100 hover:border-charcoal-900'
+                  : 'border-ivory-100/30 text-ivory-100 hover:bg-ivory-100/15 hover:border-ivory-100/50'
+              }`}
+              title={`Direct Call: ${propertyData.contact.phone || '+91 70785 60516'}`}
+              aria-label={`Call ${propertyData.contact.phone || '+91 70785 60516'}`}
+            >
+              <Phone className="w-3.5 h-3.5 text-himalayan-400" />
+              <span className="hidden xl:inline">{propertyData.contact.phone || '+91 70785 60516'}</span>
+              <span className="xl:hidden">Call</span>
+            </a>
+
             {/* WhatsApp Quick Action */}
             <a
               href={generateWhatsAppLink({ intent: 'availability' })}
@@ -124,13 +145,13 @@ export const Header: React.FC<HeaderProps> = () => {
               onClick={handleWhatsAppClick}
               className={`p-2.5 rounded-full border transition-all ${
                 isScrolled
-                  ? 'border-charcoal-900/20 text-charcoal-900 hover:bg-himalayan-700 hover:text-ivory-100 hover:border-himalayan-700'
-                  : 'border-ivory-100/30 text-ivory-100 hover:bg-himalayan-700 hover:border-himalayan-700'
+                  ? 'border-charcoal-900/20 text-charcoal-900 hover:bg-emerald-600 hover:text-ivory-100 hover:border-emerald-600'
+                  : 'border-ivory-100/30 text-ivory-100 hover:bg-emerald-600 hover:border-emerald-600'
               }`}
-              title="Chat on WhatsApp"
-              aria-label="Direct WhatsApp Concierge"
+              title="Chat on WhatsApp (+91 70785 60516)"
+              aria-label="Direct WhatsApp Concierge: +91 70785 60516"
             >
-              <MessageCircle className="w-4 h-4" />
+              <MessageCircle className="w-4 h-4 text-emerald-400" />
             </a>
 
             {/* Direct Book CTA */}
@@ -247,14 +268,22 @@ export const Header: React.FC<HeaderProps> = () => {
               href={generateWhatsAppLink({ intent: 'availability' })}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full text-center border border-ivory-100/30 text-ivory-100 py-3 rounded-sm font-sans uppercase tracking-widest text-xs font-medium hover:bg-ivory-100/10 flex items-center justify-center gap-2"
+              onClick={() => {
+                handleWhatsAppClick();
+                setIsMobileMenuOpen(false);
+              }}
+              className="w-full text-center border border-emerald-500/40 bg-emerald-950/30 text-ivory-100 py-3 rounded-sm font-sans uppercase tracking-widest text-xs font-medium hover:bg-emerald-900/40 flex items-center justify-center gap-2"
             >
               <MessageCircle className="w-4 h-4 text-emerald-400" />
-              <span>WhatsApp Concierge</span>
+              <span>WhatsApp: +91 70785 60516</span>
             </a>
 
             <a
               href={`tel:${propertyData.contact.phoneRaw || '+917078560516'}`}
+              onClick={() => {
+                handlePhoneClick();
+                setIsMobileMenuOpen(false);
+              }}
               className="w-full text-center border border-ivory-100/30 text-ivory-100 py-3 rounded-sm font-sans uppercase tracking-widest text-xs font-medium hover:bg-ivory-100/10 flex items-center justify-center gap-2"
             >
               <Phone className="w-4 h-4 text-himalayan-400" />

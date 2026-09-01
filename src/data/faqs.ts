@@ -6,7 +6,7 @@ export const propertyFAQs: FAQItem[] = [
     id: 'faq-book-direct',
     category: 'Booking & Pricing',
     question: 'How do I book The Mukteshwar Bungalow directly?',
-    answer: 'You can check availability on this website and submit a reservation enquiry, or connect directly with our reservation team on WhatsApp and phone. Direct booking ensures the best available seasonal tariff without third-party commission surcharges.'
+    answer: 'You can check availability on this website and submit a reservation enquiry, or connect directly with our reservation team on WhatsApp and phone at +91 70785 60516. Direct booking ensures the best available seasonal tariff without third-party commission surcharges.'
   },
   {
     id: 'faq-exclusive-buyout',

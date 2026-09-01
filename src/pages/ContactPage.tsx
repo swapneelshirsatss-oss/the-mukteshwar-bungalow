@@ -7,8 +7,12 @@ import { SectionHeading } from '../components/common/SectionHeading';
 import { Button } from '../components/common/Button';
 import { generateWhatsAppLink } from '../services/WhatsAppService';
 import { trackEvent } from '../services/AnalyticsService';
+import { getLodgingBusinessSchema, getBreadcrumbSchema } from '../components/common/SchemaMarkup';
 
 export const ContactPage: React.FC = () => {
+  const lodgingSchema = getLodgingBusinessSchema();
+  const breadcrumbSchema = getBreadcrumbSchema([{ name: 'Contact & Concierge', url: '/contact' }]);
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -31,6 +35,7 @@ export const ContactPage: React.FC = () => {
         title="Contact Host & Concierge | The Mukteshwar Bungalow"
         description="Get in touch with the estate reservation team at The Mukteshwar Bungalow in Kasialekh, Mukteshwar. WhatsApp, email, and location inquiries."
         canonicalUrl="https://themukteshwarbungalow.in/contact"
+        schema={[lodgingSchema, breadcrumbSchema]}
       />
 
       {/* Hero */}
@@ -115,7 +120,7 @@ export const ContactPage: React.FC = () => {
                     Instant chat & dates confirmation: +91 70785 60516
                   </p>
                   <span className="text-xs font-semibold text-emerald-700 underline underline-offset-2 inline-block pt-1">
-                    Open WhatsApp Chat
+                    Open WhatsApp Chat (+91 70785 60516)
                   </span>
                 </div>
               </a>

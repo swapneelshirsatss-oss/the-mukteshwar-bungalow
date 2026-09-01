@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Search, HelpCircle, ArrowRight } from 'lucide-react';
+import { Search, HelpCircle, ArrowRight, MessageCircle, Phone } from 'lucide-react';
+import { propertyData } from '../data/propertyData';
 import { propertyFAQs } from '../data/faqs';
 import { FAQItem } from '../types';
 import { SEOHead } from '../components/common/SEOHead';
@@ -7,6 +8,8 @@ import { getFAQPageSchema } from '../components/common/SchemaMarkup';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { SectionHeading } from '../components/common/SectionHeading';
 import { Button } from '../components/common/Button';
+import { generateWhatsAppLink } from '../services/WhatsAppService';
+import { trackEvent } from '../services/AnalyticsService';
 
 export const FAQPage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -141,13 +144,35 @@ export const FAQPage: React.FC = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-16 text-center pt-8 border-t border-charcoal-900/10">
-          <p className="text-xs sm:text-sm text-charcoal-600 font-light mb-4">
-            Still have a specific question about your upcoming stay?
+        <div className="mt-16 text-center pt-8 border-t border-charcoal-900/10 max-w-2xl mx-auto space-y-4">
+          <h3 className="text-xl font-serif text-charcoal-900 font-bold">
+            Still Have a Question About The Mukteshwar Bungalow?
+          </h3>
+          <p className="text-xs sm:text-sm text-charcoal-600 font-light">
+            Our estate reservations team is readily available via WhatsApp and direct call to assist with date availability, group configurations, and special arrangements.
           </p>
-          <Button to="/contact" variant="primary" icon={<ArrowRight className="w-4 h-4" />}>
-            Contact Host Concierge
-          </Button>
+          <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
+            <a
+              href={`tel:${propertyData.contact.phoneRaw || '+917078560516'}`}
+              onClick={() => trackEvent('phone_click', { source: 'faq_page_bottom' })}
+              className="inline-flex items-center gap-2 border border-charcoal-900/20 hover:border-charcoal-900 text-charcoal-900 px-4 py-2.5 rounded-sm text-xs font-semibold uppercase tracking-wider transition-colors"
+            >
+              <Phone className="w-4 h-4 text-himalayan-700" />
+              <span>Call: {propertyData.contact.phone || '+91 70785 60516'}</span>
+            </a>
+            <Button
+              href={generateWhatsAppLink({ intent: 'general' })}
+              isExternal
+              variant="himalayan"
+              size="sm"
+              icon={<MessageCircle className="w-4 h-4 text-emerald-300" />}
+            >
+              WhatsApp +91 70785 60516
+            </Button>
+            <Button to="/contact" variant="outline" size="sm" icon={<ArrowRight className="w-4 h-4" />}>
+              Contact Concierge
+            </Button>
+          </div>
         </div>
       </section>
     </>

@@ -1,5 +1,8 @@
 import React from 'react';
-import { Sparkles, ShieldCheck, MessageCircle, Calendar } from 'lucide-react';
+import { Sparkles, ShieldCheck, MessageCircle, Calendar, Phone } from 'lucide-react';
+import { propertyData } from '../data/propertyData';
+import { generateWhatsAppLink } from '../services/WhatsAppService';
+import { trackEvent } from '../services/AnalyticsService';
 import { SEOHead } from '../components/common/SEOHead';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { SectionHeading } from '../components/common/SectionHeading';
@@ -45,6 +48,37 @@ export const BookPage: React.FC = () => {
       {/* Booking Form Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <DirectBookingForm />
+
+        {/* Direct Help Strip */}
+        <div className="mt-12 max-w-2xl mx-auto p-6 bg-ivory-50 rounded-md border border-charcoal-900/10 text-center space-y-3">
+          <h4 className="text-base font-serif font-bold text-charcoal-900">
+            Prefer Direct Communication with the Host?
+          </h4>
+          <p className="text-xs text-charcoal-600 font-light leading-relaxed">
+            Our estate manager is available for custom family packages, corporate retreats, and instant date confirmations.
+          </p>
+          <div className="pt-2 flex flex-wrap items-center justify-center gap-4 text-xs font-semibold">
+            <a
+              href={`tel:${propertyData.contact.phoneRaw || '+917078560516'}`}
+              onClick={() => trackEvent('phone_click', { source: 'book_page_help_strip' })}
+              className="inline-flex items-center gap-1.5 text-himalayan-700 hover:text-himalayan-800 uppercase tracking-wider"
+            >
+              <Phone className="w-4 h-4" />
+              <span>Call: {propertyData.contact.phone || '+91 70785 60516'}</span>
+            </a>
+            <span className="text-charcoal-300">•</span>
+            <a
+              href={generateWhatsAppLink({ intent: 'booking' })}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackEvent('whatsapp_click', { source: 'book_page_help_strip' })}
+              className="inline-flex items-center gap-1.5 text-emerald-700 hover:text-emerald-800 uppercase tracking-wider"
+            >
+              <MessageCircle className="w-4 h-4 text-emerald-600" />
+              <span>WhatsApp: +91 70785 60516</span>
+            </a>
+          </div>
+        </div>
       </section>
     </>
   );

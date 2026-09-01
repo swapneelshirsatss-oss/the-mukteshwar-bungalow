@@ -1,11 +1,12 @@
 import React from 'react';
-import { Navigation, MapPin, Car, Train, Plane, MessageCircle, ExternalLink, ArrowRight, Check } from 'lucide-react';
+import { Navigation, MapPin, Car, Train, Plane, MessageCircle, ExternalLink, ArrowRight, Check, Phone } from 'lucide-react';
 import { propertyData } from '../data/propertyData';
 import { SEOHead } from '../components/common/SEOHead';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { SectionHeading } from '../components/common/SectionHeading';
 import { Button } from '../components/common/Button';
 import { generateWhatsAppLink } from '../services/WhatsAppService';
+import { trackEvent } from '../services/AnalyticsService';
 
 export const DirectionsPage: React.FC = () => {
   return (
@@ -107,7 +108,7 @@ export const DirectionsPage: React.FC = () => {
           <p className="text-xs sm:text-sm text-ivory-200/80 font-light">
             Our estate concierge is happy to guide your driver or share a live GPS location pin.
           </p>
-          <div className="pt-2">
+          <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
             <Button
               href={generateWhatsAppLink({ intent: 'location' })}
               isExternal
@@ -116,6 +117,14 @@ export const DirectionsPage: React.FC = () => {
             >
               Get Live Location Pin on WhatsApp
             </Button>
+            <a
+              href={`tel:${propertyData.contact.phoneRaw || '+917078560516'}`}
+              onClick={() => trackEvent('phone_click', { source: 'directions_page_strip' })}
+              className="inline-flex items-center gap-2 border border-ivory-100/30 hover:border-ivory-100 text-ivory-100 px-5 py-3 rounded-sm text-xs font-semibold uppercase tracking-wider transition-colors"
+            >
+              <Phone className="w-4 h-4 text-himalayan-400" />
+              <span>Call Concierge: {propertyData.contact.phone || '+91 70785 60516'}</span>
+            </a>
           </div>
         </div>
       </section>

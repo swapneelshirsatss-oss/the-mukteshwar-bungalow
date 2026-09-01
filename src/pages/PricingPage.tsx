@@ -1,5 +1,7 @@
 import React from 'react';
-import { ShieldCheck, Check, Sparkles, ArrowRight, MessageCircle, Calendar } from 'lucide-react';
+import { ShieldCheck, Check, Sparkles, ArrowRight, MessageCircle, Calendar, Phone } from 'lucide-react';
+import { propertyData } from '../data/propertyData';
+import { trackEvent } from '../services/AnalyticsService';
 import { SEOHead } from '../components/common/SEOHead';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { SectionHeading } from '../components/common/SectionHeading';
@@ -128,6 +130,36 @@ export const PricingPage: React.FC = () => {
             <Calendar className="w-6 h-6 text-himalayan-700 mx-auto" />
             <h4 className="font-serif font-bold text-charcoal-900 text-base">Flexible Itineraries</h4>
             <p className="text-xs text-charcoal-600 font-light">Personalized check-in coordination and activity planning.</p>
+          </div>
+        </div>
+
+        {/* Contact Banner for Group Buyouts */}
+        <div className="mt-12 p-8 rounded-md bg-charcoal-900 text-ivory-100 border border-charcoal-800 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="space-y-1.5 text-center md:text-left">
+            <span className="text-xs uppercase tracking-wider text-himalayan-400 font-semibold">Special Group & Extended Stay Tariffs</span>
+            <h4 className="text-xl font-serif text-ivory-100">Need a Customized Villa Tariff or Corporate Rate?</h4>
+            <p className="text-xs text-ivory-200/70 font-light">
+              Connect directly with our estate manager on WhatsApp or voice call for instant tailored packages.
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-3 shrink-0">
+            <a
+              href={`tel:${propertyData.contact.phoneRaw || '+917078560516'}`}
+              onClick={() => trackEvent('phone_click', { source: 'pricing_page_banner' })}
+              className="inline-flex items-center gap-2 border border-ivory-100/30 hover:border-ivory-100 text-ivory-100 px-4 py-2.5 rounded-sm text-xs font-semibold uppercase tracking-wider transition-colors"
+            >
+              <Phone className="w-4 h-4 text-himalayan-400" />
+              <span>Call: {propertyData.contact.phone || '+91 70785 60516'}</span>
+            </a>
+            <Button
+              href={generateWhatsAppLink({ intent: 'pricing' })}
+              isExternal
+              variant="himalayan"
+              size="sm"
+              icon={<MessageCircle className="w-4 h-4" />}
+            >
+              WhatsApp +91 70785 60516
+            </Button>
           </div>
         </div>
       </section>
