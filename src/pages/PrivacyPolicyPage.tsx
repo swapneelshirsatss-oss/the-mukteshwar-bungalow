@@ -2,6 +2,7 @@ import React from 'react';
 import { SEOHead } from '../components/common/SEOHead';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { SectionHeading } from '../components/common/SectionHeading';
+import { propertyData } from '../data/propertyData';
 
 export const PrivacyPolicyPage: React.FC = () => {
   return (
@@ -46,7 +47,7 @@ export const PrivacyPolicyPage: React.FC = () => {
 
           <h2 className="text-xl font-serif font-bold text-charcoal-900">4. Contact & Inquiries</h2>
           <p>
-            If you have questions regarding this privacy policy or your stored information, you may contact us at <a href="mailto:stay@themukteshwarbungalow.in" className="text-himalayan-700 underline">stay@themukteshwarbungalow.in</a>.
+            If you have questions regarding this privacy policy or your stored information, you may contact us at <a href={`mailto:${propertyData.contact.email || 'themukteshwarbungalow@gmail.com'}`} className="text-himalayan-700 underline">{propertyData.contact.email || 'themukteshwarbungalow@gmail.com'}</a>.
           </p>
         </div>
       </section>

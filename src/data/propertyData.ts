@@ -30,7 +30,7 @@ export const propertyData: PropertyData = {
     phone: '+91 70785 60516',
     phoneRaw: '+917078560516',
     whatsapp: '917078560516',
-    email: 'stay@themukteshwarbungalow.in',
+    email: 'themukteshwarbungalow@gmail.com',
     hostName: 'Villa Concierge Team',
     hostType: 'Private Estate Manager',
     caretakerHours: '8:00 AM – 9:30 PM (On-call assistance available)',
