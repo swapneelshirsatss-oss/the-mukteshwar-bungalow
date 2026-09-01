@@ -15,8 +15,8 @@ export interface WhatsAppMessageParams {
 }
 
 export function generateWhatsAppLink(params: WhatsAppMessageParams = {}): string {
-  // Use verified WhatsApp number from property data if present, or fallback
-  const phone = propertyData.contact.whatsapp || '917078560516';
+  // Use verified WhatsApp number from env or property data if present, or fallback
+  const phone = (import.meta.env.VITE_PUBLIC_WHATSAPP_NUMBER as string) || propertyData.contact.whatsapp || '917078560516';
   
   let text = 'Hello! I am inquiring about The Mukteshwar Bungalow (3 BHK Villa in Mukteshwar).';
 

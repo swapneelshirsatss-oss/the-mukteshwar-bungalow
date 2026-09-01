@@ -140,7 +140,7 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({ className = '', da
             className="inline-flex items-center gap-1.5 font-semibold text-emerald-700 hover:text-emerald-800 underline underline-offset-2"
           >
             <MessageCircle className="w-3.5 h-3.5 text-emerald-600" />
-            <span>WhatsApp Enquiry</span>
+            <span>WhatsApp (+91 70785 60516)</span>
           </a>
         </div>
       </div>
