@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Home, Sparkles, Check, ArrowRight, ShieldCheck, MapPin, Eye, Users, Bed, Waves, Utensils, Coffee } from 'lucide-react';
+import { Home, Sparkles, Check, ArrowRight, ShieldCheck, MapPin, Eye, Users, Bed, Sun, Utensils, Coffee } from 'lucide-react';
 import { propertyData } from '../data/propertyData';
 import { SEOHead } from '../components/common/SEOHead';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
@@ -13,7 +13,7 @@ export const VillaPage: React.FC = () => {
     <>
       <SEOHead
         title="The Villa Estate & Architecture | The Mukteshwar Bungalow"
-        description="Explore the architecture, living salons, 3 luxury suites, private plunge pool, and lush grounds of The Mukteshwar Bungalow in Kasialekh, Mukteshwar."
+        description="Explore the architecture, living salons, 3 luxury suites, panoramic veranda, and lush grounds of The Mukteshwar Bungalow in Kasialekh, Mukteshwar."
         canonicalUrl="https://themukteshwarbungalow.in/villa"
       />
 
@@ -140,7 +140,7 @@ export const VillaPage: React.FC = () => {
           centered
           subtitle="Authentic Visuals"
           title="Photography of the Residence"
-          description="High-resolution photography capturing the architecture, suites, pool, and surrounding mountain gardens."
+          description="High-resolution photography capturing the architecture, suites, veranda lounge, and surrounding mountain gardens."
         />
         <FilterableGallery />
       </section>

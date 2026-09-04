@@ -84,7 +84,6 @@ export interface PropertyData {
     checkInTime: string | null;
     checkOutTime: string | null;
     houseRules: string[];
-    poolRules: string[];
     noisePolicy: string | null;
     smokingPolicy: string | null;
     petPolicy: string | null;
@@ -121,7 +120,7 @@ export interface FAQItem {
   id: string;
   question: string;
   answer: string;
-  category: 'Booking & Pricing' | 'Suites & Capacity' | 'Location & Travel' | 'Private Pool & Veranda' | 'Kitchen & Dining' | 'House Policies';
+  category: 'Booking & Pricing' | 'Suites & Capacity' | 'Location & Travel' | 'Veranda & Outdoors' | 'Kitchen & Dining' | 'House Policies';
 }
 
 export interface BlogPost {

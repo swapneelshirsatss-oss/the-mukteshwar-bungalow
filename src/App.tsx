@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
 import { StickyMobileBar } from './components/layout/StickyMobileBar';
@@ -11,7 +11,6 @@ import { VillaPage } from './pages/VillaPage';
 import { RoomsPage } from './pages/RoomsPage';
 import { RoomDetailPage } from './pages/RoomDetailPage';
 import { VerandaLoungePage } from './pages/VerandaLoungePage';
-import { PrivatePoolPage } from './pages/PrivatePoolPage';
 import { KitchenPage } from './pages/KitchenPage';
 import { ExperiencesPage } from './pages/ExperiencesPage';
 import { LocationPage } from './pages/LocationPage';
@@ -63,7 +62,7 @@ export const App: React.FC = () => {
             <Route path="/rooms" element={<RoomsPage />} />
             <Route path="/rooms/:slug" element={<RoomDetailPage />} />
             <Route path="/veranda-lounge" element={<VerandaLoungePage />} />
-            <Route path="/private-pool" element={<PrivatePoolPage />} />
+            <Route path="/private-pool" element={<Navigate to="/villa" replace />} />
             <Route path="/kitchen" element={<KitchenPage />} />
             <Route path="/experiences" element={<ExperiencesPage />} />
             

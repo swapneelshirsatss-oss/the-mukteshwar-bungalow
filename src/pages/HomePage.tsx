@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import {
   Shield,
   Sparkles,
-  Waves,
+  Sun,
   Utensils,
   Coffee,
   Check,
@@ -43,7 +43,7 @@ export const HomePage: React.FC = () => {
     <>
       <SEOHead
         title="Luxury Villa in Mukteshwar | The Mukteshwar Bungalow"
-        description="Discover The Mukteshwar Bungalow, a private 3 BHK luxury mountain villa in Kasialekh, Mukteshwar, Uttarakhand. Explore suites, private pool, veranda lounge, and direct booking availability."
+        description="Discover The Mukteshwar Bungalow, a private 3 BHK luxury mountain villa in Kasialekh, Mukteshwar, Uttarakhand. Explore suites, veranda lounge, open sun deck, and direct booking availability."
         canonicalUrl="https://themukteshwarbungalow.in/"
         schema={[websiteSchema, lodgingSchema, faqSchema]}
       />
@@ -82,7 +82,7 @@ export const HomePage: React.FC = () => {
           </p>
 
           <p className="text-xs sm:text-sm uppercase tracking-super-wide text-ivory-200/70 max-w-xl mx-auto font-sans font-light">
-            3 BHK Luxury Residence • Private Pool & Deck • The Veranda Lounge
+            3 BHK Luxury Residence • Open Sun Deck • The Veranda Lounge
           </p>
 
           {/* Booking Widget Embedded in Hero */}
@@ -137,8 +137,8 @@ export const HomePage: React.FC = () => {
               <span className="text-[11px] uppercase tracking-wider text-ivory-200/70 font-light">Exclusive Seclusion</span>
             </div>
             <div className="py-2 px-3">
-              <span className="text-lg sm:text-xl font-serif font-bold text-himalayan-400 block">Private Pool</span>
-              <span className="text-[11px] uppercase tracking-wider text-ivory-200/70 font-light">Mountain Plunge & Deck</span>
+              <span className="text-lg sm:text-xl font-serif font-bold text-himalayan-400 block">Open Sun Deck</span>
+              <span className="text-[11px] uppercase tracking-wider text-ivory-200/70 font-light">Mountain Terrace & Views</span>
             </div>
             <div className="py-2 px-3">
               <span className="text-lg sm:text-xl font-serif font-bold text-himalayan-400 block">The Veranda</span>
@@ -200,7 +200,7 @@ export const HomePage: React.FC = () => {
 
             <div className="space-y-4 text-xs sm:text-sm text-charcoal-700 font-light leading-relaxed">
               <p>
-                Unlike conventional hotels with crowded public spaces and standardized rooms, our 3 BHK residence gives you the entire property to yourself. From slow morning tea on the Veranda Lounge to afternoon dips in your private pool, every corner is dedicated to your family or group.
+                Unlike conventional hotels with crowded public spaces and standardized rooms, our 3 BHK residence gives you the entire property to yourself. From slow morning tea on the Veranda Lounge to golden sunset views on the open deck, every corner is dedicated to your family or group.
               </p>
               <p>
                 Built with honest Himalayan stone textures, warm exposed timber ceilings, and panoramic double-glazed windows, the bungalow balances mountain vernacular architecture with contemporary residential ease.
@@ -301,50 +301,50 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* SECTION 6 — PRIVATE POOL & KITCHEN GRID */}
+      {/* SECTION 6 — OPEN SUN DECK & KITCHEN GRID */}
       <section className="py-20 bg-charcoal-900 text-ivory-100 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <SectionHeading
             dark
             centered
             subtitle="Exclusive Lifestyle Amenities"
-            title="Private Pool & Fully Equipped Kitchen"
-            description="Designed for effortless residential comfort, our private plunge pool and modern kitchen provide total independence throughout your mountain stay."
+            title="Open Sun Deck & Fully Equipped Kitchen"
+            description="Designed for effortless residential comfort, our open-air mountain deck and modern kitchen provide total independence throughout your mountain stay."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 mt-12">
-            {/* Private Pool Card */}
+            {/* Open Sun Deck Card */}
             <div className="bg-charcoal-950/80 rounded-md overflow-hidden border border-ivory-100/10 p-6 sm:p-8 flex flex-col justify-between space-y-6">
               <div className="space-y-4">
                 <div className="aspect-[16/10] rounded-sm overflow-hidden border border-ivory-100/10">
                   <img
-                    src="/images/pool/private-pool-deck-himalayan-view.jpg"
-                    alt="Private swimming pool and sundeck at The Mukteshwar Bungalow"
+                    src="/images/veranda/veranda-open-space-terrace.jpg"
+                    alt="Open sun deck terrace at The Mukteshwar Bungalow"
                     loading="lazy"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="flex items-center gap-2 text-himalayan-400">
-                  <Waves className="w-5 h-5" />
-                  <span className="text-xs uppercase tracking-widest font-semibold font-sans">Private Plunge Pool</span>
+                  <Sun className="w-5 h-5" />
+                  <span className="text-xs uppercase tracking-widest font-semibold font-sans">Open Mountain Deck</span>
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-serif text-ivory-100">
-                  Private Pool & Sundeck
+                  Open Sun Deck & Terrace
                 </h3>
                 <p className="text-xs sm:text-sm text-ivory-200/70 font-light leading-relaxed">
-                  Immerse yourself in refreshing mountain waters overlooking pine-covered hills. The private pool and sundeck are exclusively reserved for resident guests.
+                  Bask in golden Himalayan sunshine overlooking pine-covered hills. The open stone deck terrace connects seamlessly with lush private gardens for outdoor dining, yoga, and quiet contemplation.
                 </p>
                 <div className="text-[11px] text-ivory-200/50">
-                  Pool hours: 8:00 AM – 7:00 PM • Filtered clean mountain spring water
+                  Panoramic ridge views • Artisanal outdoor seating • Stargazing terrace
                 </div>
               </div>
 
               <div>
                 <Link
-                  to="/private-pool"
+                  to="/veranda-lounge"
                   className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-himalayan-400 hover:text-himalayan-300"
                 >
-                  <span>View Pool Guidelines</span>
+                  <span>Explore The Veranda & Terraces</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
@@ -446,7 +446,7 @@ export const HomePage: React.FC = () => {
             centered
             subtitle="Everything You Need to Know"
             title="Frequently Asked Questions"
-            description="Clear answers regarding direct booking, private pool access, kitchen facilities, directions, and house policies."
+            description="Clear answers regarding direct booking, veranda lounge, kitchen facilities, directions, and house policies."
           />
 
           <div className="space-y-4">
@@ -490,7 +490,7 @@ export const HomePage: React.FC = () => {
             Reserve Your Private Himalayan Sanctuary
           </h2>
           <p className="text-sm sm:text-base text-ivory-200/80 font-light leading-relaxed max-w-xl mx-auto">
-            Enjoy 100% exclusive 3 BHK villa privacy, panoramic Kumaon views, private pool, and personalized mountain hospitality.
+            Enjoy 100% exclusive 3 BHK villa privacy, panoramic Kumaon views, open sun deck, and personalized mountain hospitality.
           </p>
 
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">

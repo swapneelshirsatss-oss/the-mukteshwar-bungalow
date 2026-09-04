@@ -11,7 +11,7 @@ export const GalleryPage: React.FC = () => {
     <>
       <SEOHead
         title="Visual Photography Gallery | The Mukteshwar Bungalow"
-        description="Browse high-resolution photographs of The Mukteshwar Bungalow: 3 luxury suites, private pool, Veranda Lounge, living salons, kitchen, and Himalayan views."
+        description="Browse high-resolution photographs of The Mukteshwar Bungalow: 3 luxury suites, Veranda Lounge, open-air sun deck, living salons, kitchen, and Himalayan views."
         canonicalUrl="https://themukteshwarbungalow.in/gallery"
       />
 

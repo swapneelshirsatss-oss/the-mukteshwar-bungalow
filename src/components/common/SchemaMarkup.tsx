@@ -13,7 +13,7 @@ export function getWebSiteSchema() {
       'The Mukteshwar Villa',
       'Mukteshwar Bungalow'
     ],
-    'description': 'Private 3 BHK luxury mountain villa in Kasialekh, Mukteshwar with private plunge pool, Veranda Lounge, and panoramic Himalayan views.',
+    'description': 'Private 3 BHK luxury mountain villa in Kasialekh, Mukteshwar with panoramic Veranda Lounge, open sun deck, and mountain views.',
     'publisher': {
       '@type': 'LodgingBusiness',
       '@id': 'https://themukteshwarbungalow.in/#lodging'
@@ -32,7 +32,7 @@ export function getLodgingBusinessSchema() {
       'The Mukteshwar Villa',
       'Mukteshwar Luxury 3 BHK Villa'
     ],
-    'description': propertyData.tagline + ' — A private 3 BHK luxury mountain villa in Kasialekh, Mukteshwar, Uttarakhand with private pool and panoramic valley views.',
+    'description': propertyData.tagline + ' — A private 3 BHK luxury mountain villa in Kasialekh, Mukteshwar, Uttarakhand with open sun deck, veranda lounge, and panoramic valley views.',
     'url': 'https://themukteshwarbungalow.in',
     'telephone': propertyData.contact.phoneRaw || '+917078560516',
     'email': propertyData.contact.email,
@@ -62,7 +62,7 @@ export function getLodgingBusinessSchema() {
       'https://themukteshwarbungalow.in/images/exterior/the-mukteshwar-bungalow-exterior-mukteshwar-uttarakhand.jpg',
       'https://themukteshwarbungalow.in/images/exterior/villa-exterior-himalayan-architecture.jpg',
       'https://themukteshwarbungalow.in/images/veranda/veranda-lounge-morning-tea-seating.jpg',
-      'https://themukteshwarbungalow.in/images/pool/private-pool-deck-himalayan-view.jpg'
+      'https://themukteshwarbungalow.in/images/veranda/veranda-open-space-terrace.jpg'
     ],
     'address': {
       '@type': 'PostalAddress',
@@ -85,7 +85,7 @@ export function getLodgingBusinessSchema() {
     'amenityFeature': [
       {
         '@type': 'LocationFeatureSpecification',
-        'name': 'Private Swimming Pool & Deck',
+        'name': 'Open-Air Sun Terrace & Deck',
         'value': true
       },
       {

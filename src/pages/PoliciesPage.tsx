@@ -10,8 +10,8 @@ export const PoliciesPage: React.FC = () => {
   return (
     <>
       <SEOHead
-        title="House Policies & Guidelines | The Mukteshwar Bungalow"
-        description="Check-in/out timings, pool rules, noise policy, smoking guidelines, and stay regulations at The Mukteshwar Bungalow in Mukteshwar."
+        title="Policies & House Rules | The Mukteshwar Bungalow"
+        description="Check-in/out timings, quiet hours, noise policy, smoking guidelines, and stay regulations at The Mukteshwar Bungalow in Mukteshwar."
         canonicalUrl="https://themukteshwarbungalow.in/policies"
       />
 
@@ -74,22 +74,6 @@ export const PoliciesPage: React.FC = () => {
           </div>
           <ul className="space-y-3 text-xs sm:text-sm text-charcoal-700 font-light">
             {propertyData.policies.houseRules.map((rule, idx) => (
-              <li key={idx} className="flex items-start gap-2.5">
-                <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                <span>{rule}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Pool Rules */}
-        <div className="bg-white p-6 sm:p-8 rounded-md border border-charcoal-900/10 shadow-editorial space-y-4">
-          <div className="flex items-center gap-2.5 text-himalayan-700 font-serif font-bold text-xl">
-            <AlertCircle className="w-5 h-5" />
-            <h2>Swimming Pool Safety Rules</h2>
-          </div>
-          <ul className="space-y-3 text-xs sm:text-sm text-charcoal-700 font-light">
-            {propertyData.policies.poolRules.map((rule, idx) => (
               <li key={idx} className="flex items-start gap-2.5">
                 <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                 <span>{rule}</span>

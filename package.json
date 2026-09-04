@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "deploy": "node scripts/deployToHostinger.js",
     "lint": "oxlint",
     "preview": "vite preview"
   },
@@ -26,9 +27,12 @@
     "@types/react-dom": "^19.2.4",
     "@vitejs/plugin-react": "^6.1.0",
     "autoprefixer": "^10.5.4",
+    "basic-ftp": "^6.2.1",
+    "dotenv": "^17.4.2",
     "oxlint": "^1.79.0",
     "postcss": "^8.5.26",
     "sharp": "^0.35.4",
+    "ssh2-sftp-client": "^12.1.1",
     "tailwindcss": "^4.3.3",
     "typescript": "~6.0.2",
     "vite": "^8.2.2"

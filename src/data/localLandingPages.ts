@@ -5,7 +5,7 @@ export const localLandingPages: Record<string, LocalLandingPageData> = {
     city: 'Delhi',
     slug: 'luxury-villa-mukteshwar-from-delhi',
     pageTitle: 'Luxury 3 BHK Villa in Mukteshwar from Delhi | The Mukteshwar Bungalow',
-    metaDescription: 'Escape Delhi city traffic to a private 3 BHK luxury mountain villa in Kasialekh, Mukteshwar. 7.5 hrs smooth drive, private pool, veranda lounge, and direct Himalayan views.',
+    metaDescription: 'Escape Delhi city traffic to a private 3 BHK luxury mountain villa in Kasialekh, Mukteshwar. 7.5 hrs smooth drive, open sun deck, veranda lounge, and direct Himalayan views.',
     heroHeadline: 'A Private Himalayan Sanctuary for Discerning Delhi Travelers',
     heroSubheadline: 'Trade Delhi’s bustling urban pace for the pine-scented serenity, crisp mountain air, and exclusive 3 BHK privacy of The Mukteshwar Bungalow in Kasialekh.',
     drivingDistanceSummary: 'Approx. 330 km • 7.5 to 8.5 hours via Delhi-Meerut Expressway & NH 9',
@@ -19,7 +19,7 @@ export const localLandingPages: Record<string, LocalLandingPageData> = {
     whyChooseVilla: [
       '100% exclusive private residence — no shared corridors or crowded breakfast buffets',
       '3 spacious suites (The Himalayan Suite, The Imperial Suite, The Signature Himalayan)',
-      'Private pool and panoramic Veranda Lounge with direct Kumaon valley views',
+      'Panoramic Veranda Lounge and open sun deck with direct Kumaon valley views',
       'Modern fully equipped kitchen for custom homestyle meals and baby food'
     ],
     weekendItinerary: [
@@ -36,7 +36,7 @@ export const localLandingPages: Record<string, LocalLandingPageData> = {
       {
         day: 'Day 3 (Sunday)',
         title: 'Forest Trails & Rejuvenated Return',
-        description: 'Morning swim in the private pool or gentle pine forest walk. Enjoy a leisurely brunch before heading down the hill, reaching Delhi relaxed by late evening.'
+        description: 'Morning tea on the open sun deck or gentle pine forest walk. Enjoy a leisurely brunch before heading down the hill, reaching Delhi relaxed by late evening.'
       }
     ]
   },
@@ -70,7 +70,7 @@ export const localLandingPages: Record<string, LocalLandingPageData> = {
       {
         day: 'Day 2 (Saturday)',
         title: 'Bhalu Gaad Waterfall Trek & Terrace BBQ',
-        description: 'Take a short 30-minute drive to the Bhalu Gaad forest trail for a refreshing natural waterfall hike. Spend the afternoon relaxing by the private pool.'
+        description: 'Take a short 30-minute drive to the Bhalu Gaad forest trail for a refreshing natural waterfall hike. Spend the afternoon relaxing on the open-air veranda lounge.'
       },
       {
         day: 'Day 3 (Sunday)',
@@ -83,9 +83,9 @@ export const localLandingPages: Record<string, LocalLandingPageData> = {
     city: 'Gurgaon',
     slug: 'mukteshwar-weekend-getaway-from-gurgaon',
     pageTitle: 'Mukteshwar Weekend Getaway from Gurgaon | Luxury 3 BHK Mountain Villa',
-    metaDescription: 'Plan your long weekend villa getaway from Gurgaon to Mukteshwar. Premium 3 BHK private residence, exclusive pool, mountain silence, and personalized concierge hosting.',
+    metaDescription: 'Plan your long weekend villa getaway from Gurgaon to Mukteshwar. Premium 3 BHK private residence, panoramic sun deck, mountain silence, and personalized concierge hosting.',
     heroHeadline: 'Unrivaled Mountain Peace for Gurgaon Corporate & Family Circles',
-    heroSubheadline: 'Leave Millennium City’s concrete towers behind for the raw natural grandeur of Mukteshwar’s cedar ridges, private swimming pool, and bespoke mountain hospitality.',
+    heroSubheadline: 'Leave Millennium City’s concrete towers behind for the raw natural grandeur of Mukteshwar’s cedar ridges, open sun deck, and bespoke mountain hospitality.',
     drivingDistanceSummary: 'Approx. 355 km • 8 to 8.5 hours via Delhi-Meerut Expressway or Western Peripheral',
     idealAudience: 'Senior executives, corporate retreats, close-knit friend circles, and luxury seekers looking for uncompromised privacy.',
     routeHighlights: [
@@ -108,8 +108,8 @@ export const localLandingPages: Record<string, LocalLandingPageData> = {
       },
       {
         day: 'Day 2 (Saturday)',
-        title: 'Private Pool, Slow Living & Kumaon Stargazing',
-        description: 'Spend an unhurried morning lounging by the private pool, explore Mukteshwar Dham temple, and enjoy an evening barbecue under crystal-clear night skies.'
+        title: 'Veranda Sun Terrace, Slow Living & Kumaon Stargazing',
+        description: 'Spend an unhurried morning relaxing on the open veranda deck, explore Mukteshwar Dham temple, and enjoy an evening barbecue under crystal-clear night skies.'
       },
       {
         day: 'Day 3 (Sunday)',
@@ -122,7 +122,7 @@ export const localLandingPages: Record<string, LocalLandingPageData> = {
     city: 'Dehradun',
     slug: 'mukteshwar-villa-from-dehradun',
     pageTitle: 'Mukteshwar Villa Holiday from Dehradun | Garhwal to Kumaon Retreat',
-    metaDescription: 'Travel from Dehradun to the quiet Kumaon hills of Mukteshwar. 3 BHK private villa in Kasialekh with private pool, panoramic veranda, and authentic mountain hospitality.',
+    metaDescription: 'Travel from Dehradun to the quiet Kumaon hills of Mukteshwar. 3 BHK private villa in Kasialekh with open-air sun deck, panoramic veranda, and authentic mountain hospitality.',
     heroHeadline: 'Cross-Hill Escapes: From the Doon Valley to Kumaon Heights',
     heroSubheadline: 'Experience a refreshing change of landscape from Garhwal to the serene fruit orchards and high pine ridges of Mukteshwar at The Mukteshwar Bungalow.',
     drivingDistanceSummary: 'Approx. 290 km • 7 to 7.5 hours via Haridwar, Kashipur & Haldwani',
@@ -136,7 +136,7 @@ export const localLandingPages: Record<string, LocalLandingPageData> = {
     whyChooseVilla: [
       'Quieter alternative to congested Western Uttarakhand tourist hotspots',
       '3 large king bedroom suites with panoramic morning sunlight',
-      'Complete private pool and lawn access for your private group',
+      'Complete private veranda, sun deck, and lawn access for your private group',
       'Independent kitchen equipped for home-cooked Kumaoni culinary experiments'
     ],
     weekendItinerary: [
@@ -148,7 +148,7 @@ export const localLandingPages: Record<string, LocalLandingPageData> = {
       {
         day: 'Day 2',
         title: 'Exploring Chauli Ki Jali & Pine Forests',
-        description: 'Visit the historic Mukteshwar Shiva Temple and cliff trails, followed by a relaxing dip in the private pool.'
+        description: 'Visit the historic Mukteshwar Shiva Temple and cliff trails, followed by a peaceful afternoon on the veranda sun terrace.'
       },
       {
         day: 'Day 3',
@@ -174,7 +174,7 @@ export const localLandingPages: Record<string, LocalLandingPageData> = {
     ],
     whyChooseVilla: [
       'Closest luxury 3 BHK private residence for foothill residents',
-      'Private pool and open veranda deck for intimate family celebrations',
+      'Lush private gardens and open veranda deck for intimate family celebrations',
       '3 distinct suites with modern amenities and attached baths',
       'Full kitchen facility allowing your family to cook favorite dishes freely'
     ],
@@ -186,8 +186,8 @@ export const localLandingPages: Record<string, LocalLandingPageData> = {
       },
       {
         day: 'Saturday Evening',
-        title: 'Private Pool & Mountain Bonfire',
-        description: 'Afternoon swim in the plunge pool followed by an ambient evening bonfire with music and family dining.'
+        title: 'Veranda Sunset & Mountain Bonfire',
+        description: 'Afternoon relaxation on the sun deck followed by an ambient evening bonfire with music and family dining.'
       },
       {
         day: 'Sunday Afternoon',

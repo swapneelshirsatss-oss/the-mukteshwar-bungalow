@@ -55,16 +55,10 @@ export const propertyFAQs: FAQItem[] = [
     answer: 'The nearest major railway station is Kathgodam (KGM), approximately 56 km away (approx. 2 hours drive). The nearest regional airport is Pantnagar Airport (PGH), approximately 88 km away. Direct mountain taxis can be arranged with prior notice.'
   },
 
-  // Private Pool & Veranda
-  {
-    id: 'faq-pool-private',
-    category: 'Private Pool & Veranda',
-    question: 'Is the swimming pool private and exclusive to our group?',
-    answer: 'Yes, the plunge pool and sundeck are completely private to the resident guests staying at The Mukteshwar Bungalow. Pool hours are 8:00 AM to 7:00 PM for guest safety and water filtration upkeep.'
-  },
+  // Veranda & Outdoors
   {
     id: 'faq-veranda-bonfire',
-    category: 'Private Pool & Veranda',
+    category: 'Veranda & Outdoors',
     question: 'Can we arrange an evening bonfire on the veranda terrace?',
     answer: 'Yes, our on-site caretaker can arrange an ambient evening bonfire setup on the open veranda terrace upon request, subject to weather conditions and forest safety regulations.'
   },

@@ -60,17 +60,6 @@ export const propertyData: PropertyData = {
       ]
     },
     {
-      name: 'Private Pool & Deck',
-      description: 'A serene private mountain plunge pool and sundeck overlooking the Himalayan slopes, offering restorative relaxation immersed in forest tranquility.',
-      image: '/images/pool/private-pool-deck-himalayan-view.jpg',
-      features: [
-        'Exclusive private pool access for resident guests',
-        'Sundeck loungers with pine forest backdrop',
-        'Treated clean mountain spring water filtration',
-        'Private poolside deck for morning coffee'
-      ]
-    },
-    {
       name: 'Fully Equipped Kitchen',
       description: 'A complete residential kitchen fitted with modern cooking hobs, refrigeration, microwave, electric kettle, cookware, and tableware for complete culinary freedom.',
       image: '/images/kitchen/fully-equipped-kitchen-dining-counter.jpg',
@@ -215,7 +204,7 @@ export const propertyData: PropertyData = {
       title: 'Comfort & Living',
       description: 'Crafted for relaxed private residence living',
       items: [
-        { name: 'Private Mountain Pool & Deck', icon: 'Waves', verified: true, description: 'Exclusive resident pool overlooking the hills' },
+        { name: 'Open-Air Sun Terrace & Deck', icon: 'Sun', verified: true, description: 'Panoramic outdoor deck overlooking the Kumaon valley' },
         { name: 'The Veranda Lounge', icon: 'Coffee', verified: true, description: 'Panoramic outdoor living & tea terrace' },
         { name: 'Spacious Living & Dining Salon', icon: 'Armchair', verified: true, description: 'Dual family lounges with mountain views' },
         { name: 'Landscaped Private Gardens', icon: 'Trees', verified: true, description: 'Green lawns with Himalayan pine backdrop' },
@@ -251,15 +240,7 @@ export const propertyData: PropertyData = {
       'Valid Government Photo ID (Aadhaar / Passport) is required for all adult guests upon arrival.',
       'The property is a serene Himalayan residential sanctuary; commercial loud parties are not permitted.',
       'Smoking is strictly restricted to designated open outdoor veranda areas; smoking inside bedrooms is not permitted.',
-      'Kitchen access is provided for guest self-cooking and reheating; please keep cooking spaces tidy.',
-      'Care should be taken around the pool area; children must be supervised by adults at all times.'
-    ],
-    poolRules: [
-      'Pool timings: 8:00 AM to 7:00 PM.',
-      'Proper swimwear required before entering the pool.',
-      'No glassware or breakable items on the immediate pool deck.',
-      'Children under 14 must be accompanied by an adult guardian at all times.',
-      'Diving is strictly prohibited for guest safety.'
+      'Kitchen access is provided for guest self-cooking and reheating; please keep cooking spaces tidy.'
     ],
     noisePolicy: 'Quiet hours observed between 10:00 PM and 7:00 AM to respect mountain tranquility.',
     smokingPolicy: 'Allowed only in open-air garden and designated outdoor terrace zones.',
@@ -270,7 +251,7 @@ export const propertyData: PropertyData = {
   highlights: [
     {
       title: 'Complete 3 BHK Buyout',
-      description: 'Enjoy 100% exclusive privacy across all 3 suites, private pool, living salons, kitchen, and gardens with no outside guests.',
+      description: 'Enjoy 100% exclusive privacy across all 3 suites, living salons, veranda lounge, kitchen, and gardens with no outside guests.',
       icon: 'Home'
     },
     {
@@ -279,9 +260,9 @@ export const propertyData: PropertyData = {
       icon: 'Mountain'
     },
     {
-      title: 'Private Pool & Veranda',
-      description: 'Unwind on the panoramic open-air veranda deck and private plunge pool with continuous valley breezes.',
-      icon: 'Waves'
+      title: 'Panoramic Veranda & Sun Deck',
+      description: 'Unwind on the panoramic open-air veranda terrace and sun deck with continuous valley breezes.',
+      icon: 'Coffee'
     },
     {
       title: 'Direct-Booking Transparency',

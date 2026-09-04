@@ -36,7 +36,6 @@ export const Header: React.FC<HeaderProps> = () => {
     { name: 'The Villa', path: '/villa' },
     { name: 'Suites', path: '/rooms' },
     { name: 'Veranda Lounge', path: '/veranda-lounge' },
-    { name: 'Private Pool', path: '/private-pool' },
     { name: 'Kitchen', path: '/kitchen' },
     { name: 'Experiences', path: '/experiences' },
     { name: 'Location', path: '/location' },

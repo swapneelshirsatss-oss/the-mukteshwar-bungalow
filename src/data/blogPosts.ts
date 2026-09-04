@@ -20,7 +20,7 @@ export const blogPosts: BlogPost[] = [
         heading: 'The Shift from Cramped Hotel Rooms to Private Himalayan Sanctuaries',
         content: [
           'For decades, travelers heading to Uttarakhand accepted the predictable rhythm of conventional hotels: bustling lobbies, shared breakfast halls, noisy corridors, and cramped 300-square-foot rooms. While suitable for quick overnight stops, this format clashes with the primary reason people retreat to the mountains—deep quiet, unhurried space, and absolute seclusion.',
-          'At The Mukteshwar Bungalow, luxury is defined by space and privacy. When you book our 3 BHK residence, the entire estate belongs exclusively to your family or group. From the sunrise-facing Veranda Lounge to the private plunge pool, no outside guests share your personal haven.'
+          'At The Mukteshwar Bungalow, luxury is defined by space and privacy. When you book our 3 BHK residence, the entire estate belongs exclusively to your family or group. From the sunrise-facing Veranda Lounge to the quiet garden lawns, no outside guests share your personal haven.'
         ]
       },
       {
@@ -35,10 +35,10 @@ export const blogPosts: BlogPost[] = [
         heading: 'Ideal for Multi-Generational Family Gatherings and Workcations',
         content: [
           'With three dedicated bedroom sanctuaries—The Himalayan Suite, The Imperial Suite, and The Signature Himalayan—every family member enjoys their private en-suite refuge, while coming together across two expansive living salons and private lawns.',
-          'Whether hosting grandparents who value peaceful walking lawns, children who love the private pool, or remote professionals needing quiet high-speed connectivity, a private 3 BHK layout provides effortless harmony.'
+          'Whether hosting grandparents who value peaceful walking lawns, children who love exploring the mountain garden, or remote professionals needing quiet high-speed connectivity, a private 3 BHK layout provides effortless harmony.'
         ],
         bulletPoints: [
-          '100% exclusive access to all 3 suites, lawns, pool, and lounges',
+          '100% exclusive access to all 3 suites, lawns, veranda, and lounges',
           'Full culinary flexibility with your own modern residential kitchen',
           'Safe on-premises parking and personalized caretaker assistance',
           'Quiet Kasialekh ridge location away from tourist traffic congestion'

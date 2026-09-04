@@ -198,7 +198,7 @@ export const RoomDetailPage: React.FC = () => {
               </div>
 
               <div className="text-[11px] text-center text-charcoal-500 font-light">
-                Includes full villa living salons & pool access
+                Includes full villa living salons & veranda access
               </div>
             </div>
           </div>

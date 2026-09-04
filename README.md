@@ -30,7 +30,6 @@ All property metadata is centralized in `src/data/propertyData.ts` adhering stri
 - **Living Zones**:
   - *The Veranda Lounge*
   - *Veranda - Open Space*
-  - *Private Pool & Deck*
   - *Fully Equipped Kitchen*
 - **Data Integrity**: Unverified pricing, phone numbers, or reviews display elegant fallback inquiry states (*"Details coming soon"*, *"Check dates for current rates"*, *"Verified guest reviews will appear here"*).
 
@@ -40,14 +39,13 @@ All property metadata is centralized in `src/data/propertyData.ts` adhering stri
 
 | URL Path | Description & SEO Target |
 | :--- | :--- |
-| `/` | **Homepage** — Cinematic hero, availability search widget, 3 suites, veranda, pool, kitchen, day/dusk ambiance toggle, FAQs |
+| `/` | **Homepage** — Cinematic hero, availability search widget, 3 suites, veranda, sun deck, kitchen, day/dusk ambiance toggle, FAQs |
 | `/villa` | **The Villa Estate** — Architectural narrative, Himalayan living, spatial flow & grounds |
 | `/rooms` | **Suites Collection** — Overview of all 3 suites with comparative specification matrix |
 | `/rooms/the-himalayan-suite` | **The Himalayan Suite** — Master Suite 1 deep-dive with panoramic valley glazing & en-suite bath |
 | `/rooms/the-imperial-suite` | **The Imperial Suite** — Suite 2 deep-dive with timber rafters & garden tranquility |
 | `/rooms/the-signature-himalayan` | **The Signature Himalayan** — Suite 3 deep-dive with corner terrace step-out |
 | `/veranda-lounge` | **The Veranda Lounge** — Indoor-outdoor living, morning tea terrace & evening bonfire |
-| `/private-pool` | **Private Pool & Deck** — Mountain plunge pool, sundeck loungers, and safety rules |
 | `/kitchen` | **Fully Equipped Kitchen** — Cooking hobs, microwave, refrigerator, and self-cooking setup |
 | `/experiences` | **Curated Experiences** — Mountain sunrise rituals, forest walks, stargazing, and treks |
 | `/location` | **Kasialekh Location & Map** — Exact canonical address, embedded Google Map & regional context |
@@ -63,7 +61,7 @@ All property metadata is centralized in `src/data/propertyData.ts` adhering stri
 | `/blog` | **Editorial Travel Journal** — Content hub for itineraries, seasonal guides, and mountain stays |
 | `/blog/:slug` | **Article Deep-Dives** — Long-form SEO pillar articles with contextual booking CTAs |
 | `/reviews` | **Guest Stories & Reviews** — Verified review aggregation framework |
-| `/policies` | **House Policies & Rules** — Check-in/out, noise policy, pool rules, smoking guidelines |
+| `/policies` | **House Policies & Rules** — Check-in/out, noise policy, smoking guidelines, stay terms |
 | `/privacy-policy` | **Privacy Policy** — Data protection & Uttarakhand ID verification terms |
 | `/terms` | **Terms of Stay** — Booking terms, security deposit, and guest agreement |
 

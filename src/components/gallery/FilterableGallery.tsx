@@ -21,7 +21,7 @@ export const FilterableGallery: React.FC<FilterableGalleryProps> = ({ initialCat
     'Veranda',
     'Living',
     'Kitchen',
-    'Garden & Pool'
+    'Garden & Grounds'
   ];
 
   const filteredImages = selectedCategory === 'All'

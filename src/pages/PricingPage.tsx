@@ -83,7 +83,7 @@ export const PricingPage: React.FC = () => {
             <div className="flex items-center justify-between pt-4">
               <div>
                 <span className="font-semibold text-charcoal-900 block text-base font-serif">Included Amenities</span>
-                <span className="text-xs text-charcoal-500 font-light">Private pool, Veranda Lounge, living salons, high-speed Wi-Fi, caretaker & parking</span>
+                <span className="text-xs text-charcoal-500 font-light">Panoramic Veranda Lounge, living salons, high-speed Wi-Fi, caretaker & parking</span>
               </div>
               <span className="font-semibold text-emerald-700 uppercase tracking-wider text-xs">Included (₹0)</span>
             </div>

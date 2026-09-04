@@ -20,8 +20,8 @@ export const Footer: React.FC = () => {
               <span className="text-[11px] font-sans tracking-widest text-himalayan-300/90 uppercase block mt-1 font-semibold">3 BHK Villa</span>
             </Link>
 
-            <p className="text-sm font-light text-ivory-200/70 max-w-sm leading-relaxed">
-              A private 3 BHK luxury mountain residence in the Kumaon hills. Offering 100% exclusive privacy, private plunge pool, veranda lounge, and panoramic Himalayan serenity.
+            <p className="text-xs text-ivory-200/80 font-light leading-relaxed">
+              A private 3 BHK luxury mountain residence in the Kumaon hills. Offering 100% exclusive privacy, veranda lounge, open sun deck, and panoramic Himalayan serenity.
             </p>
 
             {/* Exact Canonical NAP */}
@@ -123,9 +123,6 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link to="/veranda-lounge" className="hover:text-himalayan-400 transition-colors">The Veranda Lounge</Link>
-              </li>
-              <li>
-                <Link to="/private-pool" className="hover:text-himalayan-400 transition-colors">Private Pool & Deck</Link>
               </li>
               <li>
                 <Link to="/kitchen" className="hover:text-himalayan-400 transition-colors">Fully Equipped Kitchen</Link>

@@ -79,7 +79,7 @@ export const DirectBookingForm: React.FC = () => {
     {
       id: 'full-villa',
       name: 'Complete 3 BHK Luxury Villa Buyout (Recommended)',
-      description: '100% exclusive privacy across all 3 suites, private plunge pool, Veranda Lounge, living salons, fully equipped kitchen, and gardens. Ideal for 6–9 guests.',
+      description: '100% exclusive privacy across all 3 suites, Veranda Lounge, living salons, fully equipped kitchen, and gardens. Ideal for 6–9 guests.',
       image: '/images/exterior/the-mukteshwar-bungalow-exterior-mukteshwar-uttarakhand.jpg',
       badge: 'Most Popular for Families'
     },
@@ -274,7 +274,7 @@ export const DirectBookingForm: React.FC = () => {
           <div className="p-4 bg-ivory-100 rounded-sm border border-charcoal-900/10 flex items-center gap-3 text-xs text-charcoal-800">
             <Sparkles className="w-4 h-4 text-himalayan-700 shrink-0" />
             <span>
-              Direct booking includes complimentary high-speed Wi-Fi, caretaker assistance, complete kitchen access, and private pool privileges.
+              Direct booking includes complimentary high-speed Wi-Fi, caretaker assistance, complete kitchen access, and private estate privileges.
             </span>
           </div>
 

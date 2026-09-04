@@ -10,7 +10,7 @@ export const CapacityCalculator: React.FC = () => {
       return {
         title: 'Couple or Solo Workcation Retreat',
         suites: ['The Himalayan Suite (or Suite of your choice)'],
-        layout: '1 Master Bedroom with King Bed + En-Suite Bath + Full Access to Living Areas & Pool',
+        layout: '1 Master Bedroom with King Bed + En-Suite Bath + Full Access to Living Areas & Veranda',
         badge: 'Private Suite Experience'
       };
     }
@@ -26,7 +26,7 @@ export const CapacityCalculator: React.FC = () => {
       return {
         title: 'Standard 3 BHK Full Villa Takeover (Most Popular)',
         suites: ['The Himalayan Suite', 'The Imperial Suite', 'The Signature Himalayan'],
-        layout: 'All 3 King Bedrooms + 3 Attached En-Suites + Private Pool + Veranda Lounge + Kitchen',
+        layout: 'All 3 King Bedrooms + 3 Attached En-Suites + Veranda Lounge + Garden Deck + Kitchen',
         badge: 'Complete 3 BHK Buyout'
       };
     }

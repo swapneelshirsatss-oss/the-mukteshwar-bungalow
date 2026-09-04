@@ -2,7 +2,7 @@ export interface GalleryImage {
   id: string;
   src: string;
   alt: string;
-  category: 'Exterior' | 'Suites' | 'Veranda' | 'Living' | 'Kitchen' | 'Garden & Pool';
+  category: 'Exterior' | 'Suites' | 'Veranda' | 'Living' | 'Kitchen' | 'Garden & Grounds';
   categoryLabel: string;
   caption: string;
   width?: number;
@@ -232,20 +232,12 @@ export const galleryImages: GalleryImage[] = [
     caption: 'Complete cookware, electric kettle, and refrigerator for homestyle cooking.'
   },
 
-  // Garden & Pool
-  {
-    id: 'pool-1',
-    src: '/images/pool/private-pool-deck-himalayan-view.jpg',
-    alt: 'Private plunge pool and wooden sundeck overlooking the mountains',
-    category: 'Garden & Pool',
-    categoryLabel: 'Private Pool & Deck',
-    caption: 'Private mountain plunge pool and sundeck overlooking the pine-covered valley.'
-  },
+  // Garden & Grounds
   {
     id: 'gar-1',
     src: '/images/garden/villa-garden-private-lawn.jpg',
     alt: 'Lush private lawn and garden at The Mukteshwar Bungalow',
-    category: 'Garden & Pool',
+    category: 'Garden & Grounds',
     categoryLabel: 'Garden & Grounds',
     caption: 'Private manicured lawn surrounded by native Kumaoni flora.'
   },
@@ -253,7 +245,7 @@ export const galleryImages: GalleryImage[] = [
     id: 'gar-2',
     src: '/images/garden/villa-garden-sunset-terrace.jpg',
     alt: 'Sunset perspective over the garden terrace and mountain hills',
-    category: 'Garden & Pool',
+    category: 'Garden & Grounds',
     categoryLabel: 'Garden & Grounds',
     caption: 'Golden hour tranquility across the villa gardens.'
   }

@@ -118,7 +118,7 @@ export const BlogPostPage: React.FC = () => {
               Stay at The Mukteshwar Bungalow
             </h3>
             <p className="text-xs sm:text-sm text-ivory-200/80 font-light leading-relaxed max-w-xl">
-              A private 3 BHK mountain sanctuary in Kasialekh with private plunge pool, Veranda Lounge, and panoramic valley views.
+              A private 3 BHK mountain sanctuary in Kasialekh with panoramic Veranda Lounge, garden lawns, and sweeping valley views.
             </p>
             <div className="pt-2 flex flex-wrap gap-4">
               <Button to="/book" variant="himalayan" icon={<ArrowRight className="w-4 h-4" />}>

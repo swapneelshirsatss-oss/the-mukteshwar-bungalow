@@ -20,7 +20,7 @@ export const FAQPage: React.FC = () => {
     'Booking & Pricing',
     'Suites & Capacity',
     'Location & Travel',
-    'Private Pool & Veranda',
+    'Veranda & Outdoors',
     'Kitchen & Dining',
     'House Policies'
   ];
@@ -39,7 +39,7 @@ export const FAQPage: React.FC = () => {
     <>
       <SEOHead
         title="Frequently Asked Questions (FAQs) | The Mukteshwar Bungalow"
-        description="Find answers to common questions about booking, suites, private pool, kitchen, location, and stay policies at The Mukteshwar Bungalow."
+        description="Find answers to common questions about booking, suites, veranda lounge, kitchen, location, and stay policies at The Mukteshwar Bungalow."
         canonicalUrl="https://themukteshwarbungalow.in/faqs"
         schema={faqSchema}
       />
@@ -82,7 +82,7 @@ export const FAQPage: React.FC = () => {
             aria-label="Search frequently asked questions"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search FAQs (e.g., pool, kitchen, check-in, wifi)..."
+            placeholder="Search FAQs (e.g., veranda, kitchen, check-in, wifi)..."
             className="w-full pl-12 pr-4 py-3.5 bg-white border border-charcoal-900/15 rounded-md text-sm text-charcoal-900 placeholder:text-charcoal-400 shadow-subtle focus:border-himalayan-700 focus:ring-1 focus:ring-himalayan-700"
           />
         </div>
