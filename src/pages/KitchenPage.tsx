@@ -5,14 +5,18 @@ import { SEOHead } from '../components/common/SEOHead';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { SectionHeading } from '../components/common/SectionHeading';
 import { Button } from '../components/common/Button';
+import { getBreadcrumbSchema } from '../components/common/SchemaMarkup';
 
 export const KitchenPage: React.FC = () => {
+  const breadcrumbSchema = getBreadcrumbSchema([{ name: 'Kitchen & Dining', url: '/kitchen' }]);
+
   return (
     <>
       <SEOHead
         title="Fully Equipped Kitchen & Dining | The Mukteshwar Bungalow"
         description="Cook your own favorite meals in our fully equipped kitchen with gas hobs, refrigerator, microwave, and quartz breakfast counter in Mukteshwar."
         canonicalUrl="https://themukteshwarbungalow.in/kitchen"
+        schema={breadcrumbSchema}
       />
 
       {/* Hero */}

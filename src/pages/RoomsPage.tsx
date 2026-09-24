@@ -7,14 +7,19 @@ import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { SectionHeading } from '../components/common/SectionHeading';
 import { SuiteCard } from '../components/cards/SuiteCard';
 import { Button } from '../components/common/Button';
+import { getAllRoomsSchema, getBreadcrumbSchema } from '../components/common/SchemaMarkup';
 
 export const RoomsPage: React.FC = () => {
+  const roomsSchema = getAllRoomsSchema();
+  const breadcrumbSchema = getBreadcrumbSchema([{ name: 'Suites', url: '/rooms' }]);
+
   return (
     <>
       <SEOHead
         title="Luxury Suites & Rooms in Mukteshwar | The Mukteshwar Bungalow"
         description="Discover the 3 private suites at The Mukteshwar Bungalow: The Himalayan Suite, The Imperial Suite, and The Signature Himalayan with mountain views & en-suite luxury."
         canonicalUrl="https://themukteshwarbungalow.in/rooms"
+        schema={[...roomsSchema, breadcrumbSchema]}
       />
 
       {/* Hero */}

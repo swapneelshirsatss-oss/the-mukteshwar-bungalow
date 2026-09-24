@@ -7,14 +7,19 @@ import { SEOHead } from '../components/common/SEOHead';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { SectionHeading } from '../components/common/SectionHeading';
 import { DirectBookingForm } from '../components/booking/DirectBookingForm';
+import { getLodgingBusinessSchema, getBreadcrumbSchema } from '../components/common/SchemaMarkup';
 
 export const BookPage: React.FC = () => {
+  const lodgingSchema = getLodgingBusinessSchema();
+  const breadcrumbSchema = getBreadcrumbSchema([{ name: 'Book Direct', url: '/book' }]);
+
   return (
     <>
       <SEOHead
         title="Direct Reservation & Booking | The Mukteshwar Bungalow"
         description="Book your private stay at The Mukteshwar Bungalow (3 BHK Luxury Villa in Mukteshwar). 3-step direct booking, instant host confirmation, and zero commission fees."
         canonicalUrl="https://themukteshwarbungalow.in/book"
+        schema={[lodgingSchema, breadcrumbSchema]}
       />
 
       {/* Hero */}

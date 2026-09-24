@@ -5,14 +5,18 @@ import { SEOHead } from '../components/common/SEOHead';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { SectionHeading } from '../components/common/SectionHeading';
 import { Button } from '../components/common/Button';
+import { getBreadcrumbSchema } from '../components/common/SchemaMarkup';
 
 export const PoliciesPage: React.FC = () => {
+  const breadcrumbSchema = getBreadcrumbSchema([{ name: 'House Policies', url: '/policies' }]);
+
   return (
     <>
       <SEOHead
         title="Policies & House Rules | The Mukteshwar Bungalow"
         description="Check-in/out timings, quiet hours, noise policy, smoking guidelines, and stay regulations at The Mukteshwar Bungalow in Mukteshwar."
         canonicalUrl="https://themukteshwarbungalow.in/policies"
+        schema={breadcrumbSchema}
       />
 
       {/* Hero */}

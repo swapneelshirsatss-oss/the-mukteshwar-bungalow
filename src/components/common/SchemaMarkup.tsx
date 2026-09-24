@@ -1,5 +1,5 @@
 import { propertyData } from '../../data/propertyData';
-import { RoomSuite, FAQItem, BlogPost } from '../../types';
+import { RoomSuite, FAQItem, BlogPost, AttractionItem } from '../../types';
 
 export function getWebSiteSchema() {
   return {
@@ -14,6 +14,11 @@ export function getWebSiteSchema() {
       'Mukteshwar Bungalow'
     ],
     'description': 'Private 3 BHK luxury mountain villa in Kasialekh, Mukteshwar with panoramic Veranda Lounge, open sun deck, and mountain views.',
+    'sameAs': [
+      'https://www.google.com/maps/place/?cid=6280376278760413003',
+      'https://www.google.com/search?kgmid=/g/11z9v7l2pt',
+      'https://www.instagram.com/themukteshwarbungalow'
+    ],
     'publisher': {
       '@type': 'LodgingBusiness',
       '@id': 'https://themukteshwarbungalow.in/#lodging'
@@ -39,6 +44,11 @@ export function getLodgingBusinessSchema() {
     'priceRange': '₹₹₹',
     'currenciesAccepted': 'INR',
     'paymentAccepted': 'Cash, Credit Card, UPI, Bank Transfer',
+    'parentOrganization': {
+      '@type': 'Organization',
+      'name': 'Casa De Bello Hospitality',
+      'url': 'https://casadebello.com/'
+    },
     'contactPoint': {
       '@type': 'ContactPoint',
       'telephone': propertyData.contact.phoneRaw || '+917078560516',
@@ -74,15 +84,53 @@ export function getLodgingBusinessSchema() {
     },
     'geo': {
       '@type': 'GeoCoordinates',
-      'latitude': propertyData.address.latitude,
-      'longitude': propertyData.address.longitude
+      'latitude': propertyData.address.latitude || 29.4298751,
+      'longitude': propertyData.address.longitude || 79.6347189
     },
-    'hasMap': propertyData.address.googleMapsUrl,
+    'hasMap': propertyData.address.googleMapsUrl || 'https://www.google.com/maps/place/?cid=6280376278760413003',
+    'sameAs': [
+      'https://www.google.com/maps/place/?cid=6280376278760413003',
+      'https://www.google.com/search?kgmid=/g/11z9v7l2pt',
+      'https://www.instagram.com/themukteshwarbungalow'
+    ],
+    'openingHoursSpecification': {
+      '@type': 'OpeningHoursSpecification',
+      'dayOfWeek': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+      'opens': '00:00',
+      'closes': '23:59'
+    },
+    'aggregateRating': {
+      '@type': 'AggregateRating',
+      'ratingValue': '5.0',
+      'reviewCount': '15',
+      'bestRating': '5',
+      'worstRating': '1'
+    },
     'checkinTime': propertyData.policies.checkInTime || '14:00',
     'checkoutTime': propertyData.policies.checkOutTime || '11:00',
     'numberOfRooms': propertyData.totalBedrooms,
     'petsAllowed': false,
     'amenityFeature': [
+      {
+        '@type': 'LocationFeatureSpecification',
+        'name': 'Dedicated In-House Pure-Vegetarian Cook/Chef',
+        'value': true
+      },
+      {
+        '@type': 'LocationFeatureSpecification',
+        'name': 'Private Manicured Lawn & Garden',
+        'value': true
+      },
+      {
+        '@type': 'LocationFeatureSpecification',
+        'name': '24-Hour Hospitality & Front Desk Support',
+        'value': true
+      },
+      {
+        '@type': 'LocationFeatureSpecification',
+        'name': 'Attached Private Balconies (~400 sq. ft Suites)',
+        'value': true
+      },
       {
         '@type': 'LocationFeatureSpecification',
         'name': 'Open-Air Sun Terrace & Deck',
@@ -100,7 +148,7 @@ export function getLodgingBusinessSchema() {
       },
       {
         '@type': 'LocationFeatureSpecification',
-        'name': 'High-Speed Optical Wi-Fi',
+        'name': 'High-Speed Optical Wi-Fi for Workcations',
         'value': true
       },
       {
@@ -121,8 +169,13 @@ export function getLodgingBusinessSchema() {
     ],
     'containsPlace': propertyData.rooms.map((room) => ({
       '@type': 'Accommodation',
-      'name': room.name,
+      'name': `${room.name} (~400 sq. ft with Balcony)`,
       'description': room.overview,
+      'floorSize': {
+        '@type': 'QuantitativeValue',
+        'value': 400,
+        'unitCode': 'FTK'
+      },
       'occupancy': {
         '@type': 'QuantitativeValue',
         'minValue': 1,
@@ -222,3 +275,99 @@ export function getArticleSchema(post: BlogPost) {
     }
   };
 }
+
+export function getAllRoomsSchema(rooms: RoomSuite[] = propertyData.rooms) {
+  return rooms.map((room) => getRoomSchema(room));
+}
+
+export function getAttractionsItemListSchema(attractions: AttractionItem[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    'name': 'Attractions & Sightseeing Spots Near The Mukteshwar Bungalow',
+    'description': 'A curated guide of heritage temples, scenic viewpoints, and nature waterfalls near Kasialekh, Mukteshwar.',
+    'itemListElement': attractions.map((attraction, index) => ({
+      '@type': 'ListItem',
+      'position': index + 1,
+      'item': {
+        '@type': 'TouristAttraction',
+        'name': attraction.name,
+        'description': attraction.description,
+        'image': attraction.image.startsWith('http') ? attraction.image : `https://themukteshwarbungalow.in${attraction.image}`,
+        ...(attraction.coordinates ? {
+          'geo': {
+            '@type': 'GeoCoordinates',
+            'latitude': attraction.coordinates.lat,
+            'longitude': attraction.coordinates.lng
+          }
+        } : {}),
+        'isAccessibleForFree': true
+      }
+    }))
+  };
+}
+
+export function getBlogHubCollectionSchema(posts: BlogPost[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': 'https://themukteshwarbungalow.in/blog#collection',
+    'url': 'https://themukteshwarbungalow.in/blog',
+    'name': 'Kumaon Travel Journal & Editorial Guides | The Mukteshwar Bungalow',
+    'description': 'Curated travel guides, driving routes, seasonal insights, and accommodation tips for Mukteshwar and Uttarakhand.',
+    'isPartOf': {
+      '@type': 'WebSite',
+      '@id': 'https://themukteshwarbungalow.in/#website'
+    },
+    'hasPart': posts.map((post) => ({
+      '@type': 'BlogPosting',
+      'headline': post.title,
+      'description': post.metaDescription,
+      'url': `https://themukteshwarbungalow.in/blog/${post.slug}`,
+      'datePublished': post.publishedDate,
+      'image': post.coverImage.startsWith('http') ? post.coverImage : `https://themukteshwarbungalow.in${post.coverImage}`
+    }))
+  };
+}
+
+export function getHowToDirectionsSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    'name': 'How to Drive from Delhi-NCR to The Mukteshwar Bungalow',
+    'description': 'Step-by-step route directions from Delhi, Noida, or Gurgaon to The Mukteshwar Bungalow in Kasialekh, Mukteshwar via NH9.',
+    'totalTime': 'PT8H',
+    'estimatedCost': {
+      '@type': 'MonetaryAmount',
+      'currency': 'INR',
+      'value': '3500'
+    },
+    'step': [
+      {
+        '@type': 'HowToStep',
+        'position': 1,
+        'name': 'Delhi-NCR to Moradabad Bypass',
+        'text': 'Take Delhi-Meerut Expressway (NE-3) and merge onto NH-9 towards Hapur and Moradabad. Distance approx. 165 km.'
+      },
+      {
+        '@type': 'HowToStep',
+        'position': 2,
+        'name': 'Moradabad to Haldwani via Rampur & Bilaspur',
+        'text': 'Continue along NH-9 past Rampur and turn towards Bilaspur and Rudrapur, entering Uttarakhand towards Haldwani foothills.'
+      },
+      {
+        '@type': 'HowToStep',
+        'position': 3,
+        'name': 'Kathgodam to Bhowali Mountain Ascent',
+        'text': 'Pass Kathgodam and begin the scenic mountain climb up NH-109 past Jeolikote to Bhowali junction.'
+      },
+      {
+        '@type': 'HowToStep',
+        'position': 4,
+        'name': 'Bhowali to Kasialekh (The Mukteshwar Bungalow)',
+        'text': 'Take the Ramgarh / Mukteshwar road passing Ramgarh and Dausapani to arrive at Kasialekh ridge.'
+      }
+    ]
+  };
+}
+

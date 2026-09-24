@@ -13,6 +13,9 @@ export interface PropertyAddress {
   longitude?: number | null;
   googleMapsUrl?: string;
   googleMapsEmbedUrl?: string;
+  cid?: string;
+  placeId?: string;
+  kgmid?: string;
 }
 
 export interface RoomSuite {
@@ -71,6 +74,17 @@ export interface PropertyData {
     hostName: string | null;
     hostType: string | null;
     caretakerHours: string | null;
+    social?: {
+      instagram?: string;
+      facebook?: string;
+      youtube?: string;
+      twitter?: string;
+    };
+  };
+  rating?: {
+    score: number;
+    reviewCount: number;
+    platform: string;
   };
   livingSpaces: {
     name: string;

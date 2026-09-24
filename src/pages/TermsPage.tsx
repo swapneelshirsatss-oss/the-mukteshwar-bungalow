@@ -2,14 +2,18 @@ import React from 'react';
 import { SEOHead } from '../components/common/SEOHead';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { SectionHeading } from '../components/common/SectionHeading';
+import { getBreadcrumbSchema } from '../components/common/SchemaMarkup';
 
 export const TermsPage: React.FC = () => {
+  const breadcrumbSchema = getBreadcrumbSchema([{ name: 'Terms of Stay', url: '/terms' }]);
+
   return (
     <>
       <SEOHead
         title="Terms & Conditions of Stay | The Mukteshwar Bungalow"
         description="Terms and conditions governing reservations, cancellations, security deposit, and guest conduct at The Mukteshwar Bungalow."
         canonicalUrl="https://themukteshwarbungalow.in/terms"
+        schema={breadcrumbSchema}
       />
 
       <section className="relative pt-32 pb-16 bg-charcoal-950 text-ivory-100 px-4 sm:px-6 lg:px-8">

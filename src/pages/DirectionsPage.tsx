@@ -7,14 +7,19 @@ import { SectionHeading } from '../components/common/SectionHeading';
 import { Button } from '../components/common/Button';
 import { generateWhatsAppLink } from '../services/WhatsAppService';
 import { trackEvent } from '../services/AnalyticsService';
+import { getHowToDirectionsSchema, getBreadcrumbSchema } from '../components/common/SchemaMarkup';
 
 export const DirectionsPage: React.FC = () => {
+  const directionsSchema = getHowToDirectionsSchema();
+  const breadcrumbSchema = getBreadcrumbSchema([{ name: 'Directions', url: '/directions' }]);
+
   return (
     <>
       <SEOHead
         title="Directions & How to Reach | The Mukteshwar Bungalow"
         description="Driving routes, train connectivity, and airport access to The Mukteshwar Bungalow in Dausapani, Kasialekh, Mukteshwar, Uttarakhand."
         canonicalUrl="https://themukteshwarbungalow.in/directions"
+        schema={[directionsSchema, breadcrumbSchema]}
       />
 
       {/* Hero */}

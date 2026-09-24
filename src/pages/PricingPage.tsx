@@ -7,14 +7,19 @@ import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { SectionHeading } from '../components/common/SectionHeading';
 import { Button } from '../components/common/Button';
 import { generateWhatsAppLink } from '../services/WhatsAppService';
+import { getLodgingBusinessSchema, getBreadcrumbSchema } from '../components/common/SchemaMarkup';
 
 export const PricingPage: React.FC = () => {
+  const lodgingSchema = getLodgingBusinessSchema();
+  const breadcrumbSchema = getBreadcrumbSchema([{ name: 'Pricing & Rates', url: '/pricing' }]);
+
   return (
     <>
       <SEOHead
         title="Direct Booking Pricing & Rates | The Mukteshwar Bungalow"
         description="Transparent direct booking pricing for The Mukteshwar Bungalow 3 BHK villa in Mukteshwar. Zero OTA commission markup and verified seasonal rates."
         canonicalUrl="https://themukteshwarbungalow.in/pricing"
+        schema={[lodgingSchema, breadcrumbSchema]}
       />
 
       {/* Hero */}

@@ -5,14 +5,18 @@ import { SEOHead } from '../components/common/SEOHead';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { SectionHeading } from '../components/common/SectionHeading';
 import { Button } from '../components/common/Button';
+import { getBreadcrumbSchema } from '../components/common/SchemaMarkup';
 
 export const MukteshwarGuidePage: React.FC = () => {
+  const breadcrumbSchema = getBreadcrumbSchema([{ name: 'Mukteshwar Guide', url: '/mukteshwar' }]);
+
   return (
     <>
       <SEOHead
         title="Mukteshwar Travel & Destination Guide | Kumaon Uttarakhand"
         description="Comprehensive guide to Mukteshwar, Uttarakhand. Learn about altitude, weather, seasons, fruit orchards, history, and staying at The Mukteshwar Bungalow."
         canonicalUrl="https://themukteshwarbungalow.in/mukteshwar"
+        schema={breadcrumbSchema}
       />
 
       {/* Hero */}

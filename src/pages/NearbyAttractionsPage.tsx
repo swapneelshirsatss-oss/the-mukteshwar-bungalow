@@ -6,14 +6,19 @@ import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { SectionHeading } from '../components/common/SectionHeading';
 import { AttractionCard } from '../components/cards/AttractionCard';
 import { Button } from '../components/common/Button';
+import { getAttractionsItemListSchema, getBreadcrumbSchema } from '../components/common/SchemaMarkup';
 
 export const NearbyAttractionsPage: React.FC = () => {
+  const attractionsSchema = getAttractionsItemListSchema(nearbyAttractions);
+  const breadcrumbSchema = getBreadcrumbSchema([{ name: 'Nearby Attractions', url: '/nearby-attractions' }]);
+
   return (
     <>
       <SEOHead
         title="Nearby Attractions in Mukteshwar & Kumaon | The Mukteshwar Bungalow"
         description="Explore Chauli Ki Jali, Mukteshwar Temple, Bhalu Gaad Waterfall, Kainchi Dham, and Nainital from The Mukteshwar Bungalow in Kasialekh."
         canonicalUrl="https://themukteshwarbungalow.in/nearby-attractions"
+        schema={[attractionsSchema, breadcrumbSchema]}
       />
 
       {/* Hero */}

@@ -7,14 +7,19 @@ import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { SectionHeading } from '../components/common/SectionHeading';
 import { Button } from '../components/common/Button';
 import { FilterableGallery } from '../components/gallery/FilterableGallery';
+import { getLodgingBusinessSchema, getBreadcrumbSchema } from '../components/common/SchemaMarkup';
 
 export const VillaPage: React.FC = () => {
+  const lodgingSchema = getLodgingBusinessSchema();
+  const breadcrumbSchema = getBreadcrumbSchema([{ name: 'The Villa', url: '/villa' }]);
+
   return (
     <>
       <SEOHead
         title="The Villa Estate & Architecture | The Mukteshwar Bungalow"
         description="Explore the architecture, living salons, 3 luxury suites, panoramic veranda, and lush grounds of The Mukteshwar Bungalow in Kasialekh, Mukteshwar."
         canonicalUrl="https://themukteshwarbungalow.in/villa"
+        schema={[lodgingSchema, breadcrumbSchema]}
       />
 
       {/* Page Hero */}

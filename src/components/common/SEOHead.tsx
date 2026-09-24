@@ -66,7 +66,8 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       const script = document.createElement('script');
       script.id = 'dynamic-jsonld-schema';
       script.type = 'application/ld+json';
-      script.text = JSON.stringify(schema, null, 2);
+      // Sanitize < to \u003c to prevent script tag injection and breakout attacks
+      script.text = JSON.stringify(schema, null, 2).replace(/</g, '\\u003c');
       document.head.appendChild(script);
     }
 

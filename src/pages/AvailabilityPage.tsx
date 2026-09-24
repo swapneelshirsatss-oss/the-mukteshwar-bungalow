@@ -6,14 +6,18 @@ import { SectionHeading } from '../components/common/SectionHeading';
 import { AvailabilityCalendar } from '../components/booking/AvailabilityCalendar';
 import { Button } from '../components/common/Button';
 import { generateWhatsAppLink } from '../services/WhatsAppService';
+import { getBreadcrumbSchema } from '../components/common/SchemaMarkup';
 
 export const AvailabilityPage: React.FC = () => {
+  const breadcrumbSchema = getBreadcrumbSchema([{ name: 'Availability Calendar', url: '/availability' }]);
+
   return (
     <>
       <SEOHead
         title="Live Availability Calendar | The Mukteshwar Bungalow"
         description="Check real-time dates and availability for The Mukteshwar Bungalow 3 BHK private mountain villa in Kasialekh, Mukteshwar."
         canonicalUrl="https://themukteshwarbungalow.in/availability"
+        schema={breadcrumbSchema}
       />
 
       {/* Hero */}

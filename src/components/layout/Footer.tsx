@@ -87,15 +87,25 @@ export const Footer: React.FC = () => {
               </div>
             </div>
 
-            <div className="pt-2">
+            <div className="pt-2 flex flex-col sm:flex-row sm:items-center gap-3">
               <a
-                href={propertyData.address.googleMapsUrl}
+                href={propertyData.address.googleMapsUrl || 'https://www.google.com/maps/place/?cid=6280376278760413003'}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-xs text-himalayan-400 hover:text-himalayan-300 font-medium underline underline-offset-4"
               >
-                <span>View Exact Location on Google Maps</span>
+                <span>Google Maps Profile</span>
                 <ExternalLink className="w-3 h-3" />
+              </a>
+              <span className="hidden sm:inline text-ivory-100/20">•</span>
+              <a
+                href="https://www.instagram.com/themukteshwarbungalow"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs text-ivory-200/70 hover:text-himalayan-400 font-medium transition-colors"
+              >
+                <span>Instagram @themukteshwarbungalow</span>
+                <ExternalLink className="w-3 h-3 opacity-60" />
               </a>
             </div>
           </div>

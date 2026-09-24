@@ -4,7 +4,7 @@ import { propertyData } from '../data/propertyData';
 import { propertyFAQs } from '../data/faqs';
 import { FAQItem } from '../types';
 import { SEOHead } from '../components/common/SEOHead';
-import { getFAQPageSchema } from '../components/common/SchemaMarkup';
+import { getFAQPageSchema, getBreadcrumbSchema } from '../components/common/SchemaMarkup';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { SectionHeading } from '../components/common/SectionHeading';
 import { Button } from '../components/common/Button';
@@ -33,7 +33,8 @@ export const FAQPage: React.FC = () => {
     return matchesCat && matchesSearch;
   });
 
-  const faqSchema = getFAQPageSchema(filteredFAQs);
+  const faqSchema = getFAQPageSchema(propertyFAQs);
+  const breadcrumbSchema = getBreadcrumbSchema([{ name: 'FAQs', url: '/faqs' }]);
 
   return (
     <>
@@ -41,7 +42,7 @@ export const FAQPage: React.FC = () => {
         title="Frequently Asked Questions (FAQs) | The Mukteshwar Bungalow"
         description="Find answers to common questions about booking, suites, veranda lounge, kitchen, location, and stay policies at The Mukteshwar Bungalow."
         canonicalUrl="https://themukteshwarbungalow.in/faqs"
-        schema={faqSchema}
+        schema={[faqSchema, breadcrumbSchema]}
       />
 
       {/* Hero */}

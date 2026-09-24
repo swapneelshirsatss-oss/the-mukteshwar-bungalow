@@ -6,14 +6,19 @@ import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { SectionHeading } from '../components/common/SectionHeading';
 import { Button } from '../components/common/Button';
 import { generateWhatsAppLink } from '../services/WhatsAppService';
+import { getLodgingBusinessSchema, getBreadcrumbSchema } from '../components/common/SchemaMarkup';
 
 export const LocationPage: React.FC = () => {
+  const lodgingSchema = getLodgingBusinessSchema();
+  const breadcrumbSchema = getBreadcrumbSchema([{ name: 'Location', url: '/location' }]);
+
   return (
     <>
       <SEOHead
         title="The Mukteshwar Bungalow — Dausapani, Kasialekh, Mukteshwar"
         description="Location, exact address, and driving directions to The Mukteshwar Bungalow at Dausapani, Kasialekh Village - Chaukhuta, Tehsil - Dhari, District - Nainital, Mukteshwar - 263132."
         canonicalUrl="https://themukteshwarbungalow.in/location"
+        schema={[lodgingSchema, breadcrumbSchema]}
       />
 
       {/* Hero */}

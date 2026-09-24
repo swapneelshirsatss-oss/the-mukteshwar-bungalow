@@ -3,14 +3,18 @@ import { SEOHead } from '../components/common/SEOHead';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { SectionHeading } from '../components/common/SectionHeading';
 import { propertyData } from '../data/propertyData';
+import { getBreadcrumbSchema } from '../components/common/SchemaMarkup';
 
 export const PrivacyPolicyPage: React.FC = () => {
+  const breadcrumbSchema = getBreadcrumbSchema([{ name: 'Privacy Policy', url: '/privacy-policy' }]);
+
   return (
     <>
       <SEOHead
         title="Privacy Policy | The Mukteshwar Bungalow"
         description="Privacy policy and data protection disclosures for guests booking at The Mukteshwar Bungalow."
         canonicalUrl="https://themukteshwarbungalow.in/privacy-policy"
+        schema={breadcrumbSchema}
       />
 
       <section className="relative pt-32 pb-16 bg-charcoal-950 text-ivory-100 px-4 sm:px-6 lg:px-8">

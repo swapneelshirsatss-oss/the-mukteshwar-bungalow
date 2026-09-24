@@ -6,6 +6,7 @@ import { SEOHead } from '../components/common/SEOHead';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { SectionHeading } from '../components/common/SectionHeading';
 import { BlogCard } from '../components/cards/BlogCard';
+import { getBlogHubCollectionSchema, getBreadcrumbSchema } from '../components/common/SchemaMarkup';
 
 export const BlogHubPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -16,12 +17,16 @@ export const BlogHubPage: React.FC = () => {
     ? blogPosts
     : blogPosts.filter((p) => p.category === selectedCategory);
 
+  const collectionSchema = getBlogHubCollectionSchema(blogPosts);
+  const breadcrumbSchema = getBreadcrumbSchema([{ name: 'Journal', url: '/blog' }]);
+
   return (
     <>
       <SEOHead
         title="Himalayan Travel Journal & Guides | The Mukteshwar Bungalow"
         description="Read curated editorial guides, road trip itineraries, season guides, and accommodation tips for Mukteshwar, Nainital, and the Kumaon region."
         canonicalUrl="https://themukteshwarbungalow.in/blog"
+        schema={[collectionSchema, breadcrumbSchema]}
       />
 
       {/* Hero */}

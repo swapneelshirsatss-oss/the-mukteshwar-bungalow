@@ -4,8 +4,11 @@ import { SEOHead } from '../components/common/SEOHead';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { SectionHeading } from '../components/common/SectionHeading';
 import { Button } from '../components/common/Button';
+import { getBreadcrumbSchema } from '../components/common/SchemaMarkup';
 
 export const ExperiencesPage: React.FC = () => {
+  const breadcrumbSchema = getBreadcrumbSchema([{ name: 'Experiences', url: '/experiences' }]);
+
   const experiences = [
     {
       title: 'Himalayan Sunrise & Tea on the Veranda',
@@ -43,6 +46,7 @@ export const ExperiencesPage: React.FC = () => {
         title="Curated Mountain Experiences in Mukteshwar | The Mukteshwar Bungalow"
         description="Discover Himalayan mornings, forest walks, stargazing, and viewpoint excursions during your stay at The Mukteshwar Bungalow in Kasialekh."
         canonicalUrl="https://themukteshwarbungalow.in/experiences"
+        schema={breadcrumbSchema}
       />
 
       {/* Hero */}
