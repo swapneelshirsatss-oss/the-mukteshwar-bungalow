@@ -4,7 +4,7 @@ import { SEOHead } from '../components/common/SEOHead';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { SectionHeading } from '../components/common/SectionHeading';
 import { Button } from '../components/common/Button';
-import { getBreadcrumbSchema } from '../components/common/SchemaMarkup';
+import { getBreadcrumbSchema, getExperiencesItemListSchema } from '../components/common/SchemaMarkup';
 
 export const ExperiencesPage: React.FC = () => {
   const breadcrumbSchema = getBreadcrumbSchema([{ name: 'Experiences', url: '/experiences' }]);
@@ -40,13 +40,15 @@ export const ExperiencesPage: React.FC = () => {
     }
   ];
 
+  const experiencesSchema = getExperiencesItemListSchema(experiences);
+
   return (
     <>
       <SEOHead
         title="Curated Mountain Experiences in Mukteshwar | The Mukteshwar Bungalow"
         description="Discover Himalayan mornings, forest walks, stargazing, and viewpoint excursions during your stay at The Mukteshwar Bungalow in Kasialekh."
         canonicalUrl="https://themukteshwarbungalow.in/experiences"
-        schema={breadcrumbSchema}
+        schema={[experiencesSchema, breadcrumbSchema]}
       />
 
       {/* Hero */}

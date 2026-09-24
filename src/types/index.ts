@@ -59,6 +59,7 @@ export interface PropertyData {
   name: string;
   canonicalName?: string;
   tagline: string;
+  primaryCategory?: string;
   propertyType: string;
   architectureStyle: string;
   totalBedrooms: number;

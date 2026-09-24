@@ -6,11 +6,12 @@ import { SectionHeading } from '../components/common/SectionHeading';
 import { ReviewCard, ReviewItem } from '../components/cards/ReviewCard';
 import { Button } from '../components/common/Button';
 import { generateWhatsAppLink } from '../services/WhatsAppService';
-import { getBreadcrumbSchema } from '../components/common/SchemaMarkup';
+import { getBreadcrumbSchema, getLodgingBusinessSchema } from '../components/common/SchemaMarkup';
 
 export const ReviewsPage: React.FC = () => {
   // Configured verified reviews store (empty/null safe until verified guest reviews are published)
   const verifiedReviews: ReviewItem[] = [];
+  const lodgingSchema = getLodgingBusinessSchema();
   const breadcrumbSchema = getBreadcrumbSchema([{ name: 'Reviews', url: '/reviews' }]);
 
   return (
@@ -19,7 +20,7 @@ export const ReviewsPage: React.FC = () => {
         title="Guest Reviews & Verified Feedback | The Mukteshwar Bungalow"
         description="Authentic guest experiences and verified stay reviews for The Mukteshwar Bungalow 3 BHK private villa in Mukteshwar, Uttarakhand."
         canonicalUrl="https://themukteshwarbungalow.in/reviews"
-        schema={breadcrumbSchema}
+        schema={[lodgingSchema, breadcrumbSchema]}
       />
 
       {/* Hero */}

@@ -42,8 +42,8 @@ export const HomePage: React.FC = () => {
   return (
     <>
       <SEOHead
-        title="Luxury Villa in Mukteshwar | The Mukteshwar Bungalow"
-        description="Discover The Mukteshwar Bungalow, a private 3 BHK luxury mountain villa in Kasialekh, Mukteshwar, Uttarakhand. Explore suites, veranda lounge, open sun deck, and direct booking availability."
+        title="Luxury Homestay & 3 BHK Villa in Mukteshwar | The Mukteshwar Bungalow"
+        description="The Mukteshwar Bungalow is a luxury 3 BHK mountain homestay and private villa in Kasialekh, Mukteshwar, Uttarakhand. Explore suites, veranda lounge, open sun deck, pure-veg home-style dining, and direct booking."
         canonicalUrl="https://themukteshwarbungalow.in/"
         schema={[websiteSchema, lodgingSchema, faqSchema]}
       />

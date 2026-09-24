@@ -28,8 +28,9 @@ export const Footer: React.FC = () => {
             <div
               className="pt-2 space-y-2.5 text-xs text-ivory-200/80 font-light"
               itemScope
-              itemType="https://schema.org/LodgingBusiness"
+              itemType="https://schema.org/BedAndBreakfast"
             >
+              <meta itemProp="additionalType" content="https://en.wikipedia.org/wiki/Homestay" />
               <meta itemProp="name" content="The Mukteshwar Bungalow | 3 BHK Villa" />
               <meta itemProp="url" content="https://themukteshwarbungalow.in" />
 

@@ -4,10 +4,15 @@ import { SEOHead } from '../components/common/SEOHead';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { SectionHeading } from '../components/common/SectionHeading';
 import { Button } from '../components/common/Button';
-import { getBreadcrumbSchema } from '../components/common/SchemaMarkup';
+import { getBreadcrumbSchema, getLivingSpaceSchema } from '../components/common/SchemaMarkup';
 
 export const VerandaLoungePage: React.FC = () => {
   const breadcrumbSchema = getBreadcrumbSchema([{ name: 'The Veranda Lounge', url: '/veranda-lounge' }]);
+  const loungeSchema = getLivingSpaceSchema(
+    'The Veranda Lounge & Open Space',
+    'An expansive mountain-facing living veranda designed for slow mornings, high-altitude cedar breezes, and evening fireside conversations overlooking the Kumaon valley.',
+    '/images/veranda/veranda-lounge-panoramic-view.jpg'
+  );
 
   return (
     <>
@@ -15,7 +20,7 @@ export const VerandaLoungePage: React.FC = () => {
         title="The Veranda Lounge & Open Space | The Mukteshwar Bungalow"
         description="Experience slow mountain mornings and evening fireside chats at The Veranda Lounge. Panoramic outdoor living in Kasialekh, Mukteshwar."
         canonicalUrl="https://themukteshwarbungalow.in/veranda-lounge"
-        schema={breadcrumbSchema}
+        schema={[loungeSchema, breadcrumbSchema]}
       />
 
       {/* Hero */}

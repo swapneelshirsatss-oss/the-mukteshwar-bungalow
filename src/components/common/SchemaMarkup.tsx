@@ -11,16 +11,18 @@ export function getWebSiteSchema() {
     'alternateName': [
       'The Mukteshwar Bungalow',
       'The Mukteshwar Villa',
+      'The Mukteshwar Bungalow Homestay',
+      'The Mukteshwar Homestay',
       'Mukteshwar Bungalow'
     ],
-    'description': 'Private 3 BHK luxury mountain villa in Kasialekh, Mukteshwar with panoramic Veranda Lounge, open sun deck, and mountain views.',
+    'description': 'Private 3 BHK luxury mountain homestay & villa in Kasialekh, Mukteshwar with panoramic Veranda Lounge, open sun deck, pure-veg dining, and mountain views.',
     'sameAs': [
       'https://www.google.com/maps/place/?cid=6280376278760413003',
       'https://www.google.com/search?kgmid=/g/11z9v7l2pt',
       'https://www.instagram.com/themukteshwarbungalow'
     ],
     'publisher': {
-      '@type': 'LodgingBusiness',
+      '@type': ['LodgingBusiness', 'BedAndBreakfast'],
       '@id': 'https://themukteshwarbungalow.in/#lodging'
     }
   };
@@ -29,15 +31,22 @@ export function getWebSiteSchema() {
 export function getLodgingBusinessSchema() {
   return {
     '@context': 'https://schema.org',
-    '@type': 'LodgingBusiness',
+    '@type': ['LodgingBusiness', 'BedAndBreakfast'],
     '@id': 'https://themukteshwarbungalow.in/#lodging',
+    'additionalType': 'https://en.wikipedia.org/wiki/Homestay',
+    'category': propertyData.primaryCategory || 'Homestay',
     'name': propertyData.canonicalName || 'The Mukteshwar Bungalow | 3 BHK Villa',
     'alternateName': [
       propertyData.name,
       'The Mukteshwar Villa',
+      'The Mukteshwar Bungalow Homestay',
+      'The Mukteshwar Homestay',
+      'Mukteshwar Homestay',
+      'Homestay in Mukteshwar',
+      'Luxury Homestay in Mukteshwar',
       'Mukteshwar Luxury 3 BHK Villa'
     ],
-    'description': propertyData.tagline + ' — A private 3 BHK luxury mountain villa in Kasialekh, Mukteshwar, Uttarakhand with open sun deck, veranda lounge, and panoramic valley views.',
+    'description': propertyData.tagline + ' — A private 3 BHK luxury mountain homestay & villa in Kasialekh, Mukteshwar, Uttarakhand with open sun deck, veranda lounge, dedicated in-house pure-veg cook, and panoramic valley views.',
     'url': 'https://themukteshwarbungalow.in',
     'telephone': propertyData.contact.phoneRaw || '+917078560516',
     'email': propertyData.contact.email,
@@ -111,6 +120,11 @@ export function getLodgingBusinessSchema() {
     'numberOfRooms': propertyData.totalBedrooms,
     'petsAllowed': false,
     'amenityFeature': [
+      {
+        '@type': 'LocationFeatureSpecification',
+        'name': 'Homestay Hospitality & Private Concierge',
+        'value': true
+      },
       {
         '@type': 'LocationFeatureSpecification',
         'name': 'Dedicated In-House Pure-Vegetarian Cook/Chef',
@@ -212,7 +226,7 @@ export function getRoomSchema(room: RoomSuite) {
       'value': true
     })),
     'isPartOf': {
-      '@type': 'LodgingBusiness',
+      '@type': ['LodgingBusiness', 'BedAndBreakfast'],
       '@id': 'https://themukteshwarbungalow.in/#lodging',
       'name': propertyData.name
     }
@@ -223,12 +237,15 @@ export function getBreadcrumbSchema(items: { name: string; url: string }[]) {
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
-    'itemListElement': items.map((item, index) => ({
-      '@type': 'ListItem',
-      'position': index + 1,
-      'name': item.name,
-      'item': item.url.startsWith('http') ? item.url : `https://themukteshwarbungalow.in${item.url}`
-    }))
+    'itemListElement': items.map((item, index) => {
+      const cleanPath = item.url.startsWith('/') ? item.url : `/${item.url}`;
+      return {
+        '@type': 'ListItem',
+        'position': index + 1,
+        'name': item.name,
+        'item': item.url.startsWith('http') ? item.url : `https://themukteshwarbungalow.in${cleanPath}`
+      };
+    })
   };
 }
 
@@ -262,12 +279,17 @@ export function getArticleSchema(post: BlogPost) {
       'url': 'https://themukteshwarbungalow.in'
     },
     'publisher': {
-      '@type': 'Organization',
+      '@type': ['LodgingBusiness', 'BedAndBreakfast'],
+      '@id': 'https://themukteshwarbungalow.in/#lodging',
       'name': propertyData.name,
       'logo': {
         '@type': 'ImageObject',
         'url': 'https://themukteshwarbungalow.in/favicon.svg'
       }
+    },
+    'isPartOf': {
+      '@type': 'WebSite',
+      '@id': 'https://themukteshwarbungalow.in/#website'
     },
     'mainEntityOfPage': {
       '@type': 'WebPage',
@@ -280,12 +302,32 @@ export function getAllRoomsSchema(rooms: RoomSuite[] = propertyData.rooms) {
   return rooms.map((room) => getRoomSchema(room));
 }
 
+export function getLivingSpaceSchema(spaceName: string, description: string, image: string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Accommodation',
+    'name': `${spaceName} | The Mukteshwar Bungalow`,
+    'description': description,
+    'image': image.startsWith('http') ? image : `https://themukteshwarbungalow.in${image}`,
+    'isPartOf': {
+      '@type': ['LodgingBusiness', 'BedAndBreakfast'],
+      '@id': 'https://themukteshwarbungalow.in/#lodging',
+      'name': propertyData.name
+    }
+  };
+}
+
 export function getAttractionsItemListSchema(attractions: AttractionItem[]) {
   return {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     'name': 'Attractions & Sightseeing Spots Near The Mukteshwar Bungalow',
     'description': 'A curated guide of heritage temples, scenic viewpoints, and nature waterfalls near Kasialekh, Mukteshwar.',
+    'provider': {
+      '@type': ['LodgingBusiness', 'BedAndBreakfast'],
+      '@id': 'https://themukteshwarbungalow.in/#lodging',
+      'name': propertyData.name
+    },
     'itemListElement': attractions.map((attraction, index) => ({
       '@type': 'ListItem',
       'position': index + 1,
@@ -307,6 +349,31 @@ export function getAttractionsItemListSchema(attractions: AttractionItem[]) {
   };
 }
 
+export function getExperiencesItemListSchema(experiences: { title: string; description: string; image: string; category?: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    'name': 'Mountain Experiences & Activities at The Mukteshwar Bungalow',
+    'description': 'Curated activities, morning rituals, and mountain excursions at The Mukteshwar Bungalow in Kasialekh, Mukteshwar.',
+    'provider': {
+      '@type': ['LodgingBusiness', 'BedAndBreakfast'],
+      '@id': 'https://themukteshwarbungalow.in/#lodging',
+      'name': propertyData.name
+    },
+    'itemListElement': experiences.map((exp, index) => ({
+      '@type': 'ListItem',
+      'position': index + 1,
+      'item': {
+        '@type': 'Thing',
+        'name': exp.title,
+        'description': exp.description,
+        'image': exp.image.startsWith('http') ? exp.image : `https://themukteshwarbungalow.in${exp.image}`,
+        'category': exp.category || 'Hospitality Experience'
+      }
+    }))
+  };
+}
+
 export function getBlogHubCollectionSchema(posts: BlogPost[]) {
   return {
     '@context': 'https://schema.org',
@@ -318,6 +385,11 @@ export function getBlogHubCollectionSchema(posts: BlogPost[]) {
     'isPartOf': {
       '@type': 'WebSite',
       '@id': 'https://themukteshwarbungalow.in/#website'
+    },
+    'publisher': {
+      '@type': ['LodgingBusiness', 'BedAndBreakfast'],
+      '@id': 'https://themukteshwarbungalow.in/#lodging',
+      'name': propertyData.name
     },
     'hasPart': posts.map((post) => ({
       '@type': 'BlogPosting',

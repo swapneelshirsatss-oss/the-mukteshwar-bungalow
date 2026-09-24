@@ -13,10 +13,12 @@ Brand Umbrella: Private Himalayan Mountain Residence / Independent Luxury Buyout
 --------------------------------------------------------------------------------
 Official Canonical Name: The Mukteshwar Bungalow | 3 BHK Luxury Mountain Villa
 Short Name:              The Mukteshwar Bungalow
-Alternate Aliases:       The Mukteshwar Villa, Mukteshwar 3 BHK Mountain Villa,
-                         The Mukteshwar Bungalow Kasialekh, Dausapani Luxury Villa
-Property Classification: Private Mountain Villa / 3 BHK Luxury Vacation Rental /
+Alternate Aliases:       The Mukteshwar Villa, The Mukteshwar Bungalow Homestay,
+                         The Mukteshwar Homestay, Mukteshwar Homestay,
+                         Mukteshwar 3 BHK Mountain Villa, The Mukteshwar Bungalow Kasialekh
+Property Classification: Private Mountain Villa / 3 BHK Luxury Homestay & Vacation Rental /
                          Boutique Mountain Residence (Exclusive Entire Villa Buyout)
+Primary Category:        Homestay (Google Business Profile & Schema.org BedAndBreakfast)
 Tagline:                 Private Himalayan Residence in the Kumaon Hills
 Architectural Style:     Himalayan Ridge Residence with Contemporary Mountain Craft
 

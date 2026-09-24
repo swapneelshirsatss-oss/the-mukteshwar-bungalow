@@ -1,16 +1,28 @@
 # The Mukteshwar Bungalow — Workspace Cockpit & Project Rules
 
 ## 1. Property Identity & Canonical Entity Data
-- **Official Canonical Name**: The Mukteshwar Bungalow | 3 BHK Luxury Mountain Villa
+- **Official Canonical Name**: The Mukteshwar Bungalow | 3 BHK Villa
+- **Primary Category**: Homestay (Google Business Profile Primary Category)
 - **Canonical Address**:
   `Dausapani, Kasialekh Village - Chaukhuta, Tehsil - Dhari, District - Nainital, Mukteshwar, Uttarakhand - 263132, India`
-- **Accommodations (3 Private Suites)**:
-  1. *The Himalayan Suite* (Master Suite 1 - Panoramic valley glazing & en-suite bath)
-  2. *The Imperial Suite* (Suite 2 - Exposed timber rafters & quiet garden terrace)
-  3. *The Signature Himalayan* (Suite 3 - Private corner terrace step-out)
-- **Living Zones**:
+- **Exact Geo-Coordinates**: `29.4298751, 79.6347189`
+- **Google Business Profile (GBP) Identifiers**:
+  - CID: `6280376278760413003` (`https://www.google.com/maps/place/?cid=6280376278760413003`)
+  - Place ID: `ChIJIQEkFw69oDkRS9dNX_NgKFc`
+  - Knowledge Graph (KGMID): `/g/11z9v7l2pt`
+  - Verified Rating: `5.0★`
+  - Hours: `24 Hours` (Round-the-clock on-site support & hospitality)
+  - Social: Instagram `@themukteshwarbungalow` (`https://www.instagram.com/themukteshwarbungalow`)
+- **Accommodations (3 Private Suites • ~400 sq. ft each with attached private balconies)**:
+  1. *The Himalayan Suite* (Master Suite 1 - Panoramic valley glazing, private viewing balcony & luxury bath)
+  2. *The Imperial Suite* (Suite 2 - Exposed timber rafters, private viewing balcony & garden serenity)
+  3. *The Signature Himalayan* (Suite 3 - Private corner terrace balcony & ridge horizons)
+- **Capacity**: Standard 6 adults across 3 suites, up to 9–10 guests with extra rollaway bedding.
+- **Living Zones & Dining**:
+  - *Dedicated In-House Pure-Vegetarian Cook/Chef* (Freshly prepared home-style breakfast, lunch, and dinner)
   - *The Veranda Lounge* (Indoor-outdoor living & panoramic tea terrace)
   - *Veranda - Open Space* (Front deck & mountain ridge views)
+  - *Private Manicured Lawn & Garden* (Sunrise tea, yoga, relaxation, and evening bonfires)
   - *Fully Equipped Kitchen* (Cooking hobs, refrigerator, self-cooking setup)
 - **Data Integrity Rule**: All centralized property metadata is maintained in `src/data/propertyData.ts`. Unverified rates or reviews must display elegant fallback states (*"Details coming soon"*, *"Check dates for current rates"*).
 
@@ -40,15 +52,17 @@
 
 ## 4. Technical SEO & Schema.org Standards
 Whenever updating site metadata, routing, or page layouts:
-- **Dynamic SEO Head Manager**: Ensure `<title>`, `<meta name="description">`, OpenGraph `og:*`, Twitter Cards, and canonical tags update dynamically on every route change.
+- **Dynamic SEO Head Manager**: Ensure `<title>`, `<meta name="description">`, OpenGraph `og:*`, Twitter Cards, and canonical tags update dynamically on every route change. JSON-LD scripts must be XSS-sanitized (`.replace(/</g, '\\u003c')`).
 - **Structured Data Graphs**:
-  - `LodgingBusiness` with canonical address, geo coordinates, and contained `Accommodation` entities.
+  - `['LodgingBusiness', 'BedAndBreakfast']` (Homestay Entity) with `additionalType` (`https://en.wikipedia.org/wiki/Homestay`), `category: 'Homestay'`, canonical address, exact geo-coordinates (`29.4298751, 79.6347189`), `hasMap` linking to CID, `sameAs` array (CID, KGMID, Instagram), 24-hr `openingHoursSpecification`, `aggregateRating` (5.0★), and contained `Accommodation` entities with floor sizes (`400 FTK`).
   - `HotelRoom` schema for each of the 3 suites.
   - `FAQPage` dynamic schema on FAQ and relevant booking pages.
-  - `BreadcrumbList` on every subpage.
+  - `BreadcrumbList` on **every** subpage.
 - **Search Directives**:
-  - Maintain all 24+ URLs in `public/sitemap.xml`.
-  - Maintain `public/robots.txt` allowing clean crawler indexing.
+  - Maintain all 33 production URLs in `public/sitemap.xml`.
+  - Maintain `public/robots.txt` explicitly permitting leading AI search crawlers (`GPTBot`, `ClaudeBot`, `PerplexityBot`, `Google-Extended`, etc.).
+  - Maintain `public/llms.txt` and `public/llms-full.txt` aligned to canonical domain `https://themukteshwarbungalow.in/`.
+  - Execute `npm run indexnow` to ping search engines upon URL or route updates.
 
 ---
 
