@@ -81,7 +81,7 @@ export const ContactPage: React.FC = () => {
             <div className="space-y-4">
               {/* Direct Phone Call */}
               <a
-                href={`tel:${propertyData.contact.phoneRaw || '+917078560516'}`}
+                href={`tel:${propertyData.contact.phoneRaw || '+919027844424'}`}
                 onClick={() => trackEvent('phone_click', { source: 'contact_page_card' })}
                 className="flex items-start gap-4 p-5 rounded-md bg-white border border-charcoal-900/10 shadow-editorial hover:border-himalayan-600 transition-all group"
               >
@@ -96,7 +96,7 @@ export const ContactPage: React.FC = () => {
                     Direct voice line with estate reservations & concierge manager
                   </p>
                   <span className="text-sm font-bold text-himalayan-700 underline underline-offset-2 inline-block pt-1">
-                    {propertyData.contact.phone || '+91 70785 60516'}
+                    {propertyData.contact.phone || '+91 90278 44424'}
                   </span>
                 </div>
               </a>
@@ -117,10 +117,10 @@ export const ContactPage: React.FC = () => {
                     WhatsApp Concierge
                   </h4>
                   <p className="text-xs text-charcoal-600 font-light">
-                    Instant chat & dates confirmation: +91 70785 60516
+                    Instant chat & dates confirmation: +91 90278 44424
                   </p>
                   <span className="text-xs font-semibold text-emerald-700 underline underline-offset-2 inline-block pt-1">
-                    Open WhatsApp Chat (+91 70785 60516)
+                    Open WhatsApp Chat (+91 90278 44424)
                   </span>
                 </div>
               </a>
@@ -230,7 +230,7 @@ export const ContactPage: React.FC = () => {
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         className="w-full bg-ivory-50 border border-charcoal-900/15 p-3.5 rounded-sm text-sm focus:border-himalayan-700 focus:ring-1 focus:ring-himalayan-700"
-                        placeholder="+91 70785 60516"
+                        placeholder="+91 90278 44424"
                       />
                     </div>
                   </div>

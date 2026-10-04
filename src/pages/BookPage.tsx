@@ -64,12 +64,12 @@ export const BookPage: React.FC = () => {
           </p>
           <div className="pt-2 flex flex-wrap items-center justify-center gap-4 text-xs font-semibold">
             <a
-              href={`tel:${propertyData.contact.phoneRaw || '+917078560516'}`}
+              href={`tel:${propertyData.contact.phoneRaw || '+919027844424'}`}
               onClick={() => trackEvent('phone_click', { source: 'book_page_help_strip' })}
               className="inline-flex items-center gap-1.5 text-himalayan-700 hover:text-himalayan-800 uppercase tracking-wider"
             >
               <Phone className="w-4 h-4" />
-              <span>Call: {propertyData.contact.phone || '+91 70785 60516'}</span>
+              <span>Call: {propertyData.contact.phone || '+91 90278 44424'}</span>
             </a>
             <span className="text-charcoal-300">•</span>
             <a
@@ -80,7 +80,7 @@ export const BookPage: React.FC = () => {
               className="inline-flex items-center gap-1.5 text-emerald-700 hover:text-emerald-800 uppercase tracking-wider"
             >
               <MessageCircle className="w-4 h-4 text-emerald-600" />
-              <span>WhatsApp: +91 70785 60516</span>
+              <span>WhatsApp: +91 90278 44424</span>
             </a>
           </div>
         </div>

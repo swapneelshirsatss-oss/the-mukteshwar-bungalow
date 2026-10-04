@@ -31,9 +31,9 @@ export const propertyData: PropertyData = {
     kgmid: '/g/11z9v7l2pt',
   },
   contact: {
-    phone: '+91 70785 60516',
-    phoneRaw: '+917078560516',
-    whatsapp: '917078560516',
+    phone: '+91 90278 44424',
+    phoneRaw: '+919027844424',
+    whatsapp: '919027844424',
     email: 'themukteshwarbungalow@gmail.com',
     hostName: 'Villa Concierge Team',
     hostType: 'Private Estate Manager',

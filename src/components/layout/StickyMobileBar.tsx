@@ -26,10 +26,10 @@ export const StickyMobileBar: React.FC = () => {
       <div className="grid grid-cols-3 gap-2 max-w-md mx-auto">
         {/* Direct Call CTA */}
         <a
-          href={`tel:${propertyData.contact.phoneRaw || '+917078560516'}`}
+          href={`tel:${propertyData.contact.phoneRaw || '+919027844424'}`}
           onClick={handleCall}
           className="flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-sm bg-charcoal-800 text-ivory-100 border border-ivory-100/15 text-[11px] font-semibold uppercase tracking-wider active:scale-[0.98] transition-transform"
-          aria-label={`Call ${propertyData.contact.phone || '+91 70785 60516'}`}
+          aria-label={`Call ${propertyData.contact.phone || '+91 90278 44424'}`}
         >
           <Phone className="w-3.5 h-3.5 text-himalayan-400 shrink-0" />
           <span>Call</span>
@@ -42,7 +42,7 @@ export const StickyMobileBar: React.FC = () => {
           rel="noopener noreferrer"
           onClick={handleWhatsApp}
           className="flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-sm bg-emerald-700/90 text-ivory-100 border border-emerald-500/30 text-[11px] font-semibold uppercase tracking-wider active:scale-[0.98] transition-transform"
-          aria-label="WhatsApp Concierge: +91 70785 60516"
+          aria-label="WhatsApp Concierge: +91 90278 44424"
         >
           <MessageCircle className="w-3.5 h-3.5 text-emerald-300 shrink-0" />
           <span>WhatsApp</span>

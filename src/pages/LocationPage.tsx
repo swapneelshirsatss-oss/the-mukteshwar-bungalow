@@ -80,10 +80,10 @@ export const LocationPage: React.FC = () => {
                 <Phone className="w-4 h-4 text-himalayan-700 shrink-0" />
                 <span>Direct Voice Line:</span>
                 <a
-                  href={`tel:${propertyData.contact.phoneRaw || '+917078560516'}`}
+                  href={`tel:${propertyData.contact.phoneRaw || '+919027844424'}`}
                   className="font-semibold text-himalayan-700 hover:text-himalayan-800 underline"
                 >
-                  {propertyData.contact.phone || '+91 70785 60516'}
+                  {propertyData.contact.phone || '+91 90278 44424'}
                 </a>
               </div>
 

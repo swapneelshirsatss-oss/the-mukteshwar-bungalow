@@ -149,12 +149,12 @@ export const PricingPage: React.FC = () => {
           </div>
           <div className="flex flex-wrap items-center justify-center gap-3 shrink-0">
             <a
-              href={`tel:${propertyData.contact.phoneRaw || '+917078560516'}`}
+              href={`tel:${propertyData.contact.phoneRaw || '+919027844424'}`}
               onClick={() => trackEvent('phone_click', { source: 'pricing_page_banner' })}
               className="inline-flex items-center gap-2 border border-ivory-100/30 hover:border-ivory-100 text-ivory-100 px-4 py-2.5 rounded-sm text-xs font-semibold uppercase tracking-wider transition-colors"
             >
               <Phone className="w-4 h-4 text-himalayan-400" />
-              <span>Call: {propertyData.contact.phone || '+91 70785 60516'}</span>
+              <span>Call: {propertyData.contact.phone || '+91 90278 44424'}</span>
             </a>
             <Button
               href={generateWhatsAppLink({ intent: 'pricing' })}
@@ -163,7 +163,7 @@ export const PricingPage: React.FC = () => {
               size="sm"
               icon={<MessageCircle className="w-4 h-4" />}
             >
-              WhatsApp +91 70785 60516
+              WhatsApp +91 90278 44424
             </Button>
           </div>
         </div>

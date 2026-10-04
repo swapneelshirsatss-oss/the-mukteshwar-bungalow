@@ -121,18 +121,18 @@ export const Header: React.FC<HeaderProps> = () => {
           <div className="hidden sm:flex items-center space-x-2 md:space-x-3">
             {/* Direct Phone Call */}
             <a
-              href={`tel:${propertyData.contact.phoneRaw || '+917078560516'}`}
+              href={`tel:${propertyData.contact.phoneRaw || '+919027844424'}`}
               onClick={handlePhoneClick}
               className={`hidden md:inline-flex items-center gap-1.5 px-3 py-2 rounded-full border text-xs font-semibold tracking-wide transition-all ${
                 isScrolled
                   ? 'border-charcoal-900/15 text-charcoal-800 hover:bg-charcoal-900 hover:text-ivory-100 hover:border-charcoal-900'
                   : 'border-ivory-100/30 text-ivory-100 hover:bg-ivory-100/15 hover:border-ivory-100/50'
               }`}
-              title={`Direct Call: ${propertyData.contact.phone || '+91 70785 60516'}`}
-              aria-label={`Call ${propertyData.contact.phone || '+91 70785 60516'}`}
+              title={`Direct Call: ${propertyData.contact.phone || '+91 90278 44424'}`}
+              aria-label={`Call ${propertyData.contact.phone || '+91 90278 44424'}`}
             >
               <Phone className="w-3.5 h-3.5 text-himalayan-400" />
-              <span className="hidden xl:inline">{propertyData.contact.phone || '+91 70785 60516'}</span>
+              <span className="hidden xl:inline">{propertyData.contact.phone || '+91 90278 44424'}</span>
               <span className="xl:hidden">Call</span>
             </a>
 
@@ -147,8 +147,8 @@ export const Header: React.FC<HeaderProps> = () => {
                   ? 'border-charcoal-900/20 text-charcoal-900 hover:bg-emerald-600 hover:text-ivory-100 hover:border-emerald-600'
                   : 'border-ivory-100/30 text-ivory-100 hover:bg-emerald-600 hover:border-emerald-600'
               }`}
-              title="Chat on WhatsApp (+91 70785 60516)"
-              aria-label="Direct WhatsApp Concierge: +91 70785 60516"
+              title="Chat on WhatsApp (+91 90278 44424)"
+              aria-label="Direct WhatsApp Concierge: +91 90278 44424"
             >
               <MessageCircle className="w-4 h-4 text-emerald-400" />
             </a>
@@ -274,11 +274,11 @@ export const Header: React.FC<HeaderProps> = () => {
               className="w-full text-center border border-emerald-500/40 bg-emerald-950/30 text-ivory-100 py-3 rounded-sm font-sans uppercase tracking-widest text-xs font-medium hover:bg-emerald-900/40 flex items-center justify-center gap-2"
             >
               <MessageCircle className="w-4 h-4 text-emerald-400" />
-              <span>WhatsApp: +91 70785 60516</span>
+              <span>WhatsApp: +91 90278 44424</span>
             </a>
 
             <a
-              href={`tel:${propertyData.contact.phoneRaw || '+917078560516'}`}
+              href={`tel:${propertyData.contact.phoneRaw || '+919027844424'}`}
               onClick={() => {
                 handlePhoneClick();
                 setIsMobileMenuOpen(false);
@@ -286,7 +286,7 @@ export const Header: React.FC<HeaderProps> = () => {
               className="w-full text-center border border-ivory-100/30 text-ivory-100 py-3 rounded-sm font-sans uppercase tracking-widest text-xs font-medium hover:bg-ivory-100/10 flex items-center justify-center gap-2"
             >
               <Phone className="w-4 h-4 text-himalayan-400" />
-              <span>Direct Call: {propertyData.contact.phone || '+91 70785 60516'}</span>
+              <span>Direct Call: {propertyData.contact.phone || '+91 90278 44424'}</span>
             </a>
           </div>
         </div>

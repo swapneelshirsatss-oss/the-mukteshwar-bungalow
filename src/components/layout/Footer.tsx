@@ -48,7 +48,7 @@ export const Footer: React.FC = () => {
                   <span className="leading-relaxed">
                     <span className="text-ivory-100 font-medium">Phone: </span>
                     <a
-                      href={`tel:${propertyData.contact.phoneRaw || '+917078560516'}`}
+                      href={`tel:${propertyData.contact.phoneRaw || '+919027844424'}`}
                       itemProp="telephone"
                       className="hover:text-himalayan-400 transition-colors font-medium text-ivory-100"
                     >
@@ -68,7 +68,7 @@ export const Footer: React.FC = () => {
                   className="hover:text-himalayan-400 transition-colors"
                 >
                   <span className="text-ivory-100 font-medium">WhatsApp: </span>
-                  <span className="font-medium text-ivory-100">{propertyData.contact.phone || '+91 70785 60516'}</span>
+                  <span className="font-medium text-ivory-100">{propertyData.contact.phone || '+91 90278 44424'}</span>
                   <span className="text-ivory-200/50 text-[11px] ml-1.5">(Concierge)</span>
                 </a>
               </div>
@@ -216,11 +216,11 @@ export const Footer: React.FC = () => {
                 </li>
                 <li className="pt-1.5">
                   <a
-                    href={`tel:${propertyData.contact.phoneRaw || '+917078560516'}`}
+                    href={`tel:${propertyData.contact.phoneRaw || '+919027844424'}`}
                     className="hover:text-himalayan-300 transition-colors inline-flex items-center gap-1.5 text-himalayan-400 font-medium"
                   >
                     <Phone className="w-3.5 h-3.5" />
-                    <span>Phone: {propertyData.contact.phone || '+91 70785 60516'}</span>
+                    <span>Phone: {propertyData.contact.phone || '+91 90278 44424'}</span>
                   </a>
                 </li>
               </ul>

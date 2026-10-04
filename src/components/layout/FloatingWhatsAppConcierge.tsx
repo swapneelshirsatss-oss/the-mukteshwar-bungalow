@@ -35,7 +35,7 @@ export const FloatingWhatsAppConcierge: React.FC = () => {
                   Villa Concierge
                 </h4>
                 <p className="text-[10px] text-ivory-200/60 font-light">
-                  WhatsApp: +91 70785 60516 • Online
+                  WhatsApp: +91 90278 44424 • Online
                 </p>
               </div>
             </div>
@@ -88,20 +88,20 @@ export const FloatingWhatsAppConcierge: React.FC = () => {
 
             {/* Direct Voice Call Option */}
             <a
-              href={`tel:${propertyData.contact.phoneRaw || '+917078560516'}`}
+              href={`tel:${propertyData.contact.phoneRaw || '+919027844424'}`}
               onClick={handleDirectCall}
               className="w-full text-left px-3.5 py-2.5 rounded-sm bg-charcoal-800/60 hover:bg-charcoal-700 transition-colors border border-ivory-100/10 flex items-center justify-between text-xs group"
             >
               <div className="flex items-center gap-2">
                 <Phone className="w-3.5 h-3.5 text-himalayan-400 group-hover:text-ivory-100" />
-                <span>Direct Voice Call (+91 70785 60516)</span>
+                <span>Direct Voice Call (+91 90278 44424)</span>
               </div>
               <span className="text-[10px] text-himalayan-400 uppercase tracking-wider font-semibold">Call</span>
             </a>
           </div>
 
           <div className="mt-4 pt-3 border-t border-ivory-100/10 flex items-center justify-between text-[10px] text-ivory-200/60">
-            <span>Direct WhatsApp: +91 70785 60516</span>
+            <span>Direct WhatsApp: +91 90278 44424</span>
             <span className="text-emerald-400 font-medium">Instant Response</span>
           </div>
         </div>

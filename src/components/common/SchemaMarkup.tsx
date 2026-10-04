@@ -48,7 +48,7 @@ export function getLodgingBusinessSchema() {
     ],
     'description': propertyData.tagline + ' — A private 3 BHK luxury mountain homestay & villa in Kasialekh, Mukteshwar, Uttarakhand with open sun deck, veranda lounge, dedicated in-house pure-veg cook, and panoramic valley views.',
     'url': 'https://themukteshwarbungalow.in',
-    'telephone': propertyData.contact.phoneRaw || '+917078560516',
+    'telephone': propertyData.contact.phoneRaw || '+919027844424',
     'email': propertyData.contact.email,
     'priceRange': '₹₹₹',
     'currenciesAccepted': 'INR',
@@ -60,7 +60,7 @@ export function getLodgingBusinessSchema() {
     },
     'contactPoint': {
       '@type': 'ContactPoint',
-      'telephone': propertyData.contact.phoneRaw || '+917078560516',
+      'telephone': propertyData.contact.phoneRaw || '+919027844424',
       'contactType': 'reservations',
       'areaServed': 'IN',
       'availableLanguage': ['English', 'Hindi']

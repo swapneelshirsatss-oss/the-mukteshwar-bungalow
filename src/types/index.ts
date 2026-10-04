@@ -68,9 +68,9 @@ export interface PropertyData {
   maxOccupancy: number;
   address: PropertyAddress;
   contact: {
-    phone: string | null; // Display format: +91 70785 60516
-    phoneRaw?: string | null; // E.164 without spaces: +917078560516
-    whatsapp: string | null; // WhatsApp digits: 917078560516
+    phone: string | null; // Display format: +91 90278 44424
+    phoneRaw?: string | null; // E.164 without spaces: +919027844424
+    whatsapp: string | null; // WhatsApp digits: 919027844424
     email: string | null;
     hostName: string | null;
     hostType: string | null;

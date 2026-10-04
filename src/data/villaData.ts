@@ -114,7 +114,7 @@ export function getCanonicalAddress(): string {
  * Generates an instantaneous high-conversion direct WhatsApp reservation URL.
  */
 export function getDirectWhatsAppUrl(customMessage?: string): string {
-  const phone = VILLA_DATA.contact.whatsapp || '917078560516';
+  const phone = VILLA_DATA.contact.whatsapp || '919027844424';
   const defaultText =
     'Hi Mukteshwar Bungalow Team, I would like to inquire about villa availability and direct booking rates.';
   const text = encodeURIComponent(customMessage || defaultText);

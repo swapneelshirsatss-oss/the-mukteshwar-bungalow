@@ -123,12 +123,12 @@ export const DirectionsPage: React.FC = () => {
               Get Live Location Pin on WhatsApp
             </Button>
             <a
-              href={`tel:${propertyData.contact.phoneRaw || '+917078560516'}`}
+              href={`tel:${propertyData.contact.phoneRaw || '+919027844424'}`}
               onClick={() => trackEvent('phone_click', { source: 'directions_page_strip' })}
               className="inline-flex items-center gap-2 border border-ivory-100/30 hover:border-ivory-100 text-ivory-100 px-5 py-3 rounded-sm text-xs font-semibold uppercase tracking-wider transition-colors"
             >
               <Phone className="w-4 h-4 text-himalayan-400" />
-              <span>Call Concierge: {propertyData.contact.phone || '+91 70785 60516'}</span>
+              <span>Call Concierge: {propertyData.contact.phone || '+91 90278 44424'}</span>
             </a>
           </div>
         </div>

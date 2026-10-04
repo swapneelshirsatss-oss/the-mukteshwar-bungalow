@@ -35,7 +35,7 @@ const villaTxtContent = fs.readFileSync(path.join(rootDir, 'Villa.txt'), 'utf8')
 const canonicalChecks = [
   'The Mukteshwar Bungalow',
   '263132',
-  '+91 70785 60516',
+  '+91 90278 44424',
   'The Himalayan Suite',
   'The Imperial Suite',
   'The Signature Himalayan',
