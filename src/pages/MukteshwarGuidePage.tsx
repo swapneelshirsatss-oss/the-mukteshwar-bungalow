@@ -128,6 +128,44 @@ export const MukteshwarGuidePage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Host Travel Advisory */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+        <div className="bg-white p-8 sm:p-10 rounded-md border border-charcoal-900/10 shadow-editorial space-y-6">
+          <div className="flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-himalayan-700">
+            <Compass className="w-4 h-4 text-himalayan-700" />
+            <span>Host Driving Note • Kathgodam to Kasialekh</span>
+          </div>
+
+          <h2 className="text-2xl sm:text-3xl font-serif text-charcoal-900">
+            Getting to The Mukteshwar Bungalow
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs sm:text-sm text-charcoal-700 font-light leading-relaxed">
+            <div className="space-y-2">
+              <strong className="font-semibold text-charcoal-900 block font-serif text-base">By Road from Delhi NCR</strong>
+              <p>Approximately 335 km (7.5–8 hours). The route passes through Hapur, Moradabad bypass, Rampur, Haldwani, Kathgodam, Bhowali, and Ramgarh to Kasialekh on smooth paved tarmac.</p>
+            </div>
+            <div className="space-y-2">
+              <strong className="font-semibold text-charcoal-900 block font-serif text-base">By Train to Kathgodam</strong>
+              <p>Kathgodam Railway Station (KGM) is 58 km away (~2 hours drive). Frequent direct express trains run from New Delhi (Shatabdi Express & Ranikhet Express).</p>
+            </div>
+            <div className="space-y-2">
+              <strong className="font-semibold text-charcoal-900 block font-serif text-base">By Air via Pantnagar</strong>
+              <p>Pantnagar Airport (PGH) is 88 km (~2.5 hours drive). Taxis are easily arranged from the airport directly to our doorstep in Kasialekh.</p>
+            </div>
+          </div>
+
+          <div className="pt-4 flex flex-wrap items-center justify-between gap-4 border-t border-charcoal-900/10">
+            <span className="text-xs text-charcoal-500 font-light">
+              Secure on-site private parking available for up to 3 guest vehicles.
+            </span>
+            <Button to="/book" variant="himalayan" size="sm" icon={<ArrowRight className="w-3.5 h-3.5" />}>
+              Reserve Your Mountain Stay
+            </Button>
+          </div>
+        </div>
+      </section>
     </>
   );
 };

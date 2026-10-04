@@ -5,9 +5,11 @@ import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { SectionHeading } from '../components/common/SectionHeading';
 import { FilterableGallery } from '../components/gallery/FilterableGallery';
 import { Button } from '../components/common/Button';
-import { getBreadcrumbSchema } from '../components/common/SchemaMarkup';
+import { getBreadcrumbSchema, getImageGallerySchema } from '../components/common/SchemaMarkup';
+import { galleryImages } from '../data/galleryData';
 
 export const GalleryPage: React.FC = () => {
+  const gallerySchema = getImageGallerySchema(galleryImages);
   const breadcrumbSchema = getBreadcrumbSchema([{ name: 'Gallery', url: '/gallery' }]);
 
   return (
@@ -16,7 +18,7 @@ export const GalleryPage: React.FC = () => {
         title="Visual Photography Gallery | The Mukteshwar Bungalow"
         description="Browse high-resolution photographs of The Mukteshwar Bungalow: 3 luxury suites, Veranda Lounge, open-air sun deck, living salons, kitchen, and Himalayan views."
         canonicalUrl="https://themukteshwarbungalow.in/gallery"
-        schema={breadcrumbSchema}
+        schema={[gallerySchema, breadcrumbSchema]}
       />
 
       {/* Hero */}

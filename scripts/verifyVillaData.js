@@ -36,6 +36,8 @@ const canonicalChecks = [
   'The Mukteshwar Bungalow',
   '263132',
   '+91 90278 44424',
+  'wa.me/919027844424',
+  '919027844424',
   'The Himalayan Suite',
   'The Imperial Suite',
   'The Signature Himalayan',
@@ -51,6 +53,24 @@ for (const check of canonicalChecks) {
     console.error(`✗ Missing canonical item: "${check}"`);
     allPassed = false;
   }
+}
+
+// Check WhatsApp configuration across project
+console.log('\n--- Checking WhatsApp Linked Number Across Codebase ---');
+const propDataContent = fs.readFileSync(path.join(rootDir, 'src/data/propertyData.ts'), 'utf8');
+if (propDataContent.includes("whatsapp: '919027844424'")) {
+  console.log("✓ src/data/propertyData.ts has verified whatsapp: '919027844424'");
+} else {
+  console.error("✗ src/data/propertyData.ts missing whatsapp: '919027844424'");
+  allPassed = false;
+}
+
+const envContent = fs.readFileSync(path.join(rootDir, '.env'), 'utf8');
+if (envContent.includes('VITE_PUBLIC_WHATSAPP_NUMBER=919027844424')) {
+  console.log('✓ .env has verified VITE_PUBLIC_WHATSAPP_NUMBER=919027844424');
+} else {
+  console.error('✗ .env missing VITE_PUBLIC_WHATSAPP_NUMBER=919027844424');
+  allPassed = false;
 }
 
 // Check llms.txt content

@@ -53,7 +53,7 @@ export const propertyData: PropertyData = {
       description: 'An expansive mountain-facing living veranda designed for slow mornings, high-altitude cedar breezes, and evening fireside conversations overlooking the Kumaon valley.',
       image: '/images/veranda/veranda-lounge-morning-tea-seating.jpg',
       features: [
-        'Seamless indoor-outdoor lounge seating',
+        'Indoor-outdoor veranda lounge seating',
         'Direct panorama of the Kumaon mountain ranges',
         'Natural stone and timber architectural detailing',
         'Morning tea & sunset observation terrace',
@@ -62,7 +62,7 @@ export const propertyData: PropertyData = {
     },
     {
       name: 'Veranda - Open Space',
-      description: 'An open-air stone deck terrace seamlessly connected to the garden lawn, perfect for mindful yoga, stargazing, and alfresco dining.',
+      description: 'An open-air stone deck terrace stepping directly into the garden lawn, perfect for morning yoga, stargazing, and alfresco dining.',
       image: '/images/veranda/veranda-open-space-terrace.jpg',
       features: [
         'Open sky sundeck with panoramic valley views',
@@ -104,7 +104,7 @@ export const propertyData: PropertyData = {
       name: 'The Himalayan Suite',
       shortName: 'Himalayan Suite',
       subtitle: 'Master Suite 1 • Panoramic Mountain Glazing (~400 sq. ft)',
-      overview: 'Spanning ~400 sq. ft, this primary master sanctuary features expansive picture windows framing the Kumaon valley, an attached private viewing balcony, warm hardwood finishes, and a handcrafted king-sized bed.',
+      overview: 'Spanning ~400 sq. ft, this primary master suite features expansive picture windows framing the Kumaon valley, an attached private viewing balcony, warm hardwood finishes, and a handcrafted king-sized bed.',
       description: [
         'The Himalayan Suite is positioned to capture the earliest morning light across the valley. Flooded with natural high-altitude daylight, the suite blends contemporary architectural minimalism with Himalayan warmth.',
         'Spanning approximately 400 sq. ft, it features a generous king-size bed with orthopedic mattress and premium cotton linens, attached private balcony, dedicated fireside reading chairs, generous wardrobe storage, and a pristine private en-suite bathroom with glass shower cubicle.'
@@ -152,7 +152,7 @@ export const propertyData: PropertyData = {
       subtitle: 'Suite 2 • Timber Ceilings & Heritage Serenity (~400 sq. ft)',
       overview: 'Spanning ~400 sq. ft, an exquisitely styled mountain suite featuring exposed natural timber rafters, attached private balcony, plush ambient lighting, and direct outlook over the pine ridge gardens.',
       description: [
-        'The Imperial Suite offers a tranquil, quiet haven characterized by rich wood accents and artisanal Himalayan craftsmanship. Designed for restorative deep rest after a day of mountain trails.',
+        'The Imperial Suite offers a quiet mountain suite characterized by rich wood accents and artisanal Himalayan craftsmanship. Designed for restorative deep rest after a day of mountain trails.',
         'Spanning ~400 sq. ft with an attached private balcony, it includes an inviting king bed, bespoke side dressers, plush sitting chairs, and an elegant en-suite bathroom with contemporary fittings and heated water supply.'
       ],
       heroImage: '/images/rooms/imperial-suite/imperial-suite-heritage-king-bed.jpg',
@@ -197,7 +197,7 @@ export const propertyData: PropertyData = {
       subtitle: 'Suite 3 • Private Terrace Access & Ridge Horizons (~400 sq. ft)',
       overview: 'Spanning ~400 sq. ft, this spacious corner suite opens directly toward the private terrace and outdoor veranda, combining sun-drenched private balcony spaces with panoramic mountain horizon vistas.',
       description: [
-        'The Signature Himalayan Suite enjoys privileged access to the upper terrace and veranda corridor. Large glass sliders draw the serene pine-scented mountain air into a tastefully appointed bedroom sanctuary.',
+        'The Signature Himalayan Suite enjoys privileged access to the upper terrace and veranda corridor. Large glass sliders draw the fresh pine-scented mountain air into a tastefully appointed corner bedroom suite.',
         'Spanning ~400 sq. ft with an attached private balcony and terrace step-out, it is furnished with a deluxe king bed, custom walnut wardrobe, cozy reading divan, and a sparkling private bathroom with modern sanitaries.'
       ],
       heroImage: '/images/rooms/signature-himalayan/signature-himalayan-suite-panoramic-view.jpg',
@@ -261,7 +261,7 @@ export const propertyData: PropertyData = {
     },
     {
       title: 'Safety, Care & 24-Hr Access',
-      description: 'Seamless hosting, 24-hour support and secure property standards',
+      description: 'Attentive on-site hosting, 24-hour assistance, and private property standards',
       items: [
         { name: '24-Hour Hospitality & Front Desk', icon: 'Clock', verified: true, description: 'Round-the-clock on-site support and guest assistance' },
         { name: 'On-site Caretaker Assistance', icon: 'UserCheck', verified: true, description: 'Assistance with check-in, fireplace & luggage' },
@@ -276,7 +276,7 @@ export const propertyData: PropertyData = {
     checkOutTime: '11:00 AM',
     houseRules: [
       'Valid Government Photo ID (Aadhaar / Passport) is required for all adult guests upon arrival.',
-      'The property is a serene Himalayan residential sanctuary; commercial loud parties are not permitted.',
+      'The property is a peaceful Himalayan residential home; commercial loud parties are not permitted.',
       'Smoking is strictly restricted to designated open outdoor veranda areas; smoking inside bedrooms is not permitted.',
       'Kitchen access is provided for guest self-cooking and reheating; please keep cooking spaces tidy.'
     ],
@@ -299,7 +299,7 @@ export const propertyData: PropertyData = {
     },
     {
       title: 'Panoramic Veranda & Sun Deck',
-      description: 'Unwind on the panoramic open-air veranda terrace and sun deck with continuous valley breezes.',
+      description: 'Relax on the panoramic open-air veranda terrace and sun deck with sweeping mountain valley breezes.',
       icon: 'Coffee'
     },
     {

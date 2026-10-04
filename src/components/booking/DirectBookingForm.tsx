@@ -86,7 +86,7 @@ export const DirectBookingForm: React.FC = () => {
     {
       id: 'the-himalayan-suite',
       name: 'The Himalayan Suite (Master Suite 1)',
-      description: 'King bed sanctuary with panoramic valley view glazing, reading nook, and private en-suite bathroom.',
+      description: 'King bedroom suite with panoramic valley glazing, reading nook, and private en-suite bathroom.',
       image: '/images/rooms/himalayan-suite/himalayan-suite-master-king-bed.jpg',
       badge: 'Direct Mountain Sunrise'
     },

@@ -16,8 +16,8 @@ export const BookPage: React.FC = () => {
   return (
     <>
       <SEOHead
-        title="Direct Reservation & Booking | The Mukteshwar Bungalow"
-        description="Book your private stay at The Mukteshwar Bungalow (3 BHK Luxury Villa in Mukteshwar). 3-step direct booking, instant host confirmation, and zero commission fees."
+        title="Book Direct 3 BHK Villa in Mukteshwar | The Mukteshwar Bungalow"
+        description="Reserve The Mukteshwar Bungalow directly with zero commission. 3 BHK private mountain villa with in-house cook, veranda lounge, and instant host confirmation."
         canonicalUrl="https://themukteshwarbungalow.in/book"
         schema={[lodgingSchema, breadcrumbSchema]}
       />
@@ -42,10 +42,10 @@ export const BookPage: React.FC = () => {
             Direct Reservation
           </span>
           <h1 className="text-3xl sm:text-5xl font-serif text-ivory-100 leading-tight">
-            Reserve Your Mountain Sanctuary
+            Reserve Your Mountain Stay in Mukteshwar
           </h1>
           <p className="text-sm sm:text-lg text-ivory-200/80 font-light max-w-2xl leading-relaxed">
-            Direct booking ensures guaranteed dates, personalized concierge communication, and exclusive private villa privacy.
+            Direct booking ensures guaranteed dates, personalized host concierge, and exclusive 3 BHK villa privacy.
           </p>
         </div>
       </section>

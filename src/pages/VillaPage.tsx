@@ -16,8 +16,8 @@ export const VillaPage: React.FC = () => {
   return (
     <>
       <SEOHead
-        title="The Villa Estate & Architecture | The Mukteshwar Bungalow"
-        description="Explore the architecture, living salons, 3 luxury suites, panoramic veranda, and lush grounds of The Mukteshwar Bungalow in Kasialekh, Mukteshwar."
+        title="Private 3 BHK Villa in Mukteshwar | The Mukteshwar Bungalow"
+        description="Experience exclusive 3 BHK mountain living at The Mukteshwar Bungalow in Kasialekh. Features 3 private balcony suites, Veranda Lounge, and dedicated cook."
         canonicalUrl="https://themukteshwarbungalow.in/villa"
         schema={[lodgingSchema, breadcrumbSchema]}
       />
@@ -45,7 +45,7 @@ export const VillaPage: React.FC = () => {
             The Bungalow Estate
           </h1>
           <p className="text-base sm:text-xl text-ivory-200/80 font-light max-w-2xl leading-relaxed">
-            A Himalayan mountain sanctuary designed with traditional stone craft, exposed timber rafters, and contemporary residential luxury.
+            A private Himalayan mountain residence crafted with traditional stone masonry, exposed timber rafters, and contemporary living comfort.
           </p>
         </div>
       </section>
@@ -62,7 +62,7 @@ export const VillaPage: React.FC = () => {
 
             <div className="space-y-4 text-xs sm:text-sm text-charcoal-700 font-light leading-relaxed">
               <p>
-                The estate is oriented eastward to welcome the earliest morning light streaming across the Kumaon valleys. Natural stone foundation walls provide thermal insulation against high-altitude chills, while large panoramic picture windows maintain a seamless visual dialogue with the surrounding oak and pine forests.
+                The estate is oriented eastward to welcome the earliest morning light streaming across the Kumaon valleys. Natural stone foundation walls provide thermal insulation against high-altitude chills, while large panoramic picture windows frame unobstructed views of the surrounding oak and pine forests.
               </p>
               <p>
                 Unlike generic commercial resorts, the bungalow's layout encourages natural gatherings across expansive living salons and the Veranda Lounge, while maintaining complete acoustic and spatial privacy inside the three self-contained bedroom suites.

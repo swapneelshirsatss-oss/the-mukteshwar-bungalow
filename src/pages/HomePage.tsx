@@ -15,18 +15,21 @@ import {
   Star,
   Users,
   Bed,
-  Calendar
+  Calendar,
+  ExternalLink
 } from 'lucide-react';
 import { propertyData } from '../data/propertyData';
 import { nearbyAttractions } from '../data/attractions';
 import { propertyFAQs } from '../data/faqs';
 import { blogPosts } from '../data/blogPosts';
+import { verifiedGuestReviews, googleReviewStats } from '../data/reviewsData';
 import { SEOHead } from '../components/common/SEOHead';
 import { getLodgingBusinessSchema, getFAQPageSchema, getWebSiteSchema } from '../components/common/SchemaMarkup';
 import { SectionHeading } from '../components/common/SectionHeading';
 import { Button } from '../components/common/Button';
 import { BookingWidget } from '../components/booking/BookingWidget';
 import { SuiteCard } from '../components/cards/SuiteCard';
+import { ReviewCard } from '../components/cards/ReviewCard';
 import { AttractionCard } from '../components/cards/AttractionCard';
 import { BlogCard } from '../components/cards/BlogCard';
 import { AmbianceToggle } from '../components/interactive/AmbianceToggle';
@@ -72,7 +75,10 @@ export const HomePage: React.FC = () => {
           </div>
 
           {/* Primary Hero Heading */}
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-medium tracking-tight text-himalayan-400 drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)] leading-[1.08] text-balance">
+          <h1
+            id="hero-heading"
+            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-medium tracking-tight text-himalayan-400 drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)] leading-[1.08] text-balance"
+          >
             The Mukteshwar Bungalow
           </h1>
 
@@ -127,22 +133,36 @@ export const HomePage: React.FC = () => {
       {/* SECTION 2 — TRUST / POSITIONING STRIP */}
       <section className="bg-charcoal-900 text-ivory-100 py-6 border-y border-charcoal-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 text-center items-center divide-y sm:divide-y-0 sm:divide-x divide-ivory-100/10">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 text-center items-center divide-y sm:divide-y-0 sm:divide-x divide-ivory-100/10">
+            <a
+              href={googleReviewStats.googleMapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="py-2 px-3 block hover:opacity-90 transition-opacity"
+            >
+              <div className="flex items-center justify-center gap-1 text-amber-400">
+                <Star className="w-3.5 h-3.5 fill-amber-400" />
+                <span className="text-lg sm:text-xl font-serif font-bold text-himalayan-400">5.0★</span>
+              </div>
+              <span className="text-[11px] uppercase tracking-wider text-ivory-200/70 font-light block">
+                Google 15+ Reviews
+              </span>
+            </a>
             <div className="py-2 px-3">
-              <span className="text-lg sm:text-xl font-serif font-bold text-himalayan-400 block">3 BHK</span>
-              <span className="text-[11px] uppercase tracking-wider text-ivory-200/70 font-light">Private Villa Buyout</span>
+              <span className="text-lg sm:text-xl font-serif font-bold text-himalayan-400 block">3 BHK Buyout</span>
+              <span className="text-[11px] uppercase tracking-wider text-ivory-200/70 font-light">Entire Villa Exclusive</span>
             </div>
             <div className="py-2 px-3">
-              <span className="text-lg sm:text-xl font-serif font-bold text-himalayan-400 block">100%</span>
-              <span className="text-[11px] uppercase tracking-wider text-ivory-200/70 font-light">Exclusive Seclusion</span>
-            </div>
-            <div className="py-2 px-3">
-              <span className="text-lg sm:text-xl font-serif font-bold text-himalayan-400 block">Open Sun Deck</span>
-              <span className="text-[11px] uppercase tracking-wider text-ivory-200/70 font-light">Mountain Terrace & Views</span>
+              <span className="text-lg sm:text-xl font-serif font-bold text-himalayan-400 block">Pure-Veg Cook</span>
+              <span className="text-[11px] uppercase tracking-wider text-ivory-200/70 font-light">Dedicated In-House Chef</span>
             </div>
             <div className="py-2 px-3">
               <span className="text-lg sm:text-xl font-serif font-bold text-himalayan-400 block">The Veranda</span>
-              <span className="text-[11px] uppercase tracking-wider text-ivory-200/70 font-light">Panoramic Lounge</span>
+              <span className="text-[11px] uppercase tracking-wider text-ivory-200/70 font-light">180° Valley Panoramas</span>
+            </div>
+            <div className="py-2 px-3">
+              <span className="text-lg sm:text-xl font-serif font-bold text-himalayan-400 block">Open Sun Deck</span>
+              <span className="text-[11px] uppercase tracking-wider text-ivory-200/70 font-light">Private Lawn & Garden</span>
             </div>
             <div className="py-2 px-3 col-span-2 sm:col-span-1">
               <span className="text-lg sm:text-xl font-serif font-bold text-himalayan-400 block">Full Kitchen</span>
@@ -193,17 +213,23 @@ export const HomePage: React.FC = () => {
           {/* Editorial Copy */}
           <div className="lg:col-span-5 space-y-6">
             <SectionHeading
-              subtitle="A Private Kumaon Sanctuary"
+              subtitle="Kasialekh, Mukteshwar • 7,000 Ft"
               title="More Than a Stay. A Private Mountain Residence."
               description="Perched upon the peaceful ridges of Kasialekh in Mukteshwar, The Mukteshwar Bungalow is designed for travelers who appreciate the rare luxury of stillness, craftsmanship, and unobstructed mountain horizons."
             />
 
             <div className="space-y-4 text-xs sm:text-sm text-charcoal-700 font-light leading-relaxed">
-              <p>
-                Unlike conventional hotels with crowded public spaces and standardized rooms, our 3 BHK residence gives you the entire property to yourself. From slow morning tea on the Veranda Lounge to golden sunset views on the open deck, every corner is dedicated to your family or group.
+              <p
+                id="direct-answer-summary"
+                className="bg-ivory-200/60 p-4 rounded-sm border-l-2 border-himalayan-700 text-charcoal-800 font-normal leading-relaxed"
+              >
+                The Mukteshwar Bungalow is a luxury 3 BHK private mountain homestay and villa in Kasialekh, Mukteshwar, Uttarakhand (7,000 ft). Designed for private family buyouts up to 10 guests, it features three ~400 sq. ft suites with attached viewing balconies, the Veranda Lounge, open sun deck, and a dedicated in-house pure-vegetarian cook.
               </p>
               <p>
-                Built with honest Himalayan stone textures, warm exposed timber ceilings, and panoramic double-glazed windows, the bungalow balances mountain vernacular architecture with contemporary residential ease.
+                Unlike conventional hotels with crowded lobbies and standardized rooms, our 3 BHK residence gives you the entire property to yourself. From slow morning tea on the Veranda Lounge to golden sunset views on the open deck, every corner is dedicated to your family or group.
+              </p>
+              <p>
+                Built with honest Himalayan stone masonry, warm exposed timber ceilings, and panoramic double-glazed windows, the bungalow balances mountain vernacular architecture with contemporary residential ease.
               </p>
             </div>
 
@@ -224,9 +250,9 @@ export const HomePage: React.FC = () => {
         <div className="max-w-7xl mx-auto">
           <SectionHeading
             centered
-            subtitle="Private Sleeping Sanctuaries"
+            subtitle="The Three Suites"
             title="The Three Luxury Suites"
-            description="Each bedroom suite at The Mukteshwar Bungalow is a private sanctuary featuring handcrafted king beds, private en-suite bathrooms, heating, and serene Himalayan vistas."
+            description="Three generous ~400 sq. ft suites, each featuring an attached private viewing balcony, handcrafted king beds, warm timber rafters, heated winter comfort, and wide windows opening to misty valley mornings."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -307,9 +333,9 @@ export const HomePage: React.FC = () => {
           <SectionHeading
             dark
             centered
-            subtitle="Exclusive Lifestyle Amenities"
-            title="Open Sun Deck & Fully Equipped Kitchen"
-            description="Designed for effortless residential comfort, our open-air mountain deck and modern kitchen provide total independence throughout your mountain stay."
+            subtitle="Dedicated Dining & Mountain Outdoors"
+            title="Open Sun Deck & Dedicated Pure-Veg Cook"
+            description="Experience wholesome mountain living with an open-air sun deck overlooking the valley, accompanied by freshly prepared vegetarian meals cooked hot to order."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 mt-12">
@@ -332,7 +358,7 @@ export const HomePage: React.FC = () => {
                   Open Sun Deck & Terrace
                 </h3>
                 <p className="text-xs sm:text-sm text-ivory-200/70 font-light leading-relaxed">
-                  Bask in golden Himalayan sunshine overlooking pine-covered hills. The open stone deck terrace connects seamlessly with lush private gardens for outdoor dining, yoga, and quiet contemplation.
+                  Bask in golden Himalayan sunshine overlooking pine-covered hills. The open stone deck terrace extends directly into lush private gardens for outdoor dining, morning yoga, and quiet contemplation.
                 </p>
                 <div className="text-[11px] text-ivory-200/50">
                   Panoramic ridge views • Artisanal outdoor seating • Stargazing terrace
@@ -350,29 +376,29 @@ export const HomePage: React.FC = () => {
               </div>
             </div>
 
-            {/* Fully Equipped Kitchen Card */}
+            {/* Dedicated Cook & Kitchen Card */}
             <div className="bg-charcoal-950/80 rounded-md overflow-hidden border border-ivory-100/10 p-6 sm:p-8 flex flex-col justify-between space-y-6">
               <div className="space-y-4">
                 <div className="aspect-[16/10] rounded-sm overflow-hidden border border-ivory-100/10">
                   <img
                     src="/images/kitchen/fully-equipped-kitchen-dining-counter.jpg"
-                    alt="Fully equipped kitchen at The Mukteshwar Bungalow"
+                    alt="Dedicated in-house cook and fully equipped kitchen at The Mukteshwar Bungalow"
                     loading="lazy"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="flex items-center gap-2 text-himalayan-400">
                   <Utensils className="w-5 h-5" />
-                  <span className="text-xs uppercase tracking-widest font-semibold font-sans">Culinary Independence</span>
+                  <span className="text-xs uppercase tracking-widest font-semibold font-sans">Wholesome Mountain Dining</span>
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-serif text-ivory-100">
-                  Fully Equipped Kitchen
+                  Dedicated Cook & Equipped Kitchen
                 </h3>
                 <p className="text-xs sm:text-sm text-ivory-200/70 font-light leading-relaxed">
-                  Enjoy complete cooking freedom with modern gas stoves, microwave, refrigerator, electric kettle, cookware, and dinnerware for homestyle family meals.
+                  Enjoy freshly prepared home-style pure-vegetarian meals cooked hot to order by our dedicated in-house cook, along with full kitchen access for family recipes, evening snacks, and baby food preparation.
                 </p>
                 <div className="text-[11px] text-ivory-200/50">
-                  Kitchen access included with full villa booking • Fresh local groceries nearby
+                  Fresh home-style cooking • 100% pure vegetarian • Full guest kitchen access
                 </div>
               </div>
 
@@ -381,7 +407,7 @@ export const HomePage: React.FC = () => {
                   to="/kitchen"
                   className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-himalayan-400 hover:text-himalayan-300"
                 >
-                  <span>Kitchen Specs & Dining</span>
+                  <span>Kitchen Specs & Dining Options</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
@@ -408,9 +434,53 @@ export const HomePage: React.FC = () => {
             centered
             subtitle="Tailored Bedroom Allocation"
             title="Find Your Ideal Stay Configuration"
-            description="Whether you are planning a couple's quiet workcation, a family getaway, or an extended private retreat, see how our 3 suites accommodate your party."
+            description="Whether you are planning a couple's quiet workcation, a multi-generational family retreat, or an extended stay in the Kumaon hills, see how our 3 suites comfortably accommodate your party."
           />
           <CapacityCalculator />
+        </div>
+      </section>
+
+      {/* SECTION 8.5 — VERIFIED GUEST REVIEWS */}
+      <section className="py-20 bg-white border-b border-charcoal-900/10 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+            <div>
+              <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-himalayan-700 font-semibold mb-2">
+                <Star className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
+                <span>5.0★ Google Business Profile Verified</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-charcoal-900">
+                Real Mountain Stories from Our Guests
+              </h2>
+            </div>
+            <div className="flex items-center gap-3">
+              <a
+                href={googleReviewStats.googleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-semibold text-charcoal-900 hover:text-himalayan-700 transition-colors"
+              >
+                <span>Read All 15+ Google Reviews</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {verifiedGuestReviews.slice(0, 2).map((rev) => (
+              <ReviewCard key={rev.id} review={rev} />
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <Link
+              to="/reviews"
+              className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-himalayan-700 hover:text-himalayan-800 transition-colors"
+            >
+              <span>View All Guest Stories & Verified Reviews</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -487,10 +557,10 @@ export const HomePage: React.FC = () => {
             Direct Host Reservation
           </span>
           <h2 className="text-3xl sm:text-5xl font-serif text-ivory-100 leading-tight">
-            Reserve Your Private Himalayan Sanctuary
+            Reserve Your Private Mountain Stay in Mukteshwar
           </h2>
           <p className="text-sm sm:text-base text-ivory-200/80 font-light leading-relaxed max-w-xl mx-auto">
-            Enjoy 100% exclusive 3 BHK villa privacy, panoramic Kumaon views, open sun deck, and personalized mountain hospitality.
+            Enjoy 100% exclusive 3 BHK villa privacy, panoramic Kumaon views, open sun deck, pure-veg home-style dining, and personal mountain concierge.
           </p>
 
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">

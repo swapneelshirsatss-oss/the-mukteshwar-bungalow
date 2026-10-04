@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, Sun, Compass, Trees, Flame, Camera, ArrowRight, Check } from 'lucide-react';
+import { Sparkles, Sun, Compass, Trees, Flame, Camera, ArrowRight, Check, Utensils } from 'lucide-react';
 import { SEOHead } from '../components/common/SEOHead';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { SectionHeading } from '../components/common/SectionHeading';
@@ -11,30 +11,44 @@ export const ExperiencesPage: React.FC = () => {
 
   const experiences = [
     {
-      title: 'Himalayan Sunrise & Tea on the Veranda',
+      title: 'Himalayan Sunrise & Morning Tea on the Veranda',
       category: 'Morning Ritual',
-      description: 'Witness the morning sunlight break across the Kumaon valley while savoring freshly brewed ginger-cardamom tea on your private veranda lounge.',
+      description: 'Witness the first sunlight break across the Kumaon valley while savoring freshly brewed adrak-elaichi chai and hot pahadi breakfast on your private veranda lounge.',
       image: '/images/veranda/veranda-lounge-morning-tea-seating.jpg',
       icon: Sun
     },
     {
+      title: 'Home-Style Pure-Vegetarian Feasts by Dedicated Cook',
+      category: 'Culinary Craft',
+      description: 'Savor wholesome, freshly prepared vegetarian meals cooked hot to order—from local pahadi dal and aloo ke gutke to soft phulkas, paneer specialties, and evening tea snacks.',
+      image: '/images/kitchen/fully-equipped-kitchen-dining-counter.jpg',
+      icon: Utensils
+    },
+    {
       title: 'Forest Trails & Oak Forest Walks',
       category: 'Nature & Wellness',
-      description: 'Explore tranquil village trails leading through dense oak, pine, and rhododendron canopies right around Kasialekh and Dausapani.',
+      description: 'Step directly from the villa into quiet village trails leading through dense oak, pine, and rhododendron canopies right around Kasialekh and Dausapani.',
       image: '/images/garden/villa-garden-stone-pathway.jpg',
       icon: Trees
     },
     {
-      title: 'Night Sky Stargazing & Astrophotography',
-      category: 'Evening Solitude',
-      description: 'With zero urban light pollution at 7,000 ft altitude, the night sky reveals crystal-clear constellations and the Milky Way directly above the villa.',
+      title: 'Woodsmoke Bonfires in the Private Garden',
+      category: 'Fireside Warmth',
+      description: 'As mountain temperatures dip after sunset, gather around a crackling wood bonfire on the manicured lawn for warm fireside conversations under the stars.',
       image: '/images/veranda/veranda-lounge-evening-bonfire.jpg',
+      icon: Flame
+    },
+    {
+      title: 'High-Altitude Stargazing & Astrophotography',
+      category: 'Night Sky',
+      description: 'With zero urban light pollution at 7,000 ft altitude, the night sky reveals crystal-clear constellations and the Milky Way directly above the open sun deck.',
+      image: '/images/veranda/veranda-open-space-terrace.jpg',
       icon: Sparkles
     },
     {
       title: 'Chauli Ki Jali Cliff Excursion',
       category: 'Local Wonder',
-      description: 'A short 20-minute drive leads to the dramatic cliff overhangs of Chauli Ki Jali for panoramic Himalayan views and sunset photography.',
+      description: 'A scenic 20-minute drive leads to the dramatic cliff overhangs of Chauli Ki Jali and Mukteshwar Dham Shiva Temple for sweeping Himalayan snow-peak panoramas.',
       image: '/images/exterior/villa-exterior-mountain-ridge.jpg',
       icon: Compass
     }

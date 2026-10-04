@@ -94,7 +94,7 @@ export const RoomDetailPage: React.FC = () => {
             {/* Description Paragraphs */}
             <div className="space-y-4 text-xs sm:text-sm text-charcoal-700 font-light leading-relaxed">
               <h2 className="text-2xl sm:text-3xl font-serif text-charcoal-900 mb-4">
-                The Sanctuary Experience
+                The Suite Experience & Comfort
               </h2>
               {room.description.map((paragraph, idx) => (
                 <p key={idx}>{paragraph}</p>

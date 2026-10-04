@@ -43,18 +43,10 @@ const URL_LIST = [
   'https://themukteshwarbungalow.in/mukteshwar-villa-from-haldwani'
 ];
 
-async function submitIndexNow() {
-  console.log(`Submitting ${URL_LIST.length} URLs to IndexNow API for ${HOST}...`);
-
-  const payload = {
-    host: HOST,
-    key: KEY,
-    keyLocation: KEY_LOCATION,
-    urlList: URL_LIST
-  };
-
+async function submitEndpoint(endpointUrl, endpointName, payload) {
   try {
-    const response = await fetch('https://api.indexnow.org/IndexNow', {
+    console.log(`[DISPATCH] Submitting to ${endpointName} (${endpointUrl})...`);
+    const response = await fetch(endpointUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json; charset=utf-8'
@@ -63,15 +55,40 @@ async function submitIndexNow() {
     });
 
     if (response.ok || response.status === 200 || response.status === 202) {
-      console.log(`✓ IndexNow submission successful! Status: ${response.status}`);
-      console.log(`✓ Submitted ${URL_LIST.length} production canonical URLs.`);
+      console.log(`[OK] ${endpointName} submission successful! Status: ${response.status}`);
+      return true;
     } else {
       const text = await response.text();
-      console.warn(`! IndexNow returned status ${response.status}: ${text}`);
+      console.warn(`[WARN] ${endpointName} returned status ${response.status}: ${text}`);
+      return false;
     }
   } catch (err) {
-    console.error('✗ Error connecting to IndexNow:', err.message);
+    console.error(`[FAIL] Error connecting to ${endpointName}:`, err.message);
+    return false;
   }
+}
+
+async function submitIndexNow() {
+  console.log(`[START] IndexNow Dual-Endpoint Dispatch for ${HOST}`);
+  console.log(`[COUNT] Total Canonical URLs to submit: ${URL_LIST.length}`);
+
+  const payload = {
+    host: HOST,
+    key: KEY,
+    keyLocation: KEY_LOCATION,
+    urlList: URL_LIST
+  };
+
+  const endpoints = [
+    { name: 'IndexNow Central Gateway', url: 'https://api.indexnow.org/indexnow' },
+    { name: 'Bing Webmaster Direct', url: 'https://www.bing.com/indexnow' }
+  ];
+
+  for (const ep of endpoints) {
+    await submitEndpoint(ep.url, ep.name, payload);
+  }
+
+  console.log(`[DONE] Finished IndexNow submission across all search engine endpoints.`);
 }
 
 submitIndexNow();

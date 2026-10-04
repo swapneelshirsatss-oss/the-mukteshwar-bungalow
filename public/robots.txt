@@ -26,5 +26,6 @@ Allow: /
 User-agent: cohere-ai
 Allow: /
 
-# Canonical XML Sitemap Index
+# Canonical XML Sitemaps
 Sitemap: https://themukteshwarbungalow.in/sitemap.xml
+Sitemap: https://themukteshwarbungalow.in/sitemap-index.xml

@@ -45,7 +45,7 @@ export const RoomsPage: React.FC = () => {
             The Three Luxury Suites
           </h1>
           <p className="text-base sm:text-xl text-ivory-200/80 font-light max-w-2xl leading-relaxed">
-            Private bedroom sanctuaries crafted with artisan Himalayan materials, king beds, heated comfort, and panoramic mountain views.
+            Three generous ~400 sq. ft suites crafted with artisan Himalayan materials, private attached balconies, king beds, heated winter comfort, and panoramic valley views.
           </p>
         </div>
       </section>
@@ -54,7 +54,7 @@ export const RoomsPage: React.FC = () => {
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <SectionHeading
           centered
-          subtitle="Sanctuary Collection"
+          subtitle="The Three Suites"
           title="Private Bedroom Suites"
           description="Explore our three individually styled suites. When you book the villa, all three suites are reserved exclusively for your party."
         />
@@ -87,6 +87,18 @@ export const RoomsPage: React.FC = () => {
                 </tr>
               </thead>
               <tbody className="divide-y divide-charcoal-900/10 text-charcoal-800">
+                <tr>
+                  <td className="p-4 font-semibold text-charcoal-900 bg-ivory-50/50">Suite Area</td>
+                  <td className="p-4 font-medium text-charcoal-900">~400 sq. ft</td>
+                  <td className="p-4 font-medium text-charcoal-900">~400 sq. ft</td>
+                  <td className="p-4 font-medium text-charcoal-900">~400 sq. ft</td>
+                </tr>
+                <tr>
+                  <td className="p-4 font-semibold text-charcoal-900 bg-ivory-50/50">Private Balcony</td>
+                  <td className="p-4">Attached Private Viewing Balcony</td>
+                  <td className="p-4">Attached Private Viewing Balcony</td>
+                  <td className="p-4">Attached Private Corner Balcony</td>
+                </tr>
                 <tr>
                   <td className="p-4 font-semibold text-charcoal-900 bg-ivory-50/50">Positioning</td>
                   <td className="p-4">Master Bedroom 1</td>

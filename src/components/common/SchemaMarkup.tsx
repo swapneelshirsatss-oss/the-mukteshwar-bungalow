@@ -1,4 +1,5 @@
 import { propertyData } from '../../data/propertyData';
+import { verifiedGuestReviews } from '../../data/reviewsData';
 import { RoomSuite, FAQItem, BlogPost, AttractionItem } from '../../types';
 
 export function getWebSiteSchema() {
@@ -102,6 +103,10 @@ export function getLodgingBusinessSchema() {
       'https://www.google.com/search?kgmid=/g/11z9v7l2pt',
       'https://www.instagram.com/themukteshwarbungalow'
     ],
+    'speakable': {
+      '@type': 'SpeakableSpecification',
+      'cssSelector': ['#hero-heading', '#direct-answer-summary']
+    },
     'openingHoursSpecification': {
       '@type': 'OpeningHoursSpecification',
       'dayOfWeek': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
@@ -115,6 +120,21 @@ export function getLodgingBusinessSchema() {
       'bestRating': '5',
       'worstRating': '1'
     },
+    'review': verifiedGuestReviews.map((rev) => ({
+      '@type': 'Review',
+      'author': {
+        '@type': 'Person',
+        'name': rev.guestName
+      },
+      'datePublished': rev.stayDate,
+      'reviewBody': rev.review,
+      'reviewRating': {
+        '@type': 'Rating',
+        'ratingValue': rev.rating.toString(),
+        'bestRating': '5',
+        'worstRating': '1'
+      }
+    })),
     'checkinTime': propertyData.policies.checkInTime || '14:00',
     'checkoutTime': propertyData.policies.checkOutTime || '11:00',
     'numberOfRooms': propertyData.totalBedrooms,
@@ -207,6 +227,7 @@ export function getRoomSchema(room: RoomSuite) {
   return {
     '@context': 'https://schema.org',
     '@type': 'HotelRoom',
+    '@id': `https://themukteshwarbungalow.in/rooms/${room.slug}#room`,
     'name': `${room.name} | The Mukteshwar Bungalow`,
     'description': room.overview,
     'image': `https://themukteshwarbungalow.in${room.heroImage}`,
@@ -214,6 +235,11 @@ export function getRoomSchema(room: RoomSuite) {
       '@type': 'BedDetails',
       'numberOfBeds': 1,
       'typeOfBed': 'King Bed'
+    },
+    'floorSize': {
+      '@type': 'QuantitativeValue',
+      'value': 400,
+      'unitCode': 'FTK'
     },
     'occupancy': {
       '@type': 'QuantitativeValue',
@@ -234,11 +260,17 @@ export function getRoomSchema(room: RoomSuite) {
 }
 
 export function getBreadcrumbSchema(items: { name: string; url: string }[]) {
+  const cleanItems = items.filter((item) => item.url !== '/' && item.name.toLowerCase() !== 'home');
+  const fullItems = [
+    { name: 'Home', url: '/' },
+    ...cleanItems
+  ];
+
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
-    'itemListElement': items.map((item, index) => {
-      const cleanPath = item.url.startsWith('/') ? item.url : `/${item.url}`;
+    'itemListElement': fullItems.map((item, index) => {
+      const cleanPath = item.url === '/' ? '/' : (item.url.startsWith('/') ? item.url : `/${item.url}`);
       return {
         '@type': 'ListItem',
         'position': index + 1,
@@ -294,7 +326,28 @@ export function getArticleSchema(post: BlogPost) {
     'mainEntityOfPage': {
       '@type': 'WebPage',
       '@id': `https://themukteshwarbungalow.in/blog/${post.slug}`
+    },
+    'speakable': {
+      '@type': 'SpeakableSpecification',
+      'cssSelector': ['#article-heading', '#article-summary']
     }
+  };
+}
+
+export function getImageGallerySchema(images: { src: string; alt: string; caption?: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ImageGallery',
+    '@id': 'https://themukteshwarbungalow.in/gallery#gallery',
+    'url': 'https://themukteshwarbungalow.in/gallery',
+    'name': 'Visual Photography Gallery | The Mukteshwar Bungalow',
+    'description': 'High-resolution photographs of The Mukteshwar Bungalow: 3 luxury suites, Veranda Lounge, open sun deck, living salons, pure-veg kitchen, and Himalayan views.',
+    'image': images.map((img) => ({
+      '@type': 'ImageObject',
+      'contentUrl': img.src.startsWith('http') ? img.src : `https://themukteshwarbungalow.in${img.src}`,
+      'name': img.alt,
+      'caption': img.caption || img.alt
+    }))
   };
 }
 

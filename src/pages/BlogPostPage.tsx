@@ -63,7 +63,10 @@ export const BlogPostPage: React.FC = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-serif text-ivory-100 leading-tight">
+          <h1
+            id="article-heading"
+            className="text-3xl sm:text-5xl font-serif text-ivory-100 leading-tight"
+          >
             {post.title}
           </h1>
 
@@ -77,15 +80,29 @@ export const BlogPostPage: React.FC = () => {
 
       {/* Article Content */}
       <article className="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-        <div className="space-y-12">
+        <div className="space-y-8">
           {post.sections.map((section, idx) => (
             <div key={idx} className="space-y-4">
+              {idx > 0 && (
+                <div className="py-4 text-center text-himalayan-700/40 text-xs tracking-widest-plus select-none">
+                  ✦ &nbsp; ✦ &nbsp; ✦
+                </div>
+              )}
+
               <h2 className="text-2xl sm:text-3xl font-serif text-charcoal-900 leading-snug">
                 {section.heading}
               </h2>
 
               {section.content.map((p, pIdx) => (
-                <p key={pIdx} className="text-xs sm:text-base text-charcoal-700 font-light leading-relaxed">
+                <p
+                  key={pIdx}
+                  id={idx === 0 && pIdx === 0 ? 'article-summary' : undefined}
+                  className={`text-sm sm:text-base text-charcoal-700 font-light leading-relaxed ${
+                    idx === 0 && pIdx === 0
+                      ? 'first-letter:float-left first-letter:text-5xl sm:first-letter:text-6xl first-letter:font-serif first-letter:font-bold first-letter:text-himalayan-700 first-letter:mr-3.5 first-letter:leading-none'
+                      : ''
+                  }`}
+                >
                   {p}
                 </p>
               ))}
@@ -109,6 +126,17 @@ export const BlogPostPage: React.FC = () => {
             </div>
           ))}
 
+          {/* Host Field Note Card */}
+          <div className="my-8 p-6 bg-ivory-50 rounded-md border border-charcoal-900/10 space-y-2">
+            <div className="flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-himalayan-700">
+              <MapPin className="w-3.5 h-3.5 text-himalayan-700" />
+              <span>Host Field Note • Kasialekh Ridge</span>
+            </div>
+            <p className="text-xs sm:text-sm text-charcoal-700 font-light leading-relaxed italic">
+              "Early mornings between 6:15 AM and 7:00 AM offer the crispest view of the Himalayan snow peaks across the valley. Take a hot cup of adrak tea out to the Veranda Lounge and watch the peaks turn from cool silver to glowing amber gold."
+            </p>
+          </div>
+
           {/* Contextual Conversion Box */}
           <div className="my-12 p-8 bg-charcoal-900 text-ivory-100 rounded-md border border-charcoal-800 space-y-4 shadow-luxury">
             <span className="text-xs uppercase tracking-super-wide text-himalayan-400 font-semibold block">
@@ -118,7 +146,7 @@ export const BlogPostPage: React.FC = () => {
               Stay at The Mukteshwar Bungalow
             </h3>
             <p className="text-xs sm:text-sm text-ivory-200/80 font-light leading-relaxed max-w-xl">
-              A private 3 BHK mountain sanctuary in Kasialekh with panoramic Veranda Lounge, garden lawns, and sweeping valley views.
+              A private 3 BHK mountain residence in Kasialekh with panoramic Veranda Lounge, garden lawns, dedicated pure-veg cook, and sweeping valley views.
             </p>
             <div className="pt-2 flex flex-wrap gap-4">
               <Button to="/book" variant="himalayan" icon={<ArrowRight className="w-4 h-4" />}>

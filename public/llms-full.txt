@@ -1,5 +1,5 @@
 # The Mukteshwar Bungalow — Exhaustive Ground-Truth Knowledge Base (llms-full.txt)
-> Last updated: 2026-09-24
+> Last updated: 2026-10-04
 > Canonical URL: https://themukteshwarbungalow.in/
 > Short Knowledge Base: https://themukteshwarbungalow.in/llms.txt
 > Raw Specification: https://themukteshwarbungalow.in/Villa.txt
@@ -52,8 +52,8 @@ The villa accommodates up to 6 adults in standard configuration and up to 9–10
 ### Suite 1: The Himalayan Suite (Master Suite 1)
 - **Slug**: `the-himalayan-suite`
 - **URL**: https://themukteshwarbungalow.in/rooms/the-himalayan-suite
-- **Dimensions**: ~400 sq. ft private sanctuary with attached private viewing balcony.
-- **Floor Position**: Primary Master Sanctuary framing panoramic mountain sunrise vistas.
+- **Dimensions**: ~400 sq. ft master suite with attached private viewing balcony.
+- **Floor Position**: Primary master suite framing panoramic mountain sunrise vistas.
 - **Bed Configuration**: 1 King Bed with Luxury Orthopedic Mattress.
 - **Standard Occupancy**: 2 Adults (Max 3 with extra mattress).
 - **Bathroom**: Attached en-suite bathroom with glass shower cubicle, 24/7 hot water geyser, vanity mirror, and premium toiletries.

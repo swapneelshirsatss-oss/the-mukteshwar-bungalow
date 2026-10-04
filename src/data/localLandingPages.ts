@@ -6,7 +6,7 @@ export const localLandingPages: Record<string, LocalLandingPageData> = {
     slug: 'luxury-villa-mukteshwar-from-delhi',
     pageTitle: 'Luxury 3 BHK Villa in Mukteshwar from Delhi | The Mukteshwar Bungalow',
     metaDescription: 'Escape Delhi city traffic to a private 3 BHK luxury mountain villa in Kasialekh, Mukteshwar. 7.5 hrs smooth drive, open sun deck, veranda lounge, and direct Himalayan views.',
-    heroHeadline: 'A Private Himalayan Sanctuary for Discerning Delhi Travelers',
+    heroHeadline: 'A Private Himalayan Mountain Home for Discerning Delhi Travelers',
     heroSubheadline: 'Trade Delhi’s bustling urban pace for the pine-scented serenity, crisp mountain air, and exclusive 3 BHK privacy of The Mukteshwar Bungalow in Kasialekh.',
     drivingDistanceSummary: 'Approx. 330 km • 7.5 to 8.5 hours via Delhi-Meerut Expressway & NH 9',
     idealAudience: 'Families, multi-generational groups, and private circles seeking a serene mountain retreat without hotel crowds.',
@@ -45,7 +45,7 @@ export const localLandingPages: Record<string, LocalLandingPageData> = {
     slug: 'mukteshwar-villa-from-noida',
     pageTitle: 'Mukteshwar Luxury Villa from Noida | Weekend Escapes & Workcations',
     metaDescription: 'Book a luxury 3 BHK mountain villa in Mukteshwar from Noida. Fast highway exit via Eastern Peripheral/NH9, high-speed Wi-Fi workcation setup, and private Himalayan seclusion.',
-    heroHeadline: 'Seamless Weekend Hill Getaways & Workcations from Noida',
+    heroHeadline: 'Effortless Weekend Hill Getaways & Workcations from Noida',
     heroSubheadline: 'Take advantage of Noida’s direct highway access to escape into the calm pine woods of Kasialekh, Mukteshwar for focused workcations and rejuvenating family weekends.',
     drivingDistanceSummary: 'Approx. 315 km • 7 to 8 hours via NH 9 / Moradabad Bypass',
     idealAudience: 'Tech founders, creative professionals, corporate leaders, and families looking for a fast, scenic hill escape.',
@@ -53,7 +53,7 @@ export const localLandingPages: Record<string, LocalLandingPageData> = {
       'Immediate access to NH 9 / Hapur Bypass via Sector 62 / Greater Noida link',
       'Reliable EV charging corridors and modern food stops along the Gajraula-Moradabad highway',
       'Gradual elevation climb through Bhowali and Ramgarh orchards',
-      'High-speed optical Wi-Fi on-site for seamless remote video conferencing'
+      'High-speed optical Wi-Fi on-site for reliable, lag-free video conferencing'
     ],
     whyChooseVilla: [
       'High-speed optical broadband Wi-Fi with inverter backup for uninterrupted workcations',

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Utensils, Coffee, Check, ArrowRight, ShieldCheck, ShoppingBag, Sparkles } from 'lucide-react';
+import { Utensils, Coffee, Check, ArrowRight, ShieldCheck, ShoppingBag, HeartHandshake, Flame } from 'lucide-react';
 import { propertyData } from '../data/propertyData';
 import { SEOHead } from '../components/common/SEOHead';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
@@ -10,16 +10,16 @@ import { getBreadcrumbSchema, getLivingSpaceSchema } from '../components/common/
 export const KitchenPage: React.FC = () => {
   const breadcrumbSchema = getBreadcrumbSchema([{ name: 'Kitchen & Dining', url: '/kitchen' }]);
   const kitchenSchema = getLivingSpaceSchema(
-    'Fully Equipped Kitchen & Dining',
-    'A complete residential kitchen with modern cooking hobs, refrigeration, microwave, and tableware, featuring dedicated in-house cook services for pure-vegetarian dining.',
+    'Kitchen & Pure-Vegetarian Dining',
+    'A complete residential kitchen with modern cooking hobs, refrigeration, microwave, and tableware, featuring dedicated in-house cook services for 100% pure-vegetarian dining.',
     '/images/kitchen/fully-equipped-kitchen-dining-counter.jpg'
   );
 
   return (
     <>
       <SEOHead
-        title="Fully Equipped Kitchen & Dining | The Mukteshwar Bungalow"
-        description="Cook your own favorite meals in our fully equipped kitchen with gas hobs, refrigerator, microwave, and quartz breakfast counter in Mukteshwar."
+        title="Dedicated Cook & Equipped Kitchen | The Mukteshwar Bungalow"
+        description="Fresh home-style pure vegetarian meals prepared by our in-house cook and a fully equipped modern kitchen with gas hobs, refrigerator, and microwave in Mukteshwar."
         canonicalUrl="https://themukteshwarbungalow.in/kitchen"
         schema={[kitchenSchema, breadcrumbSchema]}
       />
@@ -29,7 +29,7 @@ export const KitchenPage: React.FC = () => {
         <div className="absolute inset-0 z-0 opacity-45">
           <img
             src="/images/kitchen/fully-equipped-kitchen-dining-counter.jpg"
-            alt="Fully equipped kitchen at The Mukteshwar Bungalow"
+            alt="Kitchen and dining counter at The Mukteshwar Bungalow"
             className="w-full h-full object-cover"
           />
         </div>
@@ -40,66 +40,114 @@ export const KitchenPage: React.FC = () => {
             dark
             items={[{ name: 'Kitchen & Dining', url: '/kitchen' }]}
           />
-          <span className="text-xs uppercase tracking-super-wide text-himalayan-400 font-semibold block">
-            Residential Facilities
-          </span>
+          <div className="inline-flex items-center gap-2 bg-charcoal-900/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-ivory-100/20 text-xs tracking-widest uppercase text-ivory-100/90 shadow-sm">
+            <Utensils className="w-3.5 h-3.5 text-himalayan-400" />
+            <span>Pure-Vegetarian Mountain Dining & Kitchen</span>
+          </div>
+
           <h1 className="text-4xl sm:text-6xl font-serif text-ivory-100 leading-tight">
-            Fully Equipped Kitchen
+            Kitchen & Mountain Dining
           </h1>
           <p className="text-base sm:text-xl text-ivory-200/80 font-light max-w-2xl leading-relaxed">
-            A complete modern kitchen offering total culinary freedom for family cooking, baby food prep, morning tea, and homestyle dining.
+            Fresh home-style pure-vegetarian meals prepared by our dedicated in-house cook, paired with complete residential kitchen freedom for your family.
           </p>
         </div>
       </section>
 
-      {/* Kitchen Details */}
+      {/* Dual Dining Architecture: Dedicated Cook + Kitchen Freedom */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-6 space-y-6">
-            <SectionHeading
-              subtitle="Home Culinary Freedom"
-              title="Cook, Reheat & Dine on Your Own Schedule"
-              description="Enjoy the comfort of an independent residential kitchen fitted with contemporary cooking appliances and dinnerware."
-            />
-
-            <div className="space-y-4 text-xs sm:text-sm text-charcoal-700 font-light leading-relaxed">
-              <p>
-                One of the greatest joys of a private mountain residence is the ability to cook your own comfort foods without being tied to rigid restaurant hours or expensive room service menus.
-              </p>
-              <p>
-                The kitchen at The Mukteshwar Bungalow is equipped with high-efficiency gas hobs, a modern exhaust chimney, microwave oven, large double-door refrigerator, electric kettle, and water purifier. Whether preparing early breakfast for toddlers, brewing fresh artisan coffee, or simmering evening mountain soups, you have everything needed.
-              </p>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          
+          {/* Pillar 1: Dedicated In-House Pure-Veg Cook */}
+          <div className="bg-white p-8 sm:p-10 rounded-md border border-charcoal-900/10 shadow-editorial space-y-6">
+            <div className="flex items-center gap-3 text-himalayan-700">
+              <HeartHandshake className="w-6 h-6 text-himalayan-700" />
+              <span className="text-xs uppercase tracking-widest font-semibold font-sans">
+                Catered Comfort
+              </span>
             </div>
 
-            {/* Feature List */}
-            <div className="space-y-2 pt-2 text-xs text-charcoal-800">
+            <h2 className="text-2xl sm:text-3xl font-serif text-charcoal-900">
+              Dedicated In-House Pure-Veg Cook
+            </h2>
+
+            <p className="text-xs sm:text-sm text-charcoal-700 font-light leading-relaxed">
+              Nothing compares to arriving back from a brisk mountain walk to the aroma of freshly cooked pahadi dal, warm phulkas, and seasonal hill greens. Our on-site cook prepares hot, home-style pure vegetarian meals customized to your family's preferences.
+            </p>
+
+            <div className="space-y-2.5 pt-2 text-xs text-charcoal-800">
               <div className="flex items-center gap-2">
                 <Check className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>Gas cooking hobs, exhaust chimney & microwave oven</span>
+                <span>Fresh home-style breakfast, lunch, and dinner (100% Pure Vegetarian)</span>
               </div>
               <div className="flex items-center gap-2">
                 <Check className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>Refrigerator, electric kettle & RO water purifier</span>
+                <span>Piping hot adrak-elaichi chai and evening pakoras on the Veranda Lounge</span>
               </div>
               <div className="flex items-center gap-2">
                 <Check className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>Complete set of stainless steel cookware, pots, pans, cutlery & dinnerware</span>
+                <span>Customized spice levels and dietary adjustments for children and elders</span>
               </div>
               <div className="flex items-center gap-2">
                 <Check className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>Spacious quartz counter with breakfast window seating</span>
+                <span>Prepared with fresh ingredients sourced from local Kasialekh markets</span>
               </div>
             </div>
           </div>
 
-          <div className="lg:col-span-6 space-y-4">
-            <div className="rounded-md overflow-hidden shadow-luxury border border-charcoal-900/10 aspect-[4/3]">
-              <img
-                src="/images/kitchen/fully-equipped-kitchen-appliances-cookware.jpg"
-                alt="Kitchen Cookware and Setup"
-                className="w-full h-full object-cover"
-              />
+          {/* Pillar 2: Fully Equipped Kitchen Freedom */}
+          <div className="bg-white p-8 sm:p-10 rounded-md border border-charcoal-900/10 shadow-editorial space-y-6">
+            <div className="flex items-center gap-3 text-himalayan-700">
+              <Flame className="w-6 h-6 text-himalayan-700" />
+              <span className="text-xs uppercase tracking-widest font-semibold font-sans">
+                Self-Cooking Freedom
+              </span>
             </div>
+
+            <h2 className="text-2xl sm:text-3xl font-serif text-charcoal-900">
+              Fully Equipped Residential Kitchen
+            </h2>
+
+            <p className="text-xs sm:text-sm text-charcoal-700 font-light leading-relaxed">
+              Traveling with toddlers or prefer cooking your own signature recipes? You enjoy unrestricted access to a complete modern kitchen fitted with gas cooking hobs, cookware, and refrigeration.
+            </p>
+
+            <div className="space-y-2.5 pt-2 text-xs text-charcoal-800">
+              <div className="flex items-center gap-2">
+                <Check className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>Multi-burner gas stove, electric chimney & microwave oven</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Check className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>Large double-door refrigerator & RO filtered drinking water</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Check className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>Stainless steel cookware, pressure cookers, dinnerware & cutlery</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Check className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>Convenient for toddler meals, late-night snacks, and specialty cooking</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Visual Showcase */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+          <div className="rounded-md overflow-hidden shadow-luxury border border-charcoal-900/10 aspect-[16/10]">
+            <img
+              src="/images/kitchen/fully-equipped-kitchen-dining-counter.jpg"
+              alt="Kitchen dining counter with mountain views"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="rounded-md overflow-hidden shadow-luxury border border-charcoal-900/10 aspect-[16/10]">
+            <img
+              src="/images/kitchen/fully-equipped-kitchen-appliances-cookware.jpg"
+              alt="Modern cookware and appliances in the bungalow kitchen"
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
       </section>
@@ -109,9 +157,9 @@ export const KitchenPage: React.FC = () => {
         <div className="max-w-4xl mx-auto">
           <SectionHeading
             centered
-            subtitle="Local Markets"
-            title="Fresh Mountain Ingredients Nearby"
-            description="Kasialekh and Dausapani markets offer organic vegetables, fresh dairy, and daily essentials just a short drive away."
+            subtitle="Local Mountain Markets"
+            title="Fresh Ingredients Around Kasialekh"
+            description="Kasialekh and nearby Mukteshwar village markets provide farm-fresh hill vegetables, organic dairy, and daily essentials."
           />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
@@ -121,7 +169,7 @@ export const KitchenPage: React.FC = () => {
                 <span>Kasialekh Market (5 mins)</span>
               </div>
               <p className="text-xs sm:text-sm text-charcoal-600 font-light leading-relaxed">
-                Local village shops carrying daily groceries, fresh milk, organic hill vegetables, spices, eggs, snacks, and seasonal fruit preserves.
+                Local village shops carrying daily groceries, fresh milk, organic hill potatoes, seasonal vegetables, spices, and artisanal fruit preserves.
               </p>
             </div>
 
@@ -131,14 +179,14 @@ export const KitchenPage: React.FC = () => {
                 <span>Bhatelia / Mukteshwar (15 mins)</span>
               </div>
               <p className="text-xs sm:text-sm text-charcoal-600 font-light leading-relaxed">
-                Larger market junction with specialty bakeries, organic cooperatives, pharmacy, ATM, and local cafes serving Kumaoni delicacies.
+                A larger market junction featuring organic food cooperatives, local bakeries, cafes, pharmacy, and regional Kumaoni specialty stores.
               </p>
             </div>
           </div>
 
           <div className="mt-12 text-center">
             <Button to="/book" variant="himalayan" size="lg" icon={<ArrowRight className="w-4 h-4" />}>
-              Book Direct with Full Kitchen Access
+              Reserve Stay with Cook & Kitchen Access
             </Button>
           </div>
         </div>
@@ -146,3 +194,4 @@ export const KitchenPage: React.FC = () => {
     </>
   );
 };
+

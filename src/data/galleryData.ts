@@ -59,7 +59,7 @@ export const galleryImages: GalleryImage[] = [
     alt: 'Master king bed in The Himalayan Suite with valley view windows',
     category: 'Suites',
     categoryLabel: 'The Himalayan Suite',
-    caption: 'The Himalayan Suite — Master bedroom sanctuary with hardwood finishes and panoramic glazing.'
+    caption: 'The Himalayan Suite — Master bedroom suite with hardwood finishes and panoramic valley glazing.'
   },
   {
     id: 'suite-him-2',
@@ -161,7 +161,7 @@ export const galleryImages: GalleryImage[] = [
     alt: 'Indoor outdoor living connection at The Veranda Lounge',
     category: 'Veranda',
     categoryLabel: 'The Veranda Lounge',
-    caption: 'Seamless architectural flow connecting the living salon with the open-air deck.'
+    caption: 'Open architectural flow connecting the living salon with the open-air deck.'
   },
   {
     id: 'ver-3',
