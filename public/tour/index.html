@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,follow">
+<meta name="theme-color" content="#131c20">
+<title>Virtual Tour | The Mukteshwar Bungalow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+/* Concept: a dark, quiet frame around the photography. One tan accent, used only on things you can act on. */
+:root{
+  --bg:#131c20;
+  --panel:rgba(19,28,32,.76);
+  --panel-solid:#1F2A2E;
+  --line:rgba(237,234,226,.16);
+  --accent:#7B1E2D;
+  --accent-fg:#dfb0b7;
+  --on-accent:#F2EDE1;
+  --text:#F2EDE1;
+  --muted:#c4bdae;
+  --display:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --body:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;padding-inline:0}
+body{background:var(--bg);color:var(--text);font:400 15px/1.45 var(--body);overflow:hidden;-webkit-tap-highlight-color:transparent}
+#pano{position:fixed;inset:0;background:var(--bg);touch-action:none;cursor:grab}
+#pano:active{cursor:grabbing}
+#pano{will-change:filter}
+
+.scrim{position:fixed;left:0;right:0;pointer-events:none}
+.scrim.top{top:0;height:150px;background:linear-gradient(rgba(10,10,10,.62),rgba(10,10,10,0))}
+.scrim.bot{bottom:0;height:170px;background:linear-gradient(rgba(10,10,10,0),rgba(10,10,10,.6))}
+/* top-left: property + current room */
+.brand{position:fixed;top:calc(env(safe-area-inset-top,0px) + 18px);left:16px;right:72px;display:flex;flex-direction:column;gap:2px;pointer-events:none;text-shadow:0 1px 14px rgba(0,0,0,.55)}
+.brand .name{font:600 clamp(20px,3.4vw,30px)/1.05 var(--display);letter-spacing:.01em}
+.brand .room{font:700 12px/1.3 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--accent-fg);text-shadow:0 1px 8px rgba(0,0,0,.8)}
+.brand .room span{color:var(--text);opacity:.7;margin-inline:.55em}
+
+.tools{position:fixed;top:calc(env(safe-area-inset-top,0px) + 14px);right:16px;display:flex;gap:8px}
+.icon-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--panel);color:var(--text);display:grid;place-items:center;cursor:pointer;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.icon-btn:hover{border-color:var(--accent-fg);color:var(--accent-fg)}
+.icon-btn svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* bottom: floor switcher */
+.dock{position:fixed;left:0;right:0;bottom:calc(env(safe-area-inset-bottom,0px) + 18px);display:flex;flex-direction:column;align-items:center;gap:12px;padding-inline:16px;pointer-events:none}
+.hint{font-size:12px;letter-spacing:.06em;color:var(--text);opacity:.85;text-shadow:0 1px 12px rgba(0,0,0,.7);transition:opacity .8s;text-align:center}
+.hint.gone{opacity:0}
+.floors{display:flex;gap:4px;padding:4px;border:1px solid var(--line);border-radius:999px;background:var(--panel);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);pointer-events:auto;max-width:100%}
+.floors button{font:500 13px/1 var(--body);letter-spacing:.04em;color:var(--muted);background:transparent;border:0;border-radius:999px;padding:12px 18px;min-height:44px;cursor:pointer;white-space:nowrap}
+.floors button:hover{color:var(--text)}
+.floors button[aria-current="true"]{background:var(--accent);color:var(--on-accent);font-weight:700}
+.floors .count{opacity:.6;margin-left:.5em;font-variant-numeric:tabular-nums}
+
+/* walk-through arrows */
+.hs{position:absolute;width:0;height:0}
+.hs button{position:absolute;left:-30px;top:-30px;width:60px;height:60px;border-radius:50%;border:1.5px solid rgba(245,242,234,.9);background:rgba(20,20,20,.38);color:#fff;display:grid;place-items:center;cursor:pointer;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);transition:transform .2s,background .2s,border-color .2s;padding:0}
+.hs button::after{content:"";position:absolute;inset:-7px;border-radius:50%;border:1px solid rgba(245,242,234,.5);animation:ring 2.4s ease-out infinite}
+.hs button svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.hs button:hover,.hs button:focus-visible{transform:scale(1.12);background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.hs .tip{position:absolute;left:50%;top:40px;transform:translate(-50%,6px);white-space:nowrap;font:500 12px/1 var(--body);letter-spacing:.06em;padding:8px 12px;border-radius:999px;background:rgba(20,20,20,.82);border:1px solid var(--line);color:var(--text);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s}
+.hs button:hover+.tip,.hs button:focus-visible+.tip{opacity:1;transform:translate(-50%,0)}
+.hs.up button svg{transform:rotate(0deg)}
+/* stairs arrows: wider pill with label so up/down reads at a glance */
+.hs.stairs button{width:auto;height:52px;left:-26px;top:-26px;border-radius:26px;padding:0 18px 0 14px;gap:8px;display:flex;align-items:center;font:700 12px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;border-color:var(--accent-fg);color:var(--text);background:rgba(20,20,20,.55);white-space:nowrap}
+.hs.stairs button::after{inset:-6px;border-radius:32px;border-color:rgba(223,176,183,.6)}
+.hs.stairs .tip{display:none}
+.hs.stairs button svg{width:22px;height:22px;stroke:var(--accent-fg)}
+.hs.stairs button:hover,.hs.stairs button:focus-visible{background:var(--accent);color:var(--on-accent)}
+.hs.stairs button:hover svg,.hs.stairs button:focus-visible svg{stroke:var(--on-accent)}
+@media (hover:none){.hs:not(.stairs) .tip{opacity:1;transform:translate(-50%,0);font-size:11px;padding:6px 10px}}
+@keyframes ring{0%{transform:scale(.88);opacity:.9}100%{transform:scale(1.35);opacity:0}}
+
+/* loading */
+.loader{position:fixed;inset:0;background:var(--bg);display:grid;place-items:center;transition:opacity .7s;z-index:5}
+.loader.done{opacity:0;pointer-events:none}
+.loader div{text-align:center}
+.loader .name{font:600 30px/1.1 var(--display)}
+.loader .sub{margin-top:10px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-fg)}
+.loader .bar{width:120px;height:2px;margin:18px auto 0;background:var(--line);overflow:hidden;border-radius:2px}
+.loader .bar i{display:block;height:100%;width:40%;background:var(--accent);animation:slide 1.2s ease-in-out infinite}
+@keyframes slide{0%{transform:translateX(-100%)}100%{transform:translateX(300%)}}
+
+/* demo mark */
+.mark{position:fixed;left:16px;bottom:calc(env(safe-area-inset-bottom,0px) + 4px);font-size:10px;letter-spacing:.08em;color:rgba(245,242,234,.45);pointer-events:none;display:none}
+@media (min-width:900px){.mark{display:block;bottom:calc(env(safe-area-inset-bottom,0px) + 14px)}}
+@media (max-width:520px){.floors button{padding:12px 14px;font-size:12.5px}.hs button{width:54px;height:54px;left:-27px;top:-27px}}
+@media (prefers-reduced-motion:reduce){.hs button::after,.loader .bar i{animation:none}}
+
+/* amenity pins */
+.hs.pin button{width:40px;height:40px;left:-20px;top:-20px;background:var(--accent);border:2px solid var(--text);color:var(--on-accent);box-shadow:0 2px 14px rgba(0,0,0,.45)}
+.hs.pin button::after{border-color:rgba(242,237,225,.7)}
+.hs.pin button svg{width:18px;height:18px;stroke-width:2.6}
+.hs.pin .tip{top:30px}
+.hs.pin button:hover,.hs.pin button:focus-visible{background:var(--text);border-color:var(--text);color:var(--accent)}
+/* info card */
+.card{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 150px);transform:translate(-50%,14px);width:min(440px,calc(100% - 32px));background:rgba(22,22,20,.9);border:1px solid var(--line);border-radius:16px;padding:16px 18px;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);opacity:0;pointer-events:none;transition:opacity .4s,transform .4s;z-index:3}
+.card.on{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+.card .k{font:700 11px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--accent-fg);margin:0 36px 8px 0}
+.card h3{margin:0 36px 10px 0;font:600 24px/1.1 var(--display)}
+.card ul{list-style:none;margin:0;padding:0;display:grid;gap:9px;max-height:calc(100vh - 340px);overflow-y:auto}
+.card li b{display:block;font-weight:700;font-size:14px}
+.card li span{display:block;color:var(--muted);font-size:13px;margin-top:1px}
+.card .x{position:absolute;top:8px;right:8px;width:40px;height:40px;border:0;background:transparent;color:var(--muted);cursor:pointer;border-radius:50%;display:grid;place-items:center}
+.card .x:hover{color:var(--accent-fg)}
+.card .x svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+/* amenities drawer */
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);background:rgba(18,18,17,.97);border-left:1px solid var(--line);transform:translateX(104%);transition:transform .45s cubic-bezier(.2,.7,.2,1);z-index:4;overflow-y:auto;padding:calc(env(safe-area-inset-top,0px) + 20px) 22px 40px;visibility:hidden}
+.drawer.on{transform:none;visibility:visible}
+.drawer h2{margin:0 48px 4px 0;font:600 28px/1.1 var(--display)}
+.drawer .sub{color:var(--muted);font-size:13px;margin-bottom:18px}
+.drawer .x{position:absolute;top:calc(env(safe-area-inset-top,0px) + 14px);right:14px}
+.drawer h4{margin:22px 0 6px;font:700 11px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--accent-fg)}
+.drawer .row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--line)}
+.drawer .row b{display:block;font-weight:500;font-size:14.5px}
+.drawer .row small{display:block;color:var(--muted);font-size:12.5px;margin-top:1px}
+.drawer .see{flex:none;font:700 11.5px/1 var(--body);letter-spacing:.06em;color:var(--accent-fg);background:transparent;border:1px solid rgba(223,176,183,.5);border-radius:999px;padding:9px 12px;min-height:34px;cursor:pointer;white-space:nowrap}
+.drawer .see:hover{background:var(--accent);color:var(--on-accent)}
+@media (max-width:520px){.card{bottom:calc(env(safe-area-inset-bottom,0px) + 150px)}}
+.back{display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--text);font:700 12px/1 var(--body);letter-spacing:.06em;text-decoration:none;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.back:hover{border-color:var(--accent-fg);color:var(--accent-fg)}
+.embed .brand .name,.embed .back{display:none}
+.embed .brand{top:14px}
+@media (max-width:520px){.back span{display:none}.back{padding:0;width:44px;justify-content:center}}
+@media (max-width:520px){.brand{right:172px}.brand .name{font-size:19px}}
+</style>
+</head>
+<body>
+<div id="pano" aria-label="360 degree view of the bungalow. Drag to look around."></div>
+
+<div class="scrim top"></div><div class="scrim bot"></div>
+<div class="brand">
+  <div class="name">The Mukteshwar Bungalow</div>
+  <div class="room" id="roomLabel" aria-live="polite"></div>
+</div>
+
+<div class="tools">
+  <a class="back" href="/virtual-tour" aria-label="Back to the website"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg><span>Back to website</span></a>
+  <button class="icon-btn" id="amBtn" aria-label="All amenities" title="All amenities">
+    <svg viewBox="0 0 24 24"><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/></svg>
+  </button>
+  <button class="icon-btn" id="fsBtn" aria-label="Full screen">
+    <svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
+  </button>
+</div>
+
+<div class="dock">
+  <div class="hint" id="hint">Drag to look around &nbsp;&middot;&nbsp; tap an arrow to walk there</div>
+  <nav class="floors" id="floors" aria-label="Floors"></nav>
+</div>
+<div class="card" id="card" role="dialog" aria-live="polite"><button class="x" id="cardX" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button><div class="k">Amenity</div><h3 id="cardT"></h3><ul id="cardL"></ul></div>
+<aside class="drawer" id="drawer" aria-label="All amenities"><button class="icon-btn x" id="drX" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button><h2>What this place offers</h2><div class="sub">Tap &ldquo;See in tour&rdquo; to jump to it.</div><div id="drBody"></div></aside>
+
+<div class="loader" id="loader"><div>
+  <div class="name">The Mukteshwar Bungalow</div>
+  <div class="sub">Virtual tour</div>
+  <div class="bar"><i></i></div>
+</div></div>
+
+<script>if(/[?&]embed=1\b/.test(location.search))document.documentElement.classList.add('embed');</script>
+<script src="marzipano.js"></script>
+<script>
+(function(){
+  /* Floors */
+  var FLOORS=[
+    {key:'ext', label:'Exterior', first:'s01'},
+    {key:'gnd', label:'Ground floor', first:'s05'},
+    {key:'upr', label:'Upper floor', first:'s17'}
+  ];
+/*AM*/var AM={"cats":[["Kitchen and dining",["kitchen","fridge","freezer","cooker","cooking_basics","crockery","blender","waste_compactor","dining_table"]],["Bedroom and laundry",["essentials","bed_linen","pillows","blinds","iron","clothes_storage"]],["Bathroom",["cleaning","conditioner","hot_water"]],["Entertainment",["tv","books","theme"]],["Internet and office",["wifi","workspace"]],["Outdoor",["balcony","garden","outdoor_furniture"]],["Heating and cooling",["fans","heating"]],["Home safety",["noise","cctv","smoke","co","extinguisher","firstaid"]],["Family",["corner"]],["Location features",["private_entrance"]],["Parking and facilities",["parking"]],["Services",["smoking","checkin","lockbox","cleaning_avail"]]],"items":{"kitchen":{"n":"Kitchen","d":"Space where guests can cook their own meals"},"fridge":{"n":"Fridge","d":""},"freezer":{"n":"Freezer","d":""},"cooker":{"n":"Cooker","d":""},"cooking_basics":{"n":"Cooking basics","d":"Pots and pans, oil, salt and pepper"},"crockery":{"n":"Crockery and cutlery","d":"Plates, bowls, cups, cutlery and other utensils"},"blender":{"n":"Blender","d":""},"waste_compactor":{"n":"Waste compactor","d":""},"dining_table":{"n":"Dining table","d":""},"essentials":{"n":"Essentials","d":"Towels, bed sheets, soap and toilet paper"},"bed_linen":{"n":"Bed linen","d":""},"pillows":{"n":"Extra pillows and blankets","d":""},"blinds":{"n":"Room-darkening blinds","d":""},"iron":{"n":"Iron","d":""},"clothes_storage":{"n":"Clothes storage","d":""},"cleaning":{"n":"Cleaning products","d":""},"conditioner":{"n":"Conditioner","d":""},"hot_water":{"n":"Hot water","d":""},"tv":{"n":"TV","d":""},"books":{"n":"Books and reading material","d":""},"theme":{"n":"Theme room","d":"A room or multiple spaces that are designed to follow the same theme"},"wifi":{"n":"Wifi","d":""},"workspace":{"n":"Dedicated workspace","d":""},"balcony":{"n":"Private patio or balcony","d":""},"garden":{"n":"Private back garden","d":"An open space on the property usually covered in grass"},"outdoor_furniture":{"n":"Outdoor furniture","d":""},"fans":{"n":"Portable fans","d":""},"heating":{"n":"Heating","d":""},"noise":{"n":"Noise decibel monitors on property","d":""},"cctv":{"n":"Exterior security cameras on property","d":"Outdoor security cameras are in place to ensure a safe stay."},"smoke":{"n":"Smoke alarm","d":""},"co":{"n":"Carbon monoxide alarm","d":""},"extinguisher":{"n":"Fire extinguisher","d":""},"firstaid":{"n":"First aid kit","d":""},"corner":{"n":"Table corner guards","d":""},"private_entrance":{"n":"Private entrance","d":"Separate street or building entrance"},"parking":{"n":"Free parking on premises","d":""},"smoking":{"n":"Smoking allowed","d":""},"checkin":{"n":"Self check-in","d":""},"lockbox":{"n":"Lockbox","d":""},"cleaning_avail":{"n":"Cleaning available during stay","d":""}},"pins":[{"s":"s01","t":"Private entrance","k":["private_entrance"],"y":-7.2,"p":-0.9},{"s":"s31","t":"Private back garden","k":["garden"],"y":0.0,"p":36.0},{"s":"s33","t":"Outdoor furniture","k":["outdoor_furniture"],"y":172.1,"p":12.1},{"s":"s06","t":"TV","k":["tv"],"y":-97.2,"p":-5.4},{"s":"s07","t":"Theme room","k":["theme"],"y":79.2,"p":-5.4},{"s":"s10","t":"TV","k":["tv"],"y":-104.4,"p":4.3},{"s":"s10","t":"Bed and linen","k":["essentials","bed_linen","pillows"],"y":0.0,"p":45.0},{"s":"s10","t":"Blinds","k":["blinds"],"y":54.0,"p":-27.0},{"s":"s12","t":"Hot water","k":["hot_water"],"y":118.8,"p":-23.4},{"s":"s12","t":"Bath essentials","k":["cleaning","conditioner"],"y":-62.6,"p":30.6},{"s":"s32","t":"Clothes storage","k":["clothes_storage","iron"],"y":-115.2,"p":13.5},{"s":"s13","t":"Dining table","k":["dining_table"],"y":-36.0,"p":39.6},{"s":"s15","t":"Kitchen and dining","k":["kitchen","fridge","freezer","cooker","cooking_basics","crockery","blender","waste_compactor","dining_table"],"y":-66.6,"p":25.2},{"s":"s16","t":"Dining table","k":["dining_table"],"y":-54.0,"p":43.2},{"s":"s19","t":"Clothes storage","k":["clothes_storage"],"y":144.0,"p":23.4},{"s":"s20","t":"Bed and linen","k":["essentials","bed_linen","pillows"],"y":3.6,"p":45.0},{"s":"s20","t":"Dedicated workspace","k":["workspace"],"y":-72.0,"p":-3.6},{"s":"s20","t":"TV","k":["tv"],"y":147.6,"p":-10.1},{"s":"s22","t":"Hot water","k":["hot_water"],"y":-21.6,"p":-39.6},{"s":"s22","t":"Bath essentials","k":["cleaning","conditioner"],"y":-41.0,"p":13.1},{"s":"s26","t":"Hot water","k":["hot_water"],"y":20.2,"p":-28.8},{"s":"s26","t":"Bath essentials","k":["cleaning","conditioner"],"y":63.0,"p":54.0},{"s":"s24","t":"Bed and linen","k":["essentials","bed_linen","pillows"],"y":46.8,"p":14.4},{"s":"s24","t":"Blinds","k":["blinds"],"y":-122.4,"p":9.0},{"s":"s21","t":"Private balcony","k":["balcony","outdoor_furniture"],"y":21.6,"p":39.6},{"s":"s25","t":"Private balcony","k":["balcony","outdoor_furniture"],"y":18.0,"p":37.8},{"s":"s29","t":"Private balcony","k":["balcony"],"y":0.0,"p":45.0},{"s":"s30","t":"Wifi","k":["wifi"],"y":-65.9,"p":18.0}]};/*ENDAM*/
+  var PINS={};AM.pins&&AM.pins.forEach(function(p){(PINS[p.s]=PINS[p.s]||[]).push(p)});
+
+  /* Scenes: id, floor, name, start yaw, links [target, yaw, pitch, label?] (degrees) */
+  var S=[
+   ['s01','ext','Front approach',0,[['s03',0,15,'walk',''],['s02',-111,29,'walk',''],['s31',50,21,'walk','']]],
+   ['s02','ext','Garden',-25,[['s01',25,12,'walk',''],['s33',-175,12,'walk','']]],
+   ['s03','ext','Garden path',0,[['s04',0,10,'walk',''],['s01',-179,38,'walk','']]],
+   ['s04','ext','Entrance porch',0,[['s05',0,15,'walk',''],['s03',-179,38,'walk','']]],
+   ['s05','gnd','Veranda',0,[['s06',0,32,'walk',''],['s04',-179,38,'walk','']]],
+   ['s06','gnd','Living room',85,[['s07',84,19,'walk',''],['s08',-25,21,'walk',''],['s05',173,29,'walk','']]],
+   ['s07','gnd','Sitting area',-20,[['s08',30,21,'walk',''],['s06',-19,21,'walk','']]],
+   ['s08','gnd','Stair hall',-32,[['s09',-32,29,'walk',''],['s13',70,36,'walk',''],['s06',-150,30,'walk',''],['s07',141,35,'walk','']]],
+   ['s09','gnd','Guest bedroom entry',-35,[['s10',-25,38,'walk',''],['s08',-125,32,'walk','']]],
+   ['s10','gnd','Guest bedroom',0,[['s11',-76,26,'walk',''],['s09',-52,25,'walk','']]],
+   ['s11','gnd','Guest bedroom door',0,[['s13',90,35,'walk',''],['s10',141,38,'walk',''],['s32',0,30,'walk','']]],
+   ['s12','gnd','Guest bathroom',0,[['s32',-165,38,'walk','']]],
+   ['s13','gnd','Dining and stairs',-30,[['s14',-29,24,'walk',''],['s17',-100,26,'up','Go upstairs'],['s08',94,38,'walk',''],['s11',-129,22,'walk','']]],
+   ['s14','gnd','Pantry',0,[['s15',-3,38,'walk',''],['s13',100,32,'walk','']]],
+   ['s15','gnd','Kitchen',0,[['s16',0,38,'walk',''],['s14',-172,29,'walk','']]],
+   ['s16','gnd','Breakfast nook',0,[['s15',130,21,'walk','']]],
+   ['s17','upr','Staircase',8,[['s34',8,-1,'up','Go up the stairs'],['s13',-14,37,'down','Go downstairs']]],
+   ['s18','upr','Upper landing',0,[['s19',0,38,'walk',''],['s23',178,38,'walk',''],['s34',-125,38,'down','Go downstairs']]],
+   ['s19','upr','Bedroom 1 corridor',0,[['s20',0,38,'walk',''],['s22',-111,38,'walk',''],['s18',-169,32,'walk','']]],
+   ['s20','upr','Bedroom 1',0,[['s21',-152,32,'walk',''],['s19',-105,33,'walk','']]],
+   ['s21','upr','Bedroom 1 balcony',0,[['s28',108,38,'walk',''],['s20',-141,38,'walk','']]],
+   ['s22','upr','Bathroom 1',0,[['s19',-150,38,'walk','']]],
+   ['s23','upr','Landing lounge',-95,[['s27',-111,38,'walk',''],['s24',10,35,'walk',''],['s18',178,38,'walk','']]],
+   ['s24','upr','Bedroom 2',30,[['s25',-91,38,'walk',''],['s26',-163,32,'walk',''],['s23',165,37,'walk','']]],
+   ['s25','upr','Bedroom 2 balcony',0,[['s24',144,38,'walk',''],['s30',-79,30,'walk','']]],
+   ['s26','upr','Bathroom 2',0,[['s24',156,38,'walk','']]],
+   ['s27','upr','Upper lounge',0,[['s30',0,29,'walk',''],['s23',-163,38,'walk','']]],
+   ['s28','upr','Lounge, throne chair',40,[['s30',14,32,'walk',''],['s21',-90,34,'walk','']]],
+   ['s29','upr','Lounge balcony',0,[['s30',-158,37,'walk','']]],
+   ['s30','upr','Lounge seating',-10,[['s27',-14,28,'walk',''],['s28',-76,24,'walk',''],['s29',178,30,'walk',''],['s21',-104,33,'walk',''],['s25',101,30,'walk','']]],
+   ['s31','ext','Lawn',0,[['s01',135,14,'walk','']]],
+   ['s32','gnd','Dressing area',0,[['s12',0,30,'walk',''],['s11',175,25,'walk','']]],
+   ['s33','ext','Side courtyard',0,[['s02',170,12,'walk','']]],
+   ['s34','upr','Stairs to landing',15,[['s18',15,-5,'up','Go up to the landing'],['s17',180,35,'down','Go downstairs']]]
+  ];
+
+  var rad=function(d){return d*Math.PI/180};
+  var byId={}; S.forEach(function(r){byId[r[0]]={id:r[0],floor:r[1],name:r[2],yaw:rad(r[3]),links:r[4]}});
+  var order=S.map(function(r){return r[0]});
+
+  var panoEl=document.getElementById('pano');
+  var viewer=new Marzipano.Viewer(panoEl,{controls:{mouseViewMode:'drag'}});
+  var portrait=function(){return window.innerHeight>window.innerWidth};
+  var baseFov=function(){return rad(portrait()?84:100)};
+  var geometry=new Marzipano.EquirectGeometry([{width:4096}]);
+  var limiter=Marzipano.RectilinearView.limit.traditional(4096,rad(110));
+
+  var ICON={
+    walk:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg>',
+    up:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19h5v-5h5V9h5V4"/><path d="M15 4h3.5V7.5"/></svg>',
+    down:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 5h-5v5h-5v5H6v5"/><path d="M9 20H5.5V16.5"/></svg>'
+  };
+
+  /* build scenes */
+  order.forEach(function(id){
+    var d=byId[id]; d.pins=PINS[id]||[];
+    d.view=new Marzipano.RectilinearView({yaw:d.yaw,pitch:0.26,fov:baseFov()},limiter);
+    d.scene=viewer.createScene({
+      source:Marzipano.ImageUrlSource.fromString('img/'+id+'.webp'),
+      geometry:geometry,view:d.view
+    });
+    d.links.forEach(function(l){
+      var t=byId[l[0]];
+      var kind=l[3]||'walk', custom=l[4]||'';
+      var wrap=document.createElement('div'); wrap.className='hs'+(kind!=='walk'?' stairs':'');
+      var b=document.createElement('button'); b.type='button';
+      var label=custom||('Go to '+t.name.toLowerCase());
+      b.setAttribute('aria-label',label);
+      b.innerHTML=ICON[kind]+(kind!=='walk'?'<span>'+(kind==='up'?'Upstairs':'Downstairs')+'</span>':'');
+      var tip=document.createElement('span'); tip.className='tip'; tip.textContent=custom||t.name;
+      wrap.appendChild(b); wrap.appendChild(tip);
+      ['mousedown','touchstart','pointerdown','wheel'].forEach(function(ev){wrap.addEventListener(ev,function(e){e.stopPropagation()},{passive:true})});
+      b.addEventListener('click',function(){hideCard();go(t.id,false,{from:d.id,kind:kind,yaw:rad(l[1]),pitch:rad(l[2])})});
+      d.scene.hotspotContainer().createHotspot(wrap,{yaw:rad(l[1]),pitch:rad(l[2])});
+    });
+    (d.pins||[]).forEach(function(pn){
+      var wrap=document.createElement('div'); wrap.className='hs pin';
+      var b=document.createElement('button'); b.type='button'; b.setAttribute('aria-label',pn.t);
+      b.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 11v6M12 7.2v.01"/></svg>';
+      var tip=document.createElement('span'); tip.className='tip'; tip.textContent=pn.t;
+      wrap.appendChild(b); wrap.appendChild(tip);
+      ['mousedown','touchstart','pointerdown','wheel'].forEach(function(ev){wrap.addEventListener(ev,function(e){e.stopPropagation()},{passive:true})});
+      b.addEventListener('click',function(){showCard(pn)});
+      d.scene.hotspotContainer().createHotspot(wrap,{yaw:rad(pn.y),pitch:rad(pn.p)});
+    });
+  });
+
+  /* floor switcher */
+  var floorsEl=document.getElementById('floors');
+  FLOORS.forEach(function(f){
+    var n=order.filter(function(id){return byId[id].floor===f.key}).length;
+    var b=document.createElement('button'); b.type='button'; b.dataset.floor=f.key;
+    b.innerHTML=f.label+'<span class="count">'+n+'</span>';
+    b.addEventListener('click',function(){ if(cur&&cur.floor===f.key)return; hideCard(); go(f.first)});
+    floorsEl.appendChild(b);
+  });
+
+  var cur=null,busy=false,roomLabel=document.getElementById('roomLabel');
+  function ui(){
+    var f=FLOORS.filter(function(x){return x.key===cur.floor})[0];
+    var idx=order.filter(function(id){return byId[id].floor===cur.floor}).indexOf(cur.id)+1;
+    var total=order.filter(function(id){return byId[id].floor===cur.floor}).length;
+    roomLabel.innerHTML=cur.name+'<span>/</span>'+f.label;
+    Array.prototype.forEach.call(floorsEl.children,function(b){b.setAttribute('aria-current',b.dataset.floor===cur.floor?'true':'false')});
+  }
+  function warm(d){d.links.forEach(function(l){var i=new Image();i.src='img/'+l[0]+'.webp'})}
+
+  /* ---- walking: no dissolve. Turn toward the arrow, push forward with growing speed, hard cut, settle in. ---- */
+  var LOOK_DOWN=0.26, PUSH_MS=820, SETTLE_MS=650, PUSH_ZOOM=0.58, ARRIVE_ZOOM=0.2;
+  var easeOut=function(t){return 1-Math.pow(1-t,3)};
+  var easeIn=function(t){return t*t};
+  function angDiff(a,b){var d=(b-a)%(2*Math.PI);if(d>Math.PI)d-=2*Math.PI;if(d<-Math.PI)d+=2*Math.PI;return d}
+  function tween(ms,fn,done){
+    var t0=performance.now();
+    (function step(){var t=Math.min(1,(performance.now()-t0)/ms);fn(t);if(t<1)requestAnimationFrame(step);else if(done)done()})();
+  }
+  function blur(px){panoEl.style.filter=px>0.05?'blur('+px.toFixed(2)+'px)':''}
+  /* arrive facing away from where you came from, toward the next onward arrow if there is one */
+  function enterView(dest,fromId,via_kind){
+    var back=dest.links.filter(function(l){return l[0]===fromId})[0];
+    if(!back)return{yaw:dest.yaw,pitch:LOOK_DOWN};
+    var want=rad(back[1])+Math.PI,best=null,bd=1e9;
+    dest.links.forEach(function(l){if(l[0]===fromId)return;var d=Math.abs(angDiff(want,rad(l[1])));if(d<bd){bd=d;best=l}});
+    if(best&&(bd<rad(75)||via_kind==='up'||via_kind==='down'))return{yaw:rad(best[1]),pitch:LOOK_DOWN};
+    return{yaw:want,pitch:LOOK_DOWN};
+  }
+  function ready(id,cb){
+    var done=false,fin=function(){if(!done){done=true;cb()}},i=new Image();
+    i.onload=i.onerror=fin;i.src='img/'+id+'.webp';setTimeout(fin,1800);
+  }
+  var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var ARRIVE={s28:-38}; /* arriving at the throne chair: face the chair */
+  var MODE_B=!/[?&]t=a\b/.test(location.search); /* default: v1 crossfade. ?t=a -> experimental walk transition */
+  var easeIO=function(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2};
+
+  /* Walking transition. The camera first turns toward the arrow, then the two views overlap:
+     the old one pushes in while the new one (already facing the way you were going) settles out. No cut, no blur. */
+  function go(id,first,via,done){
+    var next=byId[id]; if(!next||busy)return;
+    var enter=via?enterView(next,via.from,via.kind):{yaw:next.yaw,pitch:LOOK_DOWN};
+    if(via&&ARRIVE[id]!=null)enter={yaw:rad(ARRIVE[id]),pitch:LOOK_DOWN};
+    var nf=baseFov();
+    next.view.setParameters({yaw:enter.yaw,pitch:enter.pitch,roll:0,fov:nf});
+    if(!cur||first){next.scene.switchTo({transitionDuration:0});cur=next;ui();warm(next);if(done)done();return}
+    busy=true;
+    var old=cur,ov=old.view,still=reduced;
+    var walk=!!via&&!MODE_B&&!still;
+    var y0=ov.yaw(),p0=ov.pitch(),f0=ov.fov();
+    var ty=via?y0+angDiff(y0,via.yaw):y0, tp=via?p0+(via.pitch-p0)*0.35:p0;
+    var fade=function(){
+      var yy=ov.yaw(),pp=ov.pitch(),ff=ov.fov();
+      next.scene.switchTo({
+        transitionDuration:still?250:(walk?1050:1100),
+        transitionUpdate:function(val,ns){
+          var e=val*val*(3-2*val);
+          ns.listLayers().forEach(function(l){l.mergeEffects({opacity:e})});
+          ns._hotspotContainer.domElement().style.opacity=e;
+          if(still)return;
+          if(walk){
+            ov.setParameters({yaw:yy,pitch:pp,roll:0,fov:ff*(1-0.36*val*val)});
+            next.view.setParameters({yaw:enter.yaw,pitch:enter.pitch,roll:0,fov:nf*(0.72+0.28*easeOut(val))});
+          }else{
+            ov.setParameters({yaw:yy,pitch:pp,roll:0,fov:ff*(1-0.32*e)});
+          }
+        }
+      },function(){
+        ov.setParameters({yaw:yy,pitch:pp,roll:0,fov:ff});
+        next.view.setParameters({yaw:enter.yaw,pitch:enter.pitch,roll:0,fov:nf});
+        busy=false;if(done)done();
+      });
+      cur=next;ui();warm(next);
+    };
+    if(walk){tween(420,function(t){var e=easeIO(t);ov.setParameters({yaw:y0+(ty-y0)*e,pitch:p0+(tp-p0)*e,roll:0,fov:f0})},fade)}
+    else fade();
+  }
+
+  /* ---- amenity card + drawer ---- */
+  var card=document.getElementById('card'),cardT=document.getElementById('cardT'),cardL=document.getElementById('cardL');
+  var CATOF={};AM.cats.forEach(function(c){c[1].forEach(function(k){CATOF[k]=c[0]})});
+  var cardK=card.querySelector('.k');
+  function showCard(pn){
+    cardT.textContent=pn.t; cardL.innerHTML=''; cardK.textContent=CATOF[pn.k[0]]||'Amenity';
+    pn.k.forEach(function(k){
+      var it=AM.items[k]; if(!it)return;
+      var same=it.n.toLowerCase()===pn.t.toLowerCase();
+      if(same&&!it.d)return;
+      var li=document.createElement('li'); li.innerHTML=(same?'':'<b></b>')+(it.d?'<span></span>':'');
+      if(!same)li.firstChild.textContent=it.n; if(it.d)li.lastChild.textContent=it.d; cardL.appendChild(li);
+    });
+    cardL.style.display=cardL.children.length?'':'none'; cardT.style.marginBottom=cardL.children.length?'10px':'0';
+    card.classList.add('on');
+  }
+  function hideCard(){card.classList.remove('on')}
+  document.getElementById('cardX').addEventListener('click',hideCard);
+  var drawer=document.getElementById('drawer'),drBody=document.getElementById('drBody');
+  function pinFor(k){return (AM.pins||[]).filter(function(p){return p.k.indexOf(k)>-1})[0]}
+  AM.cats.forEach(function(c){
+    var h=document.createElement('h4'); h.textContent=c[0]; drBody.appendChild(h);
+    c[1].forEach(function(k){
+      var it=AM.items[k],pn=pinFor(k);
+      var row=document.createElement('div'); row.className='row';
+      var t=document.createElement('div'); t.innerHTML='<b></b>'+(it.d?'<small></small>':'');
+      t.firstChild.textContent=it.n; if(it.d)t.lastChild.textContent=it.d; row.appendChild(t);
+      if(pn){var bt=document.createElement('button'); bt.type='button'; bt.className='see'; bt.textContent='See in tour';
+        bt.addEventListener('click',function(){drawer.classList.remove('on');focusPin(pn)}); row.appendChild(bt);}
+      drBody.appendChild(row);
+    });
+  });
+  document.getElementById('amBtn').addEventListener('click',function(){hideCard();drawer.classList.toggle('on')});
+  document.getElementById('drX').addEventListener('click',function(){drawer.classList.remove('on')});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){hideCard();drawer.classList.remove('on')}});
+
+  /* turn the camera to a point, then call back. token lets a newer move cancel an older one */
+  var lookTok=0;
+  function look(yaw,pitch,ms,cb){
+    var v=cur.view,tok=++lookTok,y0=v.yaw(),p0=v.pitch(),f=v.fov(),ty=y0+angDiff(y0,yaw);
+    var t0=performance.now();
+    (function step(){
+      if(tok!==lookTok)return;
+      var t=Math.min(1,(performance.now()-t0)/ms),e=easeIO(t);
+      v.setParameters({yaw:y0+(ty-y0)*e,pitch:p0+(pitch-p0)*e,roll:0,fov:f});
+      if(t<1)requestAnimationFrame(step);else if(cb)cb();
+    })();
+  }
+  function aimAt(pn,cb){look(rad(pn.y),Math.max(-0.25,rad(pn.p)*0.8),reduced?1:1100,cb)}
+  function focusPin(pn){
+    
+    var go2=function(){aimAt(pn,function(){showCard(pn)})};
+    if(cur.id===pn.s)go2(); else{hideCard();var w=function(){if(busy){setTimeout(w,150);return}go(pn.s,false,null,go2)};w()}
+  }
+
+  panoEl.addEventListener('pointerdown',function(){hideCard();lookTok++});
+
+  /* keep fov sensible on rotate/resize */
+  window.addEventListener('resize',function(){ if(cur&&!busy){var v=cur.view;v.setParameters({yaw:v.yaw(),pitch:v.pitch(),roll:v.roll(),fov:baseFov()})}});
+
+  /* hint fades after first drag or a few seconds */
+  var hint=document.getElementById('hint');
+  var hide=function(){hint.classList.add('gone')};
+  panoEl.addEventListener('pointerdown',hide,{once:true});
+  setTimeout(hide,9000);
+
+  /* fullscreen (hidden where unsupported) */
+  var fs=document.getElementById('fsBtn'),root=document.documentElement;
+  if(!(root.requestFullscreen||root.webkitRequestFullscreen)){fs.hidden=true}
+  fs.addEventListener('click',function(){
+    try{
+      if(document.fullscreenElement||document.webkitFullscreenElement){(document.exitFullscreen||document.webkitExitFullscreen).call(document)}
+      else{var p=(root.requestFullscreen||root.webkitRequestFullscreen).call(root); if(p&&p.catch)p.catch(function(){})}
+    }catch(e){}
+  });
+
+  /* keyboard: Esc-safe, 1-3 jump to a floor */
+  document.addEventListener('keydown',function(e){
+    var i=['1','2','3'].indexOf(e.key); if(i>-1&&FLOORS[i]&&cur&&cur.floor!==FLOORS[i].key)go(FLOORS[i].first);
+  });
+
+  /* start: wait for first image, then reveal */
+  var loader=document.getElementById('loader');
+  var start=new Image();
+  var begin=function(){
+    go('s01',true);
+    setTimeout(function(){loader.classList.add('done')},500);
+  };
+  start.onload=begin; start.onerror=begin; start.src='img/s01.webp';
+  window.__tour={go:go,byId:byId,get busy(){return busy},get cur(){return cur}};
+})();
+</script>
+</body>
+</html>

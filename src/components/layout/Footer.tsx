@@ -141,6 +141,9 @@ export const Footer: React.FC = () => {
               <li>
                 <Link to="/gallery" className="hover:text-himalayan-400 transition-colors">Photography Gallery</Link>
               </li>
+              <li>
+                <Link to="/virtual-tour" className="hover:text-himalayan-400 transition-colors">360° Virtual Tour</Link>
+              </li>
             </ul>
           </div>
 

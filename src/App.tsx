@@ -18,6 +18,7 @@ import { MukteshwarGuidePage } from './pages/MukteshwarGuidePage';
 import { NearbyAttractionsPage } from './pages/NearbyAttractionsPage';
 import { DirectionsPage } from './pages/DirectionsPage';
 import { GalleryPage } from './pages/GalleryPage';
+import { VirtualTourPage } from './pages/VirtualTourPage';
 import { AvailabilityPage } from './pages/AvailabilityPage';
 import { PricingPage } from './pages/PricingPage';
 import { BookPage } from './pages/BookPage';
@@ -74,6 +75,7 @@ export const App: React.FC = () => {
             
             {/* Media & Booking Engine Routes */}
             <Route path="/gallery" element={<GalleryPage />} />
+            <Route path="/virtual-tour" element={<VirtualTourPage />} />
             <Route path="/availability" element={<AvailabilityPage />} />
             <Route path="/pricing" element={<PricingPage />} />
             <Route path="/book" element={<BookPage />} />
