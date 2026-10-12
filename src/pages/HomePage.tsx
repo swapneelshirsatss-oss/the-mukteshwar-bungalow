@@ -16,7 +16,8 @@ import {
   Users,
   Bed,
   Calendar,
-  ExternalLink
+  ExternalLink,
+  Play
 } from 'lucide-react';
 import { propertyData } from '../data/propertyData';
 import { nearbyAttractions } from '../data/attractions';
@@ -104,6 +105,14 @@ export const HomePage: React.FC = () => {
             >
               <span>Explore the Bungalow</span>
               <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+            <span className="opacity-40">•</span>
+            <Link
+              to="/virtual-tour"
+              className="inline-flex items-center gap-1.5 hover:text-himalayan-400 transition-colors font-medium"
+            >
+              <span>360° Virtual Tour</span>
+              <Play className="w-3.5 h-3.5" />
             </Link>
             <span className="opacity-40">•</span>
             <a
@@ -241,6 +250,33 @@ export const HomePage: React.FC = () => {
                 Check Dates
               </Button>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* VIRTUAL TOUR TEASER */}
+      <section className="relative py-24 lg:py-32 bg-charcoal-950 text-ivory-100 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <img
+          src="/images/virtual-tour/virtual-tour-upper-lounge-mountain-view.webp"
+          alt="Upper-floor lounge at The Mukteshwar Bungalow with Himalayan views"
+          loading="lazy"
+          className="absolute inset-0 w-full h-full object-cover opacity-50"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-charcoal-950/50 to-charcoal-950/70" />
+        <div className="relative z-10 max-w-3xl mx-auto text-center space-y-6">
+          <span className="text-xs uppercase tracking-super-wide font-sans font-semibold text-himalayan-400">
+            360° Virtual Tour
+          </span>
+          <h2 className="text-3xl sm:text-5xl font-serif leading-tight text-balance">
+            Walk through the bungalow before you arrive
+          </h2>
+          <p className="text-base sm:text-lg text-ivory-200/80 font-light leading-relaxed">
+            Explore every room in 360°, and tap to see what each space offers.
+          </p>
+          <div className="pt-2">
+            <Button to="/virtual-tour" variant="himalayan" size="lg" icon={<Play className="w-4 h-4" />} iconPosition="left">
+              Start the virtual tour
+            </Button>
           </div>
         </div>
       </section>
