@@ -197,19 +197,19 @@ body{background:var(--bg);color:var(--text);font:400 15px/1.45 var(--body);overf
    ['s18','upr','Upper landing',0,[['s19',0,38,'walk',''],['s23',178,38,'walk',''],['s34',-125,38,'down','Go downstairs']]],
    ['s19','upr','Bedroom 1 corridor',0,[['s20',0,38,'walk',''],['s22',-111,38,'walk',''],['s18',-169,32,'walk','']]],
    ['s20','upr','Bedroom 1',0,[['s21',-152,32,'walk',''],['s19',-105,33,'walk','']]],
-   ['s21','upr','Bedroom 1 balcony',0,[['s28',108,38,'walk',''],['s20',-141,38,'walk','']]],
+   ['s21','upr','Bedroom 1 balcony',0,[['s30',108,38,'walk',''],['s20',-141,38,'walk','']]],
    ['s22','upr','Bathroom 1',0,[['s19',-150,38,'walk','']]],
    ['s23','upr','Landing lounge',-95,[['s27',-111,38,'walk',''],['s24',10,35,'walk',''],['s18',178,38,'walk','']]],
    ['s24','upr','Bedroom 2',30,[['s25',-91,38,'walk',''],['s26',-163,32,'walk',''],['s23',165,37,'walk','']]],
-   ['s25','upr','Bedroom 2 balcony',0,[['s24',144,38,'walk',''],['s30',-79,30,'walk','']]],
+   ['s25','upr','Bedroom 2 balcony',0,[['s24',144,38,'walk',''],['s28',-79,30,'walk','']]],
    ['s26','upr','Bathroom 2',0,[['s24',156,38,'walk','']]],
    ['s27','upr','Upper lounge',0,[['s30',0,29,'walk',''],['s23',-163,38,'walk','']]],
-   ['s28','upr','Lounge, throne chair',40,[['s30',14,32,'walk',''],['s21',-90,34,'walk','']]],
+   ['s28','upr','Lounge, throne chair',40,[['s30',14,32,'walk',''],['s25',-90,34,'walk','']]],
    ['s29','upr','Lounge balcony',0,[['s30',-158,37,'walk','']]],
-   ['s30','upr','Lounge seating',-10,[['s27',-14,28,'walk',''],['s28',-76,24,'walk',''],['s29',178,30,'walk',''],['s21',-104,33,'walk',''],['s25',101,30,'walk','']]],
-   ['s31','ext','Lawn',0,[['s01',135,14,'walk','']]],
+   ['s30','upr','Lounge seating',-10,[['s27',-14,28,'walk',''],['s28',-76,24,'walk',''],['s29',178,30,'walk',''],['s25',-104,33,'walk',''],['s21',101,30,'walk','']]],
+   ['s31','ext','Lawn',0,[['s01',-150,22,'walk','']]],
    ['s32','gnd','Dressing area',0,[['s12',0,30,'walk',''],['s11',175,25,'walk','']]],
-   ['s33','ext','Side courtyard',0,[['s02',170,12,'walk','']]],
+   ['s33','ext','Side courtyard',0,[['s02',36,20,'walk','']]],
    ['s34','upr','Stairs to landing',15,[['s18',15,-5,'up','Go up to the landing'],['s17',180,35,'down','Go downstairs']]]
   ];
 
@@ -309,7 +309,7 @@ body{background:var(--bg);color:var(--text);font:400 15px/1.45 var(--body);overf
   }
   var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  var ARRIVE={s28:-38}; /* arriving at the throne chair: face the chair */
+  var ARRIVE={s28:-38,s33:-10}; /* arriving at the throne chair: face the chair */
   var MODE_B=!/[?&]t=a\b/.test(location.search); /* default: v1 crossfade. ?t=a -> experimental walk transition */
   var easeIO=function(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2};
 
