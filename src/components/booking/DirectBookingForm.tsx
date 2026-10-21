@@ -354,7 +354,7 @@ export const DirectBookingForm: React.FC = () => {
 
       {/* Step 3: Guest Details & Submission */}
       {step === 3 && (
-        <form onSubmit={handleSubmit} className="p-6 sm:p-10 space-y-6">
+        <form onSubmit={handleSubmit} data-booking-form="direct_booking_request" className="p-6 sm:p-10 space-y-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="space-y-2">
               <label htmlFor="book-fullname" className="block text-xs uppercase tracking-widest font-semibold text-charcoal-800">

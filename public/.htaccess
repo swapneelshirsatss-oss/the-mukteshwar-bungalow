@@ -6,13 +6,27 @@
   RewriteCond %{HTTPS} off
   RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-  # Direct SPA Fallback to index.html
+  # Legacy route kept as a redirect by the router; it is not prerendered, so it needs
+  # a server-side 301 or it would now hit the 404 handler.
+  RewriteRule ^private-pool/?$ /villa [L,R=301]
+
+  # Every sitemap route is prerendered to its own <route>/index.html, so serve that
+  # file and let genuinely unknown URLs fall through to a real 404 (see ErrorDocument).
   RewriteRule ^index\.html$ - [L]
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_FILENAME} !-l
-  RewriteRule . /index.html [L]
+
+  # Existing file, directory or symlink: serve as-is.
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d [OR]
+  RewriteCond %{REQUEST_FILENAME} -l
+  RewriteRule ^ - [L]
+
+  # Extension-less route with a prerendered page: /rooms -> /rooms/index.html
+  RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
+  RewriteRule ^(.*?)/?$ /$1/index.html [L]
 </IfModule>
+
+# Unknown URLs: real HTTP 404 with the prerendered, noindexed 404 page.
+ErrorDocument 404 /404.html
 
 # Browser Caching for Performance
 <IfModule mod_expires.c>

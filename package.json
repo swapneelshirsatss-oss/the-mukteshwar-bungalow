@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && node scripts/prerender.js",
+    "prerender": "node scripts/prerender.js",
+    "verify:seo": "node scripts/verifyPrerender.js",
     "deploy": "node scripts/deployToHostinger.js",
     "indexnow": "node scripts/submitIndexNow.js",
     "lint": "oxlint",
@@ -32,6 +34,7 @@
     "dotenv": "^17.4.2",
     "oxlint": "^1.79.0",
     "postcss": "^8.5.26",
+    "puppeteer-core": "^24.9.0",
     "sharp": "^0.35.4",
     "ssh2-sftp-client": "^12.1.1",
     "tailwindcss": "^4.3.3",

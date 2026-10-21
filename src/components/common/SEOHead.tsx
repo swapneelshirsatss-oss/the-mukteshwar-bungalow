@@ -7,6 +7,7 @@ export interface SEOHeadProps {
   ogImage?: string;
   ogType?: 'website' | 'article';
   schema?: object | object[];
+  noindex?: boolean;
 }
 
 export const SEOHead: React.FC<SEOHeadProps> = ({
@@ -15,7 +16,8 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
   canonicalUrl,
   ogImage = '/images/exterior/the-mukteshwar-bungalow-exterior-mukteshwar-uttarakhand.jpg',
   ogType = 'website',
-  schema
+  schema,
+  noindex = false
 }) => {
   useEffect(() => {
     // 1. Update Document Title
@@ -45,6 +47,9 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
 
     // 4. Update Meta Tags
     setMetaTag('name', 'description', description);
+    setMetaTag('name', 'robots', noindex
+      ? 'noindex, follow'
+      : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1');
     setMetaTag('property', 'og:title', fullTitle);
     setMetaTag('property', 'og:description', description);
     setMetaTag('property', 'og:url', currentUrl);
@@ -77,7 +82,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
         scriptToRemove.remove();
       }
     };
-  }, [title, description, canonicalUrl, ogImage, ogType, schema]);
+  }, [title, description, canonicalUrl, ogImage, ogType, schema, noindex]);
 
   return null;
 };

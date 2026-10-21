@@ -33,7 +33,7 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({ className = '', da
           : 'bg-ivory-50/95 border-charcoal-900/10 text-charcoal-900 backdrop-blur-md'
       } ${className}`}
     >
-      <form onSubmit={handleSearch} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-end">
+      <form onSubmit={handleSearch} data-booking-form="availability_search" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-end">
         {/* Check-In Date */}
         <div className="space-y-1.5">
           <label htmlFor="widget-checkin" className="block text-[11px] uppercase tracking-widest font-semibold opacity-70">

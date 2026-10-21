@@ -4,6 +4,7 @@ import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
 import { StickyMobileBar } from './components/layout/StickyMobileBar';
 import { FloatingWhatsAppConcierge } from './components/layout/FloatingWhatsAppConcierge';
+import { ClickTracking } from './components/analytics/ClickTracking';
 
 // Pages
 import { HomePage } from './pages/HomePage';
@@ -52,6 +53,7 @@ export const App: React.FC = () => {
   return (
     <BrowserRouter>
       <ScrollToTop />
+      <ClickTracking />
       <div className="min-h-screen flex flex-col bg-ivory-100 text-charcoal-900 font-sans selection:bg-himalayan-700 selection:text-ivory-100">
         <Header />
 
@@ -98,6 +100,8 @@ export const App: React.FC = () => {
             <Route path="/mukteshwar-weekend-getaway-from-gurgaon" element={<LocalCityLandingPage cityKey="gurgaon" />} />
             <Route path="/mukteshwar-villa-from-dehradun" element={<LocalCityLandingPage cityKey="dehradun" />} />
             <Route path="/mukteshwar-villa-from-haldwani" element={<LocalCityLandingPage cityKey="haldwani" />} />
+            <Route path="/mukteshwar-villa-from-chandigarh" element={<LocalCityLandingPage cityKey="chandigarh" />} />
+            <Route path="/mukteshwar-villa-from-lucknow" element={<LocalCityLandingPage cityKey="lucknow" />} />
             
             {/* Fallback 404 */}
             <Route path="*" element={<NotFoundPage />} />

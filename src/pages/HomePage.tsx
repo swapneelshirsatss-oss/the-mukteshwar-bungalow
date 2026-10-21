@@ -23,7 +23,7 @@ import { propertyData } from '../data/propertyData';
 import { nearbyAttractions } from '../data/attractions';
 import { propertyFAQs } from '../data/faqs';
 import { blogPosts } from '../data/blogPosts';
-import { verifiedGuestReviews, googleReviewStats } from '../data/reviewsData';
+import { verifiedGuestReviews, googleReviewStats, GOOGLE_REVIEW_COUNT } from '../data/reviewsData';
 import { SEOHead } from '../components/common/SEOHead';
 import { getLodgingBusinessSchema, getFAQPageSchema, getWebSiteSchema } from '../components/common/SchemaMarkup';
 import { SectionHeading } from '../components/common/SectionHeading';
@@ -154,7 +154,7 @@ export const HomePage: React.FC = () => {
                 <span className="text-lg sm:text-xl font-serif font-bold text-himalayan-400">5.0★</span>
               </div>
               <span className="text-[11px] uppercase tracking-wider text-ivory-200/70 font-light block">
-                Google 15+ Reviews
+                Google {GOOGLE_REVIEW_COUNT}+ Reviews
               </span>
             </a>
             <div className="py-2 px-3">
@@ -496,7 +496,7 @@ export const HomePage: React.FC = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-semibold text-charcoal-900 hover:text-himalayan-700 transition-colors"
               >
-                <span>Read All 15+ Google Reviews</span>
+                <span>Read All {GOOGLE_REVIEW_COUNT}+ Google Reviews</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
             </div>
