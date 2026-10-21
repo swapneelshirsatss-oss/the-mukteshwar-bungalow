@@ -40,7 +40,9 @@ const URL_LIST = [
   'https://themukteshwarbungalow.in/mukteshwar-villa-from-noida',
   'https://themukteshwarbungalow.in/mukteshwar-weekend-getaway-from-gurgaon',
   'https://themukteshwarbungalow.in/mukteshwar-villa-from-dehradun',
-  'https://themukteshwarbungalow.in/mukteshwar-villa-from-haldwani'
+  'https://themukteshwarbungalow.in/mukteshwar-villa-from-haldwani',
+  'https://themukteshwarbungalow.in/mukteshwar-villa-from-chandigarh',
+  'https://themukteshwarbungalow.in/mukteshwar-villa-from-lucknow'
 ];
 
 async function submitEndpoint(endpointUrl, endpointName, payload) {

@@ -25,6 +25,8 @@ export const LocalCityLandingPage: React.FC<LocalCityLandingPageProps> = ({ city
     else if (location.pathname.includes('gurgaon')) selectedCityKey = 'gurgaon';
     else if (location.pathname.includes('dehradun')) selectedCityKey = 'dehradun';
     else if (location.pathname.includes('haldwani')) selectedCityKey = 'haldwani';
+    else if (location.pathname.includes('chandigarh')) selectedCityKey = 'chandigarh';
+    else if (location.pathname.includes('lucknow')) selectedCityKey = 'lucknow';
   }
 
   const pageData = selectedCityKey ? localLandingPages[selectedCityKey] : null;

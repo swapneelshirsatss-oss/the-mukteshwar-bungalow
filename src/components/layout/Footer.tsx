@@ -201,6 +201,12 @@ export const Footer: React.FC = () => {
               <li>
                 <Link to="/mukteshwar-villa-from-haldwani" className="hover:text-himalayan-400 transition-colors">From Haldwani & Kathgodam (2 hrs)</Link>
               </li>
+              <li>
+                <Link to="/mukteshwar-villa-from-chandigarh" className="hover:text-himalayan-400 transition-colors">From Chandigarh & Tri-City</Link>
+              </li>
+              <li>
+                <Link to="/mukteshwar-villa-from-lucknow" className="hover:text-himalayan-400 transition-colors">From Lucknow & Bareilly Route</Link>
+              </li>
             </ul>
 
             <div className="pt-3">

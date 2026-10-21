@@ -195,5 +195,83 @@ export const localLandingPages: Record<string, LocalLandingPageData> = {
         description: 'Enjoy a leisurely Sunday brunch in the garden lawns before a quick 90-minute drive back down to Haldwani.'
       }
     ]
+  },
+  'chandigarh': {
+    city: 'Chandigarh',
+    slug: 'mukteshwar-villa-from-chandigarh',
+    pageTitle: 'Luxury 3 BHK Villa in Mukteshwar from Chandigarh | The Mukteshwar Bungalow',
+    metaDescription: 'Drive from Chandigarh & Tri-City to a private 3 BHK luxury mountain villa in Kasialekh, Mukteshwar. Valley-facing sun deck, pure-veg home dining, and Himalayan tranquility.',
+    heroHeadline: 'Tri-City to Himalayan Heights: Exclusive Mountain Villa Living',
+    heroSubheadline: 'Leave the plains of Chandigarh, Panchkula, and Mohali behind for the pine-scented ridgelines, crisp mountain climate, and luxury 3 BHK privacy of The Mukteshwar Bungalow in Kasialekh.',
+    drivingDistanceSummary: 'Approx. 440 km • 9.5 to 10 hours via Saharanpur, Kashipur & Haldwani',
+    idealAudience: 'Affluent North Indian families, corporate leaders, and mountain lovers seeking an uncrowded luxury retreat.',
+    routeHighlights: [
+      'Scenic cross-state highway drive via Ambala-Saharanpur-Kashipur towards Kumaon foothills',
+      'Smooth bypass options around major transit towns for easy long-distance driving',
+      'Gradual mountain ascent through Bhimtal and Ramgarh orchards leading into serene Kasialekh',
+      'Secure on-site parking for private vehicles and SUVs'
+    ],
+    whyChooseVilla: [
+      'Entire 3 BHK private residence buyout — ultimate privacy for family circles',
+      'Three spacious bedroom suites with en-suite baths and private balconies',
+      'Dedicated in-house cook preparing customized 100% pure vegetarian meals',
+      'Panoramic Veranda Lounge, manicured lawn, and open sun deck at 7,000 ft'
+    ],
+    weekendItinerary: [
+      {
+        day: 'Day 1 (Friday)',
+        title: 'Dawn Transit & Himalayan Welcome',
+        description: 'Depart Chandigarh at 5:00 AM. Reach Kasialekh by early afternoon. Relax on the Veranda Lounge with freshly brewed mountain tea as the sun sets over the valley.'
+      },
+      {
+        day: 'Day 2 (Saturday)',
+        title: 'Ridge Walks, Chauli Ki Jali & Fireside BBQ',
+        description: 'Enjoy breakfast on the sun terrace, take a scenic drive to Chauli Ki Jali cliffs and Mukteshwar Dham temple, and return for a private evening bonfire under star-studded skies.'
+      },
+      {
+        day: 'Day 3 (Sunday)',
+        title: 'Slow Morning & Leisurely Return',
+        description: 'Morning yoga or forest walk along the pine ridge, followed by a hearty home-style brunch before beginning the relaxed return drive to Chandigarh.'
+      }
+    ]
+  },
+  'lucknow': {
+    city: 'Lucknow',
+    slug: 'mukteshwar-villa-from-lucknow',
+    pageTitle: 'Mukteshwar Luxury Homestay from Lucknow | 3 BHK Mountain Villa Retreat',
+    metaDescription: 'Escape Lucknow heat to a luxury 3 BHK mountain villa in Mukteshwar. 8 hrs drive via Bareilly, panoramic Kumaon views, pure-veg dining, and private estate seclusion.',
+    heroHeadline: 'From the City of Nawabs to the Kumaon Cloud Forests',
+    heroSubheadline: 'Experience an effortless transition from Lucknow’s heritage avenues into the cool, silent cedar forests and panoramic valley views of The Mukteshwar Bungalow in Kasialekh.',
+    drivingDistanceSummary: 'Approx. 410 km • 8 to 9 hours via Sitapur, Bareilly, Kichha & Haldwani',
+    idealAudience: 'Lucknow and Central UP families, professionals, and multi-generational groups looking for a private Himalayan getaway.',
+    routeHighlights: [
+      'Fast four-lane transit via Lucknow-Sitapur-Bareilly highway corridor',
+      'Direct highway approach into Haldwani/Kathgodam foothills with excellent fuel and dining stops',
+      'Picturesque 2-hour hill climb past Bhimtal lake and pine forests into Kasialekh',
+      'Private estate road access with safe gated parking'
+    ],
+    whyChooseVilla: [
+      'Exclusive villa buyout accommodating 6 to 10 guests under one roof',
+      'Freshly prepared 100% pure vegetarian breakfast, lunch, and dinner by resident chef',
+      'Expansive manicured lawn and private veranda lounge with valley views',
+      'High-speed optical Wi-Fi and power backup for flexible workcations'
+    ],
+    weekendItinerary: [
+      {
+        day: 'Day 1 (Friday)',
+        title: 'Morning Drive & Valley Sunset',
+        description: 'Leave Lucknow via Bareilly highway at 5:30 AM. Ascend into the refreshing hills of Kasialekh by 2:30 PM. Savor hot evening snacks on the sun deck.'
+      },
+      {
+        day: 'Day 2 (Saturday)',
+        title: 'Local Nature Trails & Evening Bonfire',
+        description: 'Wake up to Himalayan birdsong. Explore hidden village nature trails or visit Bhalu Gaad waterfall, followed by an intimate evening bonfire under the stars.'
+      },
+      {
+        day: 'Day 3 (Sunday)',
+        title: 'Orchard Stroll & Pleasant Homeward Drive',
+        description: 'Collect fresh local mountain honey and organic preserves before a smooth, unhurried drive back to Lucknow.'
+      }
+    ]
   }
 };
