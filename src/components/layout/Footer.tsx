@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MapPin, Phone, Mail, MessageCircle, ExternalLink, Shield, Compass, Sparkles } from 'lucide-react';
+import { MapPin, Phone, Mail, MessageCircle, ExternalLink, Shield, Compass, Sparkles, Globe } from 'lucide-react';
 import { propertyData } from '../../data/propertyData';
 import { generateWhatsAppLink } from '../../services/WhatsAppService';
 
@@ -83,6 +83,20 @@ export const Footer: React.FC = () => {
                     className="hover:text-himalayan-400 transition-colors font-medium text-ivory-100"
                   >
                     {propertyData.contact.email}
+                  </a>
+                </span>
+              </div>
+
+              <div className="flex items-center gap-2.5">
+                <Globe className="w-4 h-4 text-himalayan-400 shrink-0" />
+                <span className="leading-relaxed">
+                  <span className="text-ivory-100 font-medium">Official Website: </span>
+                  <a
+                    href="https://themukteshwarbungalow.in/"
+                    itemProp="url"
+                    className="hover:text-himalayan-400 transition-colors font-medium text-ivory-100 underline underline-offset-2"
+                  >
+                    Visit The Mukteshwar Bungalow’s official website
                   </a>
                 </span>
               </div>
@@ -242,6 +256,10 @@ export const Footer: React.FC = () => {
           <div className="flex items-center gap-4 flex-wrap text-center sm:text-left">
             <span>© {new Date().getFullYear()} The Mukteshwar Bungalow. All Rights Reserved.</span>
             <span className="hidden sm:inline">•</span>
+            <a href="https://themukteshwarbungalow.in/" className="hover:text-ivory-100 transition-colors text-ivory-200/80">
+              Official Website
+            </a>
+            <span>•</span>
             <Link to="/policies" className="hover:text-ivory-100 transition-colors">House Policies</Link>
             <span>•</span>
             <Link to="/privacy-policy" className="hover:text-ivory-100 transition-colors">Privacy Policy</Link>
