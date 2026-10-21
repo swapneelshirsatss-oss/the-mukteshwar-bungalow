@@ -9,6 +9,7 @@ export const NotFoundPage: React.FC = () => {
       <SEOHead
         title="Page Not Found | The Mukteshwar Bungalow"
         description="The requested page could not be found. Return to The Mukteshwar Bungalow homepage."
+        noindex
       />
 
       <section className="min-h-[80vh] flex items-center justify-center pt-32 pb-20 px-4 text-center">

@@ -1,4 +1,5 @@
 import { PropertyData } from '../types';
+import { GOOGLE_REVIEW_COUNT } from './reviewsData';
 
 export const propertyData: PropertyData = {
   name: 'The Mukteshwar Bungalow',
@@ -44,7 +45,7 @@ export const propertyData: PropertyData = {
   },
   rating: {
     score: 5.0,
-    reviewCount: 15,
+    reviewCount: GOOGLE_REVIEW_COUNT,
     platform: 'Google Business Profile'
   },
   livingSpaces: [

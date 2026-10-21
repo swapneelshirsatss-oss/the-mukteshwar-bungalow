@@ -5,7 +5,7 @@ import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { SectionHeading } from '../components/common/SectionHeading';
 import { ReviewCard } from '../components/cards/ReviewCard';
 import { Button } from '../components/common/Button';
-import { verifiedGuestReviews, googleReviewStats } from '../data/reviewsData';
+import { verifiedGuestReviews, googleReviewStats, GOOGLE_REVIEW_COUNT } from '../data/reviewsData';
 import { generateWhatsAppLink } from '../services/WhatsAppService';
 import { getBreadcrumbSchema, getLodgingBusinessSchema } from '../components/common/SchemaMarkup';
 
@@ -72,7 +72,7 @@ export const ReviewsPage: React.FC = () => {
                 </span>
               </div>
               <p className="text-xs sm:text-sm text-ivory-200/70 font-light">
-                Verified rating on <strong className="text-ivory-100 font-medium">Google Maps</strong> across 15+ resident guest ratings.
+                Verified rating on <strong className="text-ivory-100 font-medium">Google Maps</strong> across {GOOGLE_REVIEW_COUNT}+ resident guest ratings.
               </p>
             </div>
 

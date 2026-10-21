@@ -1,5 +1,5 @@
 import { propertyData } from '../../data/propertyData';
-import { verifiedGuestReviews } from '../../data/reviewsData';
+import { verifiedGuestReviews, GOOGLE_REVIEW_COUNT } from '../../data/reviewsData';
 import { RoomSuite, FAQItem, BlogPost, AttractionItem } from '../../types';
 
 export function getWebSiteSchema() {
@@ -116,7 +116,7 @@ export function getLodgingBusinessSchema() {
     'aggregateRating': {
       '@type': 'AggregateRating',
       'ratingValue': '5.0',
-      'reviewCount': '15',
+      'reviewCount': String(GOOGLE_REVIEW_COUNT),
       'bestRating': '5',
       'worstRating': '1'
     },

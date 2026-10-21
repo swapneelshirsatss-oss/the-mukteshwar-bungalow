@@ -1,5 +1,8 @@
 import { ReviewItem } from '../components/cards/ReviewCard';
 
+/** Verified live count on the Google Business Profile. Update here only. */
+export const GOOGLE_REVIEW_COUNT = 21;
+
 export interface VerifiedReviewStats {
   score: number;
   reviewCount: number;
@@ -10,7 +13,7 @@ export interface VerifiedReviewStats {
 
 export const googleReviewStats: VerifiedReviewStats = {
   score: 5.0,
-  reviewCount: 15,
+  reviewCount: GOOGLE_REVIEW_COUNT,
   platform: 'Google Business Profile',
   cid: '6280376278760413003',
   googleMapsUrl: 'https://www.google.com/maps/place/?cid=6280376278760413003'
